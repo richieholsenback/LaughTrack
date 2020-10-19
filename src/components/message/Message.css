@@ -1,0 +1,43 @@
+.message {
+    
+}
+
+#sectionMessageHeader {
+    padding-left: 1em;
+}
+
+.form-group {
+    margin-left: 1em;
+}
+
+.messageBox {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+    margin-top: 1em;
+    margin-left: 1em;
+    border: 2px solid orange;
+    background-color: white;
+    padding: 1em;
+    width: 70%;
+}
+
+
+fieldset {
+    border: none;
+}
+
+.message__date {
+    font-size: smaller;
+    color: rgba(70, 70, 70, 0.605);
+}
+
+.messagesWindow {
+    margin-left: 1em;
+    border: none;
+}
+
+textarea {
+    width: 71.5%;
+    height: 5em;
+}
