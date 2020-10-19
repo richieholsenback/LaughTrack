@@ -4,18 +4,23 @@ import "./NavBar.css";
 
 
 export const NavBar = props => {
-  return (
-    <ul className="navbar">
-      <li className="navbar__item active">
-        <Link className="navbar__link" to="/">
-          Laugh Track
+    return (
+        <ul className="navbar">
+            <li className="navbar__item active">
+                <Link className="navbar__link" to="/">
+                    Laugh Track
         </Link>
-      </li>
-      <li className="navbar__item">
-        <Link className="navbar__link" to="/messages">
-          Messages
+            </li>
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/messages">
+                    Messages
         </Link>
-      </li>
-    </ul>
-  );
+            </li>
+            <li className="navbar__item">
+                <Link className="navbar__link" to="/journals">
+                    Journal
+        </Link>
+            </li>
+        </ul>
+    );
 };

@@ -2,8 +2,8 @@ img {
     position: fixed;
     right: 0;
     bottom: -65px;
-    min-width: 100%;
-    min-height: 100%;
+    width: 100%;
+    height: auto;
     z-index: -1;
 }
 
@@ -52,6 +52,10 @@ fieldset {
 }
 
 .container--login {
+    width: 75%;
+    position: absolute;
+    right: 0;
+    top: 100px;
     text-align: center;
 }
 
