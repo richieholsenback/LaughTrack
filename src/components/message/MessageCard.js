@@ -31,12 +31,12 @@ export const MessageCard = ({ message }) => {
                                 .then(() => {
                                     history.push("/messages")
                                 })
-                        }}><Icon name="trash" />
+                        }}>Delete
                     </button>
-                    <button onClick={() => {
+                    {/* <button onClick={() => {
                         history.push(`/messages/edit/${message.id}`)
                     }}><Icon name="edit" />
-                    </button>
+                    </button> */}
                 </>
             )
     })

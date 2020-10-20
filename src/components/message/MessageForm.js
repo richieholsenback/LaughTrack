@@ -68,9 +68,9 @@ export const MessageForm = (props) => {
                         clearer.value = ""
                         message.message = ""
                     })
-            } 
+            }
         } else {
-            window.alert("You need a message!")
+            window.alert("Alright alright, type in a message funny guy!")
         }
 
     }
@@ -79,14 +79,6 @@ export const MessageForm = (props) => {
     return (
         <div className="messageList">
             <h2 id="sectionMessageHeader">Messages</h2>
-            <div className="messagesWindow">
-                {
-                    messages.map(message => {
-                        return <MessageCard key={message.id} user={message.user.name} message={message} />
-                    })
-                }
-            </div>
-
             <form className="messageForm">
                 <fieldset>
                     <div className="form-group">
@@ -108,6 +100,13 @@ export const MessageForm = (props) => {
                     </div>
                 </fieldset>
             </form>
+            <div className="messagesWindow">
+                {
+                    messages.map(message => {
+                        return <MessageCard key={message.id} user={message.user.name} message={message} />
+                    })
+                }
+            </div>
         </div>
 
     )

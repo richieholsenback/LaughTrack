@@ -14,12 +14,8 @@
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
-    margin-top: 1em;
-    margin-left: 1em;
-    border: 2px solid orange;
-    background-color: white;
-    padding: 1em;
-    width: 70%;
+    padding: 0.5em;
+
 }
 
 
@@ -33,11 +29,18 @@ fieldset {
 }
 
 .messagesWindow {
-    margin-left: 1em;
-    border: none;
+    border: 1px solid;
+    padding: 1em;
 }
 
 textarea {
     width: 71.5%;
     height: 5em;
+}
+
+.messageList {
+    flex: 1 0 50%;
+    border: 1px solid;
+    padding: 1em;
+    margin: 2em;
 }
