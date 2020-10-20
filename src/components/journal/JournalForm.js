@@ -66,7 +66,7 @@ export const JournalForm = (props) => {
             <h2 className="journalForm__title">New Journal</h2>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="concept">Journal Concept: </Label>
+                    <Label htmlFor="concept">Joke Concept: </Label>
                     <input type="text" id="journalConcept" name="concept" required autoFocus className="form-control"
                         placeholder="Journal concept"
                         onChange={handleControlledInputChange}
@@ -102,34 +102,36 @@ export const JournalForm = (props) => {
             <Form.Field>
                 <div className="form-group">
                     <Label htmlFor="journalUserApproval">How did you feel about it? </Label>
-                    <Form.Field control='select' name="userApproval">
-                        <option>I bombed</option>
-                        <option>It was terrible</option>
-                        <option>It was dead silent</option>
-                        <option>Pity laughter</option>
-                        <option>It was fine, needs improvement</option>
-                        <option>I feel alright about it</option>
-                        <option>I liked it</option>
-                        <option>I loved it</option>
-                        <option>Big laughs</option>
-                        <option>It crushed!</option>
+                    <Form.Field control='select' name="userApproval" placeholder="Select and option"
+                        onChange={handleControlledInputChange}>
+                        <option value="I bombed">I bombed</option>
+                        <option value="It was terrible">It was terrible</option>
+                        <option value="It was dead silent">It was dead silent</option>
+                        <option value="Pity laughter">Pity laughter</option>
+                        <option value="It was fine, needs improvement">It was fine, needs improvement</option>
+                        <option value="I feel alright about it">I feel alright about it</option>
+                        <option value="I liked it">I liked it</option>
+                        <option value="I loved it">I loved it</option>
+                        <option value="Big laughs">Big laughs</option>
+                        <option value="It crushed!">It crushed!</option>
                     </Form.Field>
                 </div>
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
                     <Label htmlFor="journalCrowdApproval">How did the crowd respond to it? </Label>
-                    <Form.Field control='select' name="crowdApproval">
-                        <option>They might as well have booed</option>
-                        <option>They didn't like it</option>
-                        <option>They were so silent</option>
-                        <option>They were nonplussed</option>
-                        <option>They laughed so little</option>
-                        <option>They were fine with it</option>
-                        <option>Decent laughs</option>
-                        <option>Good laughter</option>
-                        <option>They were howling</option>
-                        <option>They loved it more than anything</option>
+                    <Form.Field control='select' name="crowdApproval" placeholder="Select and option"
+                        onChange={handleControlledInputChange}>
+                        <option value="They might as well have booed">They might as well have booed</option>
+                        <option value="They didn't like it">They didn't like it</option>
+                        <option value="They were so silent">They were so silent</option>
+                        <option value="They were nonplussed">They were nonplussed</option>
+                        <option value="They laughed so little">They laughed so little</option>
+                        <option value="They were fine with it">They were fine with it</option>
+                        <option value="Decent laughs">Decent laughs</option>
+                        <option value="Good laughter">Good laughter</option>
+                        <option value="They were howling">They were howling</option>
+                        <option value="They loved it more than anything">They loved it more than anything</option>
                     </Form.Field>
                 </div>
             </Form.Field>
