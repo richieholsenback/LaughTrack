@@ -77,8 +77,10 @@ export const MessageForm = (props) => {
 
 
     return (
+        <>
+        <h2 id="sectionMessageHeader">Messages</h2>
         <div className="messageList">
-            <h2 id="sectionMessageHeader">Messages</h2>
+            
             <form className="messageForm">
                 <fieldset>
                     <div className="form-group">
@@ -108,6 +110,6 @@ export const MessageForm = (props) => {
                 }
             </div>
         </div>
-
+</>
     )
 }

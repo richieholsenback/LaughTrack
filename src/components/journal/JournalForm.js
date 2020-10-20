@@ -43,6 +43,7 @@ export const JournalForm = (props) => {
                 crowdApproval: journal.crowdApproval,
                 date: journal.date,
                 url: journal.url,
+                userNotes: journal.userNotes
             })
                 .then(() => history.push(`/journals/detail/${journal.id}`))
         } else {
@@ -53,6 +54,7 @@ export const JournalForm = (props) => {
                 crowdApproval: journal.crowdApproval,
                 date: journal.date,
                 url: journal.url,
+                userNotes: journal.userNotes
             })
                 .then(() => history.push("journals"))
         }
@@ -133,6 +135,15 @@ export const JournalForm = (props) => {
                         <option value="They were howling">They were howling</option>
                         <option value="They loved it more than anything">They loved it more than anything</option>
                     </Form.Field>
+                </div>
+            </Form.Field>
+            <Form.Field>
+                <div className="form-group">
+                    <Label htmlFor="userNotes">Notes: </Label>
+                    <textarea type="text" id="journalConcept" name="userNotes" required autoFocus className="form-control"
+                        placeholder="Notes about the Joke"
+                        onChange={handleControlledInputChange}
+                        defaultValue={journal.userNotes} />
                 </div>
             </Form.Field>
             {/* <Form.Group grouped>

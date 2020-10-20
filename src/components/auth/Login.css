@@ -1,9 +1,9 @@
 img {
     position: fixed;
-    right: 0;
-    bottom: -65px;
-    width: 100%;
-    height: auto;
+    left: -5em;
+    top: -5%;
+    width: 107%;
+    max-height: auto;
     z-index: -1;
 }
 
@@ -20,13 +20,8 @@ fieldset {
 
 .form--login {
     display: inline-block;
-    margin: 0 auto;
+    /* margin: 0 auto; */
     text-align: left;
-}
-
-.form--login > fieldset > input[type="email"],
-.form--login > fieldset > input[type="password"] {
-    width: 25em;
 }
 
 .label--login {
@@ -52,18 +47,16 @@ fieldset {
 }
 
 .container--login {
-    width: 75%;
     position: absolute;
     right: 0;
     top: 100px;
-    text-align: center;
 }
 
 .form--login {
     z-index: 1;
     min-height: 25rem;
     min-width: 45rem;
-    background-color: hsla(0,0%,100%,0.40);
+    background-color: rgba(255, 255, 255, 0.742);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
 }

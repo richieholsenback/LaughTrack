@@ -7,4 +7,13 @@
 .navbar__item {
     flex-basis: 20%;
     list-style-type: none;
+    font-family: 'SecretSociety';
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'SecretSociety';
+    src: url(../Fonts/Gravitica/Gravitica-Rounded-Bold.ttf);
+    font-style: normal;
+    font-weight: 100;
 }

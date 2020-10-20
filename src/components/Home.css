@@ -1,9 +1,33 @@
-.homeTitle {
+#headline {
+    color: white;
+    font-size: 170px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.235);
+    font-family: 'SecretSociety';
+    font-weight: 100;
     text-align: center;
-    text-shadow: 2px 2px black;
-    
 }
 
-p {
+#subtitle {
+    color: whitesmoke;
+    margin-top: -6em;
+    font-size: 24px;
+    text-shadow: 1px 1px rgba(0, 0, 0, 0.235);
     text-align: center;
+}
+
+.mainTitle {
+    position: absolute;
+    top: 12%;
+    right: 18%;
+}
+
+@font-face {
+    font-family: 'SecretSociety';
+    src: url(Fonts/Gravitica/Gravitica-Rounded-DemiBold.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+.navbar, li {
+    color: white;
 }

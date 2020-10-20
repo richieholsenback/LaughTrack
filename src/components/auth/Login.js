@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
-import { Button, Form, Segment } from "semantic-ui-react"
+import { Button, Card, Container, Form, Segment } from "semantic-ui-react"
 import photo from "../../images/loginbg.jpg"
 
 export const Login = props => {
@@ -34,23 +34,22 @@ export const Login = props => {
 
     return (
         <>
-            <main className="container--login">
+            <Card className="container--login">
                 <dialog className="dialog dialog--auth" ref={existDialog}>
                     <div>User does not exist</div>
                     <Button
                         className="button--close"
                         onClick={e => existDialog.current.close()}
                     >
-                        Close
-        </Button>
+                    Close
+                    </Button>
                 </dialog>
-
                 <section>
-                    <Segment inverted>
+                    <Card inverted>
                         <Form inverted className="form--login" onSubmit={handleLogin}>
                             <h1>Laugh Track</h1>
                             <h2>Please sign in</h2>
-                            <Form>
+                            <fieldset>
                                 <label htmlFor="inputEmail"> Email address </label>
                                 <input
                                     ref={email}
@@ -61,17 +60,17 @@ export const Login = props => {
                                     required
                                     autoFocus
                                 />
-                            </Form>
-                            <Form>
+                            </fieldset>
+                            <fieldset>
                                 <Button type="submit">Sign in</Button>
-                            </Form>
+                            </fieldset>
                         </Form>
-                    </Segment>
+                    </Card>
                 </section>
                 <section className="link--register">
                     <Link to="/register">Not a member yet?</Link>
                 </section>
-            </main>
+            </Card>
 
             <img id="imageBG" src={photo} alt="Dave Chappelle doing standup" />
         </>

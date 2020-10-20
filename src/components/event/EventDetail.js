@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { EventContext } from "./EventProvider"
 import "./Event.css"
 import { useParams, useHistory } from "react-router-dom"
+import { Button, Icon } from "semantic-ui-react"
 
 export const EventDetail = () => {
     const { getEventById, deleteEvent } = useContext(EventContext)
@@ -20,6 +21,26 @@ export const EventDetail = () => {
             })
     }, [])
 
+    const buttonShow = (() => {
+        if (event.userId === parseInt(localStorage.getItem("active_user")))
+            return (
+                <>
+                    <Button onClick={
+                        () => {
+                            deleteEvent(event.id)
+                                .then(() => {
+                                    history.push("/events")
+                                })
+                        }}><Icon name="trash" />
+                    </Button>
+                    <Button onClick={() => {
+                        history.push(`/events/edit/${event.id}`)
+                    }}><Icon name="edit" />
+                    </Button>
+                </>
+            )
+    })
+
     return (
         <section className="event">
             <h3 className="event__name">{event.name}</h3>
@@ -31,17 +52,9 @@ export const EventDetail = () => {
             <p>{event.state}</p>
             <p>{event.zip}</p>
             <p>{event.description}</p>
-            <button onClick={
-                () => {
-                    deleteEvent(event.id)
-                        .then(() => {
-                            history.push("/events")
-                        })
-                }}>delete
-            </button>
-            <button type="button" onClick={() => {
-                history.push(`/events/edit/${event.id}`)
-            }}>edit</button>
+            <section className="buttons">
+                {buttonShow()}
+            </section>
         </section>
     )
 }
