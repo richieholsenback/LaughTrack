@@ -1,5 +1,9 @@
 import React from "react";
 import { Route } from "react-router-dom"
+import { EventDetail } from "./event/EventDetail";
+import { EventForm } from "./event/EventForm";
+import { EventList } from "./event/EventList";
+import { EventProvider } from "./event/EventProvider";
 import { Home } from "./Home"
 import { JournalDetail } from "./journal/JournalDetails";
 import { JournalForm } from "./journal/JournalForm";
@@ -44,6 +48,30 @@ export const ApplicationViews = props => {
                     <JournalForm />
                 </Route>
             </JournalProvider>
+
+            <EventProvider>
+                        <Route exact path="/events">
+                            <EventList />
+                        </Route>
+            </EventProvider>
+
+            <EventProvider>
+                <Route exact path="/events/create">
+                    <EventForm />
+                </Route>
+            </EventProvider>
+
+            <EventProvider>
+                <Route exact path="/events/detail/:eventId(\d+)">
+                    <EventDetail />
+                </Route>
+            </EventProvider> 
+
+            <EventProvider>
+                <Route path="/events/edit/:eventId(\d+)">
+                    <EventForm />
+                </Route>
+            </EventProvider>
         </>
     )
 }

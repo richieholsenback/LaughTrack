@@ -10,7 +10,6 @@ export const JournalList = () => {
 
     //useEffect - reach out to the world for something
     useEffect(() => {
-        console.log("JournalList: useEffect - getJournals")
         getJournals()
 
     }, [])

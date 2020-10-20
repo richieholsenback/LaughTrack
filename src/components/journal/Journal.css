@@ -5,3 +5,11 @@ p {
 fieldset {
     border: none;
 }
+
+a:visited {
+    color: rgb(83, 138, 83);
+}
+
+a:link {
+    color: rgb(83, 138, 83);
+}

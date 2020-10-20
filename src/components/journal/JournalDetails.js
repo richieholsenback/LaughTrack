@@ -22,9 +22,9 @@ export const JournalDetail = () => {
     return (
         <section className="journal">
             <h3 className="journal__name">{journal.concept}</h3>
-    <p>{journal.date}</p>
-    <p>{journal.userApproval}</p>
-    <p>{journal.crowdApproval}</p>
+            <p>{journal.date}</p>
+            <p>{journal.userApproval}</p>
+            <p>{journal.crowdApproval}</p>
             <button onClick={
                 () => {
                     deleteJournal(journal.id)
