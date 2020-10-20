@@ -21,5 +21,5 @@ Laugh Track - so you'll never need one
 * [Wireframe](https://www.figma.com/file/0DAt4BzQJH1jioAxM5gFWc/Untitled?node-id=0%3A1)
 
 * My ERD
-![ERD](/src/images.ERD.png)
+![ERD](src/images/ERD.png)
 <!-- Format: ![ERD] -->
