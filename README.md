@@ -10,8 +10,8 @@ Laugh Track - so you'll never need one
 
 * Pull the repository from [GitHub](http://google.com)
 * Go into the command line and run
- * npm install
- * npm start
+    * npm install
+    * npm start
 * You will see a localhost URL, copy and paste this into your browser
 * Become funnier almost immediately
 
@@ -21,5 +21,5 @@ Laugh Track - so you'll never need one
 * [Wireframe](https://www.figma.com/file/0DAt4BzQJH1jioAxM5gFWc/Untitled?node-id=0%3A1)
 
 * My ERD
-![ERD](/images/ERD.png)
+![ERD](/src/images.ERD.png)
 <!-- Format: ![ERD] -->
