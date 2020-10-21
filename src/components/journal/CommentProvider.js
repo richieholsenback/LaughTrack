@@ -9,7 +9,7 @@ export const CommentProvider = (props) => {
     const [comments, setComments] = useState([])
 
     const getComments = () => {
-        return fetch("http://localhost:8088/comments?_expand=user")
+        return fetch("http://localhost:8088/comments?_expand=journal&_expand=user")
         .then(res => res.json())
         .then(setComments)
     }
@@ -26,7 +26,7 @@ export const CommentProvider = (props) => {
     }
 
     const getCommentById = (id)=> {
-        return fetch(`http://localhost:8088/comments/${id}?_expand=user`)
+        return fetch(`http://localhost:8088/comments/${id}?_expand=journal&_expand=user`)
             .then(res => res.json())
     }
 

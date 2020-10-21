@@ -6,6 +6,8 @@ import { EventList } from "./event/EventList";
 import { EventProvider } from "./event/EventProvider";
 import { Home } from "./Home"
 import { CommentForm } from "./journal/CommentForm";
+import { CommentList } from "./journal/CommentList";
+import { CommentProvider } from "./journal/CommentProvider";
 import { JournalDetail } from "./journal/JournalDetails";
 import { JournalForm } from "./journal/JournalForm";
 import { JournalList } from "./journal/JournalList";
@@ -40,13 +42,15 @@ export const ApplicationViews = props => {
             </JournalProvider>
 
             <JournalProvider>
-                <CommentForm>
-                        <UserProvider>
-                            <Route exact path="/journals/detail/:journalId(\d+)">
-                                <JournalDetail />
-                            </Route>
-                        </UserProvider>
-                </CommentForm>
+                <CommentProvider>
+                    <UserProvider>
+                        <Route exact path="/journals/detail/:journalId(\d+)">
+                            <JournalDetail />
+                            <CommentList /> 
+                            <CommentForm />
+                        </Route>
+                    </UserProvider>
+                </CommentProvider>
             </JournalProvider>
 
             <JournalProvider>

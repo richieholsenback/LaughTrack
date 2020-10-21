@@ -1,29 +1,30 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext, useEffect, useRef, useState } from "react"
 import { useHistory, useParams } from "react-router-dom"
 import { Button, Form, Label, TextArea } from "semantic-ui-react"
 import { CommentContext } from "./CommentProvider"
 
 export const CommentForm = (props) => {
-    const {addComment, getCommentById, updateComment} = useContext(CommentContext)
+    const { addComment, getCommentById, updateComment } = useContext(CommentContext)
 
     const [comment, setComment] = useState({})
-    const [isLoading, setIsLoading] = useState(true)
+    const [isLoading, setIsLoading] = useState(true);
 
-    const { commentId } = useParams()
-    const history = useHistory()
+    const { commentId } = useParams();
+    const history = useHistory();
 
-    const HandleControlledInputChange = (event) => {
-        const newComment = {...comment}
+    const handleControlledInputChange = (event) => {
+        const newComment = { ...comment }
         newComment[event.target.name] = event.target.value
+        setComment(newComment)
     }
 
     useEffect(() => {
-        if (commentId){
+        if (commentId) {
             getCommentById(commentId)
-            .then(comment => {
-                setComment(comment)
-                setIsLoading(false)
-            })
+                .then(comment => {
+                    setComment(comment)
+                    setIsLoading(false)
+                })
         } else {
             setIsLoading(false)
         }
@@ -46,7 +47,7 @@ export const CommentForm = (props) => {
                     second: '2-digit'
                 }).format(Date.now())
             })
-            .then(() => history.push(`/journals/detail/${comment.id}`))
+            .then(() => history.push(`/comments/detail/${comment.id}`))
         } else {
             addComment({
                 userId: userId,
@@ -60,7 +61,7 @@ export const CommentForm = (props) => {
                     second: '2-digit'
                 }).format(Date.now())
             })
-            .then(() => history.push("comments"))
+            .then(() => history.push(`/comments`))
         }
     }
 
@@ -72,7 +73,7 @@ export const CommentForm = (props) => {
                     <Label htmlFort="text">Comment:</Label>
                     <TextArea type="text" id="commentText" name="text" required autoFocus className="form-control"
                         placeholder="Comment here..."
-                        onChange={HandleControlledInputChange}
+                        onChange={handleControlledInputChange}
                         defaultValue={comment.text} />
                 </div>
             </Form.Field>

@@ -6,6 +6,7 @@ import { Card, Icon } from "semantic-ui-react"
 import ReactPlayer from "react-player"
 import { CommentContext } from "./CommentProvider"
 import {CommentForm} from './CommentForm'
+import { CommentList } from "./CommentList"
 
 export const JournalDetail = () => {
     const { getJournalById, deleteJournal } = useContext(JournalContext)
@@ -44,10 +45,6 @@ export const JournalDetail = () => {
             )
     })
 
-    const commentShow = (() => {
-        
-    })
-
     return (
         <>
         <Card className="journalEntry">
@@ -67,6 +64,7 @@ export const JournalDetail = () => {
         </Card>
         <Card className="comments">
             {CommentForm()}
+            {CommentList()}
         </Card>
         </>
     )
