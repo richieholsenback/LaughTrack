@@ -4,6 +4,8 @@ import "./Journal.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Card, Icon } from "semantic-ui-react"
 import ReactPlayer from "react-player"
+import { CommentContext } from "./CommentProvider"
+import {CommentForm} from './CommentForm'
 
 export const JournalDetail = () => {
     const { getJournalById, deleteJournal } = useContext(JournalContext)
@@ -42,20 +44,19 @@ export const JournalDetail = () => {
             )
     })
 
-
+    const commentShow = (() => {
+        
+    })
 
     return (
+        <>
         <Card className="journalEntry">
             <Card.Content>
                 <h3 className="journal__name">{journal.concept}</h3>
                 <p>By {users.username}</p>
                 <ReactPlayer
                     url={journal.url} />
-            </Card.Content>
-            <Card.Meta>
                 <p><strong>Date Performed</strong> - {journal.date}</p>
-            </Card.Meta>
-            <Card.Content>
                 <p><strong>How did I think it went</strong> - {journal.userApproval}</p>
                 <p><strong>How did the crowd react</strong> - {journal.crowdApproval}</p>
                 <p><strong>Notes about the performance</strong> - {journal.userNotes}</p>
@@ -64,5 +65,9 @@ export const JournalDetail = () => {
                 {buttonShow()}
             </section>
         </Card>
+        <Card className="comments">
+            {CommentForm()}
+        </Card>
+        </>
     )
 }
