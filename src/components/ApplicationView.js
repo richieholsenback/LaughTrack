@@ -11,6 +11,7 @@ import { JournalList } from "./journal/JournalList";
 import { JournalProvider } from "./journal/JournalProvider";
 import { MessageForm } from "./message/MessageForm";
 import { MessageProvider } from "./message/MessageProvider";
+import { UserProvider } from "./user/UserProvider";
 
 export const ApplicationViews = props => {
     return (
@@ -26,9 +27,9 @@ export const ApplicationViews = props => {
             </MessageProvider>
 
             <JournalProvider>
-                        <Route exact path="/journals">
-                            <JournalList />
-                        </Route>
+                <Route exact path="/journals">
+                    <JournalList />
+                </Route>
             </JournalProvider>
 
             <JournalProvider>
@@ -38,9 +39,11 @@ export const ApplicationViews = props => {
             </JournalProvider>
 
             <JournalProvider>
-                <Route exact path="/journals/detail/:journalId(\d+)">
-                    <JournalDetail />
-                </Route>
+                <UserProvider>
+                    <Route exact path="/journals/detail/:journalId(\d+)">
+                        <JournalDetail />
+                    </Route>
+                </UserProvider>
             </JournalProvider>
 
             <JournalProvider>
@@ -50,9 +53,9 @@ export const ApplicationViews = props => {
             </JournalProvider>
 
             <EventProvider>
-                        <Route exact path="/events">
-                            <EventList />
-                        </Route>
+                <Route exact path="/events">
+                    <EventList />
+                </Route>
             </EventProvider>
 
             <EventProvider>
@@ -65,7 +68,7 @@ export const ApplicationViews = props => {
                 <Route exact path="/events/detail/:eventId(\d+)">
                     <EventDetail />
                 </Route>
-            </EventProvider> 
+            </EventProvider>
 
             <EventProvider>
                 <Route path="/events/edit/:eventId(\d+)">
