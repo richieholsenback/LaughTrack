@@ -10,6 +10,7 @@ export const CommentForm = (props) => {
     const [isLoading, setIsLoading] = useState(true);
 
     const { commentId } = useParams();
+    const { journalId } = useParams();
     const history = useHistory();
 
     const handleControlledInputChange = (event) => {
@@ -31,13 +32,14 @@ export const CommentForm = (props) => {
     }, [])
 
     const constructCommentObject = () => {
-        const userId = parseInt(localStorage.getItem("activeUser"))
+        const userId = parseInt(localStorage.getItem("active_user"))
         setIsLoading(false)
         if (commentId) {
             updateComment({
                 id: comment.id,
                 userId: userId,
                 text: comment.text,
+                journalId: journalId,
                 date: new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
                     month: '2-digit',
@@ -47,11 +49,12 @@ export const CommentForm = (props) => {
                     second: '2-digit'
                 }).format(Date.now())
             })
-            .then(() => history.push(`/comments/detail/${comment.id}`))
+                .then(() => history.push(`/journals/detail/${journalId}`))
         } else {
             addComment({
                 userId: userId,
                 text: comment.text,
+                journalId: journalId,
                 date: new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
                     month: '2-digit',
@@ -61,7 +64,7 @@ export const CommentForm = (props) => {
                     second: '2-digit'
                 }).format(Date.now())
             })
-            .then(() => history.push(`/comments`))
+                .then(() => history.push(`/journals/detail/${journalId}`))
         }
     }
 
@@ -70,18 +73,19 @@ export const CommentForm = (props) => {
             <h3 className="commentForm__title">Comments</h3>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFort="text">Comment:</Label>
+                    <Label htmlFor="text">Comment:</Label>
                     <TextArea type="text" id="commentText" name="text" required autoFocus className="form-control"
                         placeholder="Comment here..."
                         onChange={handleControlledInputChange}
                         defaultValue={comment.text} />
                 </div>
             </Form.Field>
-            <Button type="submit"
+            <Button
+                type="submit"
                 className="btn btn-primary"
                 disabled={isLoading}
                 onClick={event => {
-                    event.preventDefault() // Prevent browser from submitting the form
+                    event.preventDefault()
                     constructCommentObject()
                 }}>
                 {commentId ? <>Save Comment</> : <>Add Comment</>}</Button>

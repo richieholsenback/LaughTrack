@@ -14,7 +14,7 @@ export const CommentList = () => {
 
     return (
         <>
-        <h3>Comments</h3>
+        {/* <h3>Comments</h3> */}
         <div className="commentSection">
             {
                 comments.map(comment => {

@@ -49,8 +49,6 @@ export const ApplicationViews = props => {
                     <UserProvider>
                         <Route exact path="/journals/detail/:journalId(\d+)">
                             <JournalDetail />
-                            <CommentList />
-                            <CommentForm />
                         </Route>
                     </UserProvider>
                 </CommentProvider>

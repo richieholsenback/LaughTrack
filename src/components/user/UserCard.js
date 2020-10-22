@@ -11,8 +11,8 @@ export const UserCard = ( {users} ) => {
 
     const addFollowerObj = (followerObj) => {
         addFollower({
-            userId: followerObj,
-            followingId: userId,
+            userId: userId,
+            followingId: followerObj,
         })
         .then(getUsers)
     }

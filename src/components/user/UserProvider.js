@@ -1,5 +1,4 @@
 import React, { useState, createContext, useContext } from "react"
-// import { MatchContext } from "../matches/MatchProvider"
 
 export const UserContext = createContext()
 
