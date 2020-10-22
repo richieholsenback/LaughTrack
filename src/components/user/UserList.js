@@ -14,7 +14,7 @@ export const UserList = () => {
 
     return (
       <>
-          <h1>Users</h1>
+          <h3>Suggested Follow</h3>
         <div>
       {
       users.map(users => {

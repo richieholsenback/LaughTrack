@@ -1,7 +1,11 @@
 import React, { useContext } from "react"
+import { FollowerContext } from "./FollowerProvider"
 
-export const FollowerCard = ({ followers }) => (
-    <section className="follower">
-        <h3 className="follower__name">{ followers.user.username }</h3>
-    </section>
-)
+//creates html for each follower, which can be clicked to view the details of that follower
+export const FollowerCard = ({ follower }) => {
+    return (
+        <section className="follower">
+            <h4 className="follower__name">{follower.user.username}</h4>
+        </section>
+    )
+}

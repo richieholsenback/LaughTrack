@@ -5,6 +5,7 @@ export const UserContext = createContext()
 
 export const UserProvider = (props) => {
     const [users, setUsers] = useState([])
+    const [followers, setFollowers] = useState([])
 
     const getUsers = () => {
         return fetch("http://localhost:8088/users")
@@ -18,20 +19,20 @@ export const UserProvider = (props) => {
             .then(res => res.json())
     }
 
-    const editUser = user => {
-        return fetch(`http://localhost:8088/users/${user.id}`, {
-            method: "PUT",
+    const addFollower = followerObj => {
+        fetch("http://localhost:8088/followers/", {
+            method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(user)
+            body: JSON.stringify(followerObj)
         })
-            .then(getUsers)
+        .then(setFollowers)
     }
-    
+
     return (
         <UserContext.Provider value={{
-            users, getUsers, getUserById, editUser
+            users, getUsers, getUserById
         }}>
             {props.children}
         </UserContext.Provider>

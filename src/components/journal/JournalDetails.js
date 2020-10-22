@@ -4,7 +4,6 @@ import "./Journal.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Button, Card, Icon } from "semantic-ui-react"
 import ReactPlayer from "react-player"
-import { CommentContext } from "./CommentProvider"
 import {CommentForm} from './CommentForm'
 import { CommentList } from "./CommentList"
 
@@ -12,7 +11,8 @@ export const JournalDetail = () => {
     const { getJournalById, deleteJournal } = useContext(JournalContext)
 
     const [journal, setJournal] = useState({})
-    const [users, setUser] = useState([])
+    const [users, setUser] = useState({})
+    const [comment, setComment] = useState({})
 
     const { journalId } = useParams();
     const history = useHistory();
@@ -22,6 +22,7 @@ export const JournalDetail = () => {
             .then((response) => {
                 setJournal(response)
                 setUser(response.user)
+                setComment(response.comment)
             })
     }, [])
 

@@ -11,11 +11,12 @@ export const UserCard = ( {users} ) => {
 
     const addFollowerObj = (followerObj) => {
         addFollower({
-            userId: userId,
-            followingId: followerObj,
+            userId: followerObj,
+            followingId: userId,
         })
-        .then(getUsers)
+        // .then(getUsers)
     }
+    
 
     return (
     <section className="user">
