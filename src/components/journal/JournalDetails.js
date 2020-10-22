@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { JournalContext } from "./JournalProvider"
 import "./Journal.css"
 import { useParams, useHistory } from "react-router-dom"
-import { Card, Icon } from "semantic-ui-react"
+import { Button, Card, Icon } from "semantic-ui-react"
 import ReactPlayer from "react-player"
 import { CommentContext } from "./CommentProvider"
 import {CommentForm} from './CommentForm'
@@ -29,18 +29,18 @@ export const JournalDetail = () => {
         if (journal.userId === parseInt(localStorage.getItem("active_user")))
             return (
                 <>
-                    <button onClick={
+                    <Button onClick={
                         () => {
                             deleteJournal(journal.id)
                                 .then(() => {
                                     history.push("/journals")
                                 })
-                        }}><Icon name="trash" />
-                    </button>
-                    <button onClick={() => {
+                        }}>Delete
+                    </Button>
+                    <Button onClick={() => {
                         history.push(`/journals/edit/${journal.id}`)
-                    }}><Icon name="edit" />
-                    </button>
+                    }}>Edit
+                    </Button>
                 </>
             )
     })

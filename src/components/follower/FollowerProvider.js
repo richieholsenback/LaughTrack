@@ -2,51 +2,52 @@ import React, { useState, createContext } from "react"
 
 export const FollowerContext = createContext()
 
+/*
+ This component establishes what data can be used.
+ */
 export const FollowerProvider = (props) => {
-    const [ followers, setFollowers ] = useState([])
-    const [ searchTerms, setSearchTerms ] = useState("")
+    const [followers, setFollowers] = useState([])
+    const userId = sessionStorage.getItem("active_user")
 
+    //gets all friend relationships where friendUserId is the current logged in user
+    //userId in the returned objects is expanded to show the friend(user)'s info
     const getFollowers = () => {
-        return fetch("http://localhost:8088/followers?_expand=user")
+        return fetch(`http://localhost:8088/followers?followerAddedId=${userId}&_expand=user`)
             .then(res => res.json())
             .then(setFollowers)
     }
 
-    const getFollowersById = id => {
-        return fetch(`http://localhost:8088/followers?activeUserId=${id}&_expand=user`)
-            .then(res => res.json())
-    }
-
-    const addFollower = follower => {
+    
+    const addFollower = followerObj => {
         return fetch("http://localhost:8088/followers", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify(follower)
+            body: JSON.stringify(followerObj)
         })
-        .then(getFollowers)
+            .then(getFollowers)
     }
 
-    const removeFollower = id => {
-        return fetch(`http://localhost:8088/followers/${id}`, {
-            method: "DELETE"
-        })
+    //will be used for viewing friend details and deleting friend relationships
+    const getFollowerById = (id) => {
+        return fetch(`http://localhost:8088/followers?followerAddedId=${userId}&userId=${id}&_expand=user`)
+            .then(res => res.json())
     }
 
-    const updateFollower = follower => {
-        return fetch(`http://localhost:8088/followers/${follower.id}`, {
-            method: "PUT",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(follower)
-        })
+    const getReptiles = () => {
+        return fetch(`http://localhost:8088/users`)
+            .then(res => res.json())
+    }
+
+    const getAlternateRelationship = (followerId) => {
+        return fetch(`http://localhost:8088/followers?followerAddedId=${followerId}&userId=${userId}`)
+        .then(res => res.json())
     }
 
     return (
         <FollowerContext.Provider value={{
-            followers, getFollowers, addFollower, removeFollower, getFollowersById, searchTerms, setSearchTerms, updateFollower
+            followers, getFollowers, addFollower, getFollowerById, getReptiles, getAlternateRelationship
         }}>
             {props.children}
         </FollowerContext.Provider>

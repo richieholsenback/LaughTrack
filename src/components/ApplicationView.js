@@ -4,6 +4,8 @@ import { EventDetail } from "./event/EventDetail";
 import { EventForm } from "./event/EventForm";
 import { EventList } from "./event/EventList";
 import { EventProvider } from "./event/EventProvider";
+import { FollowerList } from "./follower/FollowerList";
+import { FollowerProvider } from "./follower/FollowerProvider";
 import { Home } from "./Home"
 import { CommentForm } from "./journal/CommentForm";
 import { CommentList } from "./journal/CommentList";
@@ -14,6 +16,7 @@ import { JournalList } from "./journal/JournalList";
 import { JournalProvider } from "./journal/JournalProvider";
 import { MessageForm } from "./message/MessageForm";
 import { MessageProvider } from "./message/MessageProvider";
+import { UserList } from "./user/UserList";
 import { UserProvider } from "./user/UserProvider";
 
 export const ApplicationViews = props => {
@@ -46,7 +49,7 @@ export const ApplicationViews = props => {
                     <UserProvider>
                         <Route exact path="/journals/detail/:journalId(\d+)">
                             <JournalDetail />
-                            <CommentList /> 
+                            <CommentList />
                             <CommentForm />
                         </Route>
                     </UserProvider>
@@ -82,6 +85,14 @@ export const ApplicationViews = props => {
                     <EventForm />
                 </Route>
             </EventProvider>
+
+            <UserProvider>
+                <FollowerProvider>
+                    <Route exact path="/followers">
+                        <UserList />
+                    </Route>
+                </FollowerProvider>
+            </UserProvider>
         </>
     )
 }

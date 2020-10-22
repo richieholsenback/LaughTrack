@@ -1,26 +1,40 @@
-import React, { useState, createContext } from "react"
+import React, { useState, createContext, useContext } from "react"
+// import { MatchContext } from "../matches/MatchProvider"
 
-/*
-    The context is imported and used by individual components
-    that need data
-*/
 export const UserContext = createContext()
 
-/*
- This component establishes what data can be used.
- */
+
 export const UserProvider = (props) => {
-    const [users, setUser] = useState([])
+    const [users, setUsers] = useState([])
+    // const {matches} = useContext(MatchContext)
 
     const getUsers = () => {
         return fetch("http://localhost:8088/users")
             .then(res => res.json())
-            .then(setUser)
+            .then(setUsers)
+
+            // .then((response) => {
+            //     let relevant = []
+            //     const friendIds = matches.map(friend => {
+            //         return friend.sessionStorage.getItem("lizard_user")
+            //     })
+            //     response.map(user => {
+            //         if(!friendIds.includes(user.id) && user.id !== parseInt(sessionStorage.getItem("lizard_user"))){
+            //             return relevant.push(user)
+            //         }
+            //     })
+            //     setUsers(relevant)})
+
     }
 
-    const addUser = user => {
-        return fetch("http://localhost:8088/users", {
-            method: "POST",
+    const getUserById = (id) => {
+        return fetch(`http://localhost:8088/users/${id}`)
+            .then(res => res.json())
+    }
+
+    const editUser = user => {
+        return fetch(`http://localhost:8088/users/${user.id}`, {
+            method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
@@ -28,16 +42,10 @@ export const UserProvider = (props) => {
         })
             .then(getUsers)
     }
-
-    /*
-        You return a context provider which has the
-        `locations` state, the `addLocation` function,
-        and the `getLocation` function as keys. This
-        allows any child elements to access them.
-    */
+    
     return (
         <UserContext.Provider value={{
-            users, getUsers, addUser
+            users, getUsers, getUserById, editUser
         }}>
             {props.children}
         </UserContext.Provider>
