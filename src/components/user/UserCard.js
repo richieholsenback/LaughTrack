@@ -5,7 +5,7 @@ import { UserContext } from "./UserProvider"
 
 
 export const UserCard = ( {users} ) => {
-    const { addFollower } = useContext(FollowerContext)
+    const { addFollower, getFollowers } = useContext(FollowerContext)
     const userId = parseInt(localStorage.getItem("active_user"))
     const { getUsers } = useContext(UserContext)
 
@@ -36,7 +36,7 @@ export const UserCard = ( {users} ) => {
 
         <section>
             <button onClick={
-                () => {
+                (event) => {
                     addFollowerObj(users.id)
                 }
             }>Add Follower</button>

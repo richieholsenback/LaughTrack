@@ -15,16 +15,20 @@ export const FollowerList = () => {
   const history = useHistory()
   //returns the user's list of followers
 
+  const filteredFollowers = followers.filter(follower => follower.followingId === parseInt(localStorage.getItem("active_user")))
+
   return (
     <section className="followers">
       <div className="followersTop">
         <h2>You Follow</h2>
       </div>
       {
-        followers.map(follower => {
+        filteredFollowers.map(follower => {
           return <FollowerCard key={follower.id} follower={follower} />
         })
       }
     </section>
   )
 }
+
+// Array.filter(followerId => followerId === +localStorage.getItem("active_user"))

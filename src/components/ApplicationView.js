@@ -1,9 +1,10 @@
 import React from "react";
-import { Route } from "react-router-dom"
+import { Route, Router } from "react-router-dom"
 import { EventDetail } from "./event/EventDetail";
 import { EventForm } from "./event/EventForm";
 import { EventList } from "./event/EventList";
 import { EventProvider } from "./event/EventProvider";
+import { UserEventList, UserJournalList } from "./follower/FollowerDetails";
 import { FollowerList } from "./follower/FollowerList";
 import { FollowerProvider } from "./follower/FollowerProvider";
 import { Home } from "./Home"
@@ -91,7 +92,7 @@ export const ApplicationViews = props => {
                     </Route>
                 </UserProvider>
             </FollowerProvider>
-            
+
             <UserProvider>
                 <FollowerProvider>
                     <Route exact path="/followers">
@@ -100,7 +101,19 @@ export const ApplicationViews = props => {
                 </FollowerProvider>
             </UserProvider>
 
-            
+            <JournalProvider>
+                <EventProvider>
+                    <Route exact path="/followers/detail/:eventId(\d+)" />
+                        <UserJournalList />
+                </EventProvider>
+            </JournalProvider>
+
+            <JournalProvider>
+                <EventProvider>
+                    <Route exact path="/followers/detail/:eventId(\d+)" />
+                        <UserEventList />
+                </EventProvider>
+            </JournalProvider>
         </>
     )
 }

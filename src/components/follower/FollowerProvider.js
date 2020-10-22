@@ -4,11 +4,11 @@ export const FollowerContext = createContext()
 
 export const FollowerProvider = props => {
     const [followers, setFollower] = useState([])
-    const activeUser = +localStorage.getItem("active_user")
 
     const getFollowers = activeUser => {
-        const parsedActiveUser = +activeUser
+        const parsedActiveUser = +localStorage.getItem("active_user")
         return fetch (`http://localhost:8088/followers/?myUserId=${parsedActiveUser}&_expand=user`)
+        // http://localhost:8088/comments?_expand=journal&_expand=user
         .then(response => response.json())
         .then(setFollower)
     }
