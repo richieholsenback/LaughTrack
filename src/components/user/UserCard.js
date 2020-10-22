@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import { Link } from "react-router-dom"
 import { Card, Icon, Image } from 'semantic-ui-react'
 import { FollowerContext } from "../follower/FollowerProvider"
 import { UserContext } from "./UserProvider"
@@ -12,14 +11,8 @@ export const UserCard = ( {users} ) => {
 
     const addFollowerObj = (followerObj) => {
         addFollower({
-            userId: userId,
-            matchAddedId: followerObj,
-        })
-        .then(()=>{
-            addFollower({
-                userId: followerObj,
-                matchAddedId: userId
-            })
+            userId: followerObj,
+            followingId: userId,
         })
         .then(getUsers)
     }

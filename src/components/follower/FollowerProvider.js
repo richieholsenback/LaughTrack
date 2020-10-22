@@ -12,7 +12,7 @@ export const FollowerProvider = (props) => {
     //gets all friend relationships where friendUserId is the current logged in user
     //userId in the returned objects is expanded to show the friend(user)'s info
     const getFollowers = () => {
-        return fetch(`http://localhost:8088/followers?followerAddedId=${userId}&_expand=user`)
+        return fetch(`http://localhost:8088/followers?followingId=${userId}&_expand=user`)
             .then(res => res.json())
             .then(setFollowers)
     }
@@ -31,7 +31,7 @@ export const FollowerProvider = (props) => {
 
     //will be used for viewing friend details and deleting friend relationships
     const getFollowerById = (id) => {
-        return fetch(`http://localhost:8088/followers?followerAddedId=${userId}&userId=${id}&_expand=user`)
+        return fetch(`http://localhost:8088/followers?followingId=${userId}&userId=${id}&_expand=user`)
             .then(res => res.json())
     }
 
@@ -41,7 +41,7 @@ export const FollowerProvider = (props) => {
     }
 
     const getAlternateRelationship = (followerId) => {
-        return fetch(`http://localhost:8088/followers?followerAddedId=${followerId}&userId=${userId}`)
+        return fetch(`http://localhost:8088/followers?followingId=${followerId}&userId=${userId}`)
         .then(res => res.json())
     }
 

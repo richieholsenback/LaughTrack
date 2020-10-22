@@ -6,24 +6,11 @@ export const UserContext = createContext()
 
 export const UserProvider = (props) => {
     const [users, setUsers] = useState([])
-    // const {matches} = useContext(MatchContext)
 
     const getUsers = () => {
         return fetch("http://localhost:8088/users")
             .then(res => res.json())
             .then(setUsers)
-
-            // .then((response) => {
-            //     let relevant = []
-            //     const friendIds = matches.map(friend => {
-            //         return friend.sessionStorage.getItem("lizard_user")
-            //     })
-            //     response.map(user => {
-            //         if(!friendIds.includes(user.id) && user.id !== parseInt(sessionStorage.getItem("lizard_user"))){
-            //             return relevant.push(user)
-            //         }
-            //     })
-            //     setUsers(relevant)})
 
     }
 

@@ -29,18 +29,24 @@ export const NavBar = props => {
                 </Link>
                 </li>
                 <li className="navbar__item">
+                    <Link className="navbar__link" to="/users">
+                        Users
+                </Link>
+                </li>
+                <li className="navbar__item">
                     <Link className="navbar__link" to="/followers">
                         Followers
                 </Link>
                 </li>
-            
-            <li className="navbar__item">
-                <Link onClick={() => { 
-                    localStorage.clear()}}
-                    to="/login">
-                    Logout
+
+                <li className="navbar__item">
+                    <Link onClick={() => {
+                        localStorage.clear()
+                    }}
+                        to="/login">
+                        Logout
                 </Link>
-            </li>
+                </li>
             </ul>
         </>
     );

@@ -88,11 +88,19 @@ export const ApplicationViews = props => {
 
             <UserProvider>
                 <FollowerProvider>
-                    <Route exact path="/followers">
+                    <Route exact path="/users">
                         <UserList />
                     </Route>
                 </FollowerProvider>
             </UserProvider>
+
+            <FollowerProvider>
+                <UserProvider>
+                    <Route exact path="/followers">
+                        <FollowerList />
+                    </Route>
+                </UserProvider>
+            </FollowerProvider>
         </>
     )
 }
