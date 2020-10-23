@@ -1,15 +1,13 @@
 import React from "react";
-import { Route, Router } from "react-router-dom"
+import { Route } from "react-router-dom"
 import { EventDetail } from "./event/EventDetail";
 import { EventForm } from "./event/EventForm";
 import { EventList } from "./event/EventList";
 import { EventProvider } from "./event/EventProvider";
-import { UserEventList, UserJournalList } from "./follower/FollowerDetails";
+import { FollowerDetails } from "./follower/FollowerDetails";
 import { FollowerList } from "./follower/FollowerList";
 import { FollowerProvider } from "./follower/FollowerProvider";
 import { Home } from "./Home"
-import { CommentForm } from "./journal/CommentForm";
-import { CommentList } from "./journal/CommentList";
 import { CommentProvider } from "./journal/CommentProvider";
 import { JournalDetail } from "./journal/JournalDetails";
 import { JournalForm } from "./journal/JournalForm";
@@ -23,6 +21,20 @@ import { UserProvider } from "./user/UserProvider";
 export const ApplicationViews = props => {
     return (
         <>
+            <FollowerProvider>
+                <UserProvider>
+                    <JournalProvider>
+                        <CommentProvider>
+                            <EventProvider>
+                                <Route exact path="/followers/detail/:followingId(\d+)" >
+                                    <FollowerDetails />
+                                </Route>
+                            </EventProvider>
+                        </CommentProvider>
+                    </JournalProvider>
+                </UserProvider>
+            </FollowerProvider>
+
             <Route exact path="/">
                 <Home />
             </Route>
@@ -56,7 +68,7 @@ export const ApplicationViews = props => {
             </JournalProvider>
 
             <JournalProvider>
-                <Route path="/journals/edit/:journalId(\d+)">
+                <Route exact path="/journals/edit/:journalId(\d+)">
                     <JournalForm />
                 </Route>
             </JournalProvider>
@@ -80,7 +92,7 @@ export const ApplicationViews = props => {
             </EventProvider>
 
             <EventProvider>
-                <Route path="/events/edit/:eventId(\d+)">
+                <Route exact path="/events/edit/:eventId(\d+)">
                     <EventForm />
                 </Route>
             </EventProvider>
@@ -101,19 +113,7 @@ export const ApplicationViews = props => {
                 </FollowerProvider>
             </UserProvider>
 
-            <JournalProvider>
-                <EventProvider>
-                    <Route exact path="/followers/detail/:eventId(\d+)" />
-                        <UserJournalList />
-                </EventProvider>
-            </JournalProvider>
 
-            <JournalProvider>
-                <EventProvider>
-                    <Route exact path="/followers/detail/:eventId(\d+)" />
-                        <UserEventList />
-                </EventProvider>
-            </JournalProvider>
         </>
     )
 }

@@ -30,6 +30,10 @@ export const EventProvider = (props) => {
             .then(res => res.json())
     }
 
+    // const getEventByUser = (userId)=> {
+    //     return fetch(`http://localhost:8088/events/?${userId}?_expand=user`)
+    //         .then(res => res.json())
+
     const deleteEvent = eventId => {
         return fetch(`http://localhost:8088/events/${eventId}`, {
             method: "DELETE"

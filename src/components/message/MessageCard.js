@@ -1,25 +1,12 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { useContext} from "react"
 import { MessageContext } from "./MessageProvider"
-import { useHistory, useParams } from 'react-router-dom';
-import { Button, Container, Icon } from "semantic-ui-react"
+import { useHistory} from 'react-router-dom'
 import "./Message.css"
 
 export const MessageCard = ({ message }) => {
     const history = useHistory()
 
-    const { getMessages, deleteMessage, updateMessage } = useContext(MessageContext)
-
-    // useEffect(() => {
-    //     if (messageId) {
-    //         getMessageById(messageId)
-    //             .then(message => {
-    //                 setMessage(message)
-    //                 setIsLoading(false)
-    //             })
-    //     } else {
-    //         setIsLoading(false)
-    //     }
-    // }, [])
+    const { deleteMessage } = useContext(MessageContext)
 
     const buttonShow = (() => {
         if (message.user.id === parseInt(localStorage.getItem("active_user")))
@@ -33,10 +20,6 @@ export const MessageCard = ({ message }) => {
                                 })
                         }}>Delete
                     </button>
-                    {/* <button onClick={() => {
-                        history.push(`/messages/edit/${message.id}`)
-                    }}><Icon name="edit" />
-                    </button> */}
                 </>
             )
     })

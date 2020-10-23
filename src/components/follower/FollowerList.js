@@ -15,7 +15,7 @@ export const FollowerList = () => {
   const history = useHistory()
   //returns the user's list of followers
 
-  const filteredFollowers = followers.filter(follower => follower.followingId === parseInt(localStorage.getItem("active_user")))
+  const filteredFollowers = followers.filter(follower => follower.followedById === parseInt(localStorage.getItem("active_user")))
 
   return (
     <section className="followers">
@@ -30,5 +30,3 @@ export const FollowerList = () => {
     </section>
   )
 }
-
-// Array.filter(followerId => followerId === +localStorage.getItem("active_user"))

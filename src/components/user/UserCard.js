@@ -12,7 +12,8 @@ export const UserCard = ( {users} ) => {
     const addFollowerObj = (followerObj) => {
         addFollower({
             userId: followerObj,
-            followingId: userId,
+            followedById: userId,
+            followingId: followerObj,
         })
         // .then(getUsers)
     }
@@ -25,13 +26,6 @@ export const UserCard = ( {users} ) => {
         <h3 className="user__name">
         { users.username } </h3>
         </Card.Header>
-        
-            {/* <Link to={`/users/detail/${users.id}`}>  
-                <Image src={ users.photo } alt="Me!"></Image>
-            </Link>
-        <Card.Content>
-        <div className="user__species">{ users.species }</div>
-        </Card.Content> */}
         </Card>
 
         <section>

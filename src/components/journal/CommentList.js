@@ -1,5 +1,4 @@
 import React, { useContext, useEffect } from "react"
-import { useHistory } from "react-router-dom"
 import { CommentContext } from "./CommentProvider"
 import { CommentCard } from './CommentCard'
 
@@ -9,8 +8,6 @@ export const CommentList = () => {
     useEffect(() => {
         getComments()
     }, [])
-
-    const history = useHistory()
 
     return (
         <>

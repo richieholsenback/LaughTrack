@@ -5,9 +5,9 @@ export const FollowerContext = createContext()
 export const FollowerProvider = props => {
     const [followers, setFollower] = useState([])
 
-    const getFollowers = activeUser => {
-        const parsedActiveUser = +localStorage.getItem("active_user")
-        return fetch (`http://localhost:8088/followers/?myUserId=${parsedActiveUser}&_expand=user`)
+    const getFollowers = () => {
+        const parsedActiveUser = parseInt(localStorage.getItem("active_user"))
+        return fetch (`http://localhost:8088/followers/?userId=${parsedActiveUser}&_expand=user`)
         // http://localhost:8088/comments?_expand=journal&_expand=user
         .then(response => response.json())
         .then(setFollower)
@@ -24,9 +24,14 @@ export const FollowerProvider = props => {
         .then(setFollower)
     }
 
+    const getFollowerById = (id)=> {
+        return fetch(`http://localhost:8088/followers/${id}?_expand=user`)
+            .then(res => res.json())
+    }
+
     return (
         <FollowerContext.Provider value={{
-            followers, getFollowers, addFollower
+            followers, getFollowers, addFollower, getFollowerById
         }}>
             {props.children}
         </FollowerContext.Provider>

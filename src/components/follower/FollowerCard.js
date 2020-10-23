@@ -1,6 +1,5 @@
-import React, { useContext } from "react"
+import React from "react"
 import { Link } from "react-router-dom"
-import { FollowerContext } from "./FollowerProvider"
 
 //creates html for each follower, which can be clicked to view the details of that follower
 export const FollowerCard = ({ follower }) => {
