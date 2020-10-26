@@ -15,7 +15,7 @@ export const IdeaCommentProvider = (props) => {
     }
 
     const addIdeaComment = commentObj => {
-        return fetch("http://localhost:8088/comments", {
+        return fetch("http://localhost:8088/ideaComments", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -26,19 +26,19 @@ export const IdeaCommentProvider = (props) => {
     }
 
     const getIdeaCommentById = (id)=> {
-        return fetch(`http://localhost:8088/comments/${id}?_expand=journal&_expand=user`)
+        return fetch(`http://localhost:8088/ideaComments/${id}?_expand=journal&_expand=user`)
             .then(res => res.json())
     }
 
     const deleteIdeaComment = commentId => {
-        return fetch(`http://localhost:8088/comments/${commentId}`, {
+        return fetch(`http://localhost:8088/ideaComments/${commentId}`, {
             method: "DELETE"
         })
             .then(getIdeaComments)
     }
 
     const updateIdeaComment = comment => {
-        return fetch(`http://localhost:8088/comments/${comment.id}`, {
+        return fetch(`http://localhost:8088/ideaComments/${comment.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"

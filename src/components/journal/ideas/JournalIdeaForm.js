@@ -66,7 +66,7 @@ export const JournalIdeaForm = (props) => {
                     .format(Date.now()),
                 note: journalIdea.note
             })
-                .then(() => history.push("journals/ideas"))
+                .then(() => history.push("/journals/ideas"))
         }
     }
 
