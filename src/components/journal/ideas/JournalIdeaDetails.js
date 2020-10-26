@@ -1,14 +1,14 @@
 import React, { useContext, useEffect, useState } from "react"
-import { JournalContext } from "../performances/JournalProvider"
 // import "./JournalIdea.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Button, Card, Icon } from "semantic-ui-react"
 import ReactPlayer from "react-player"
 import {CommentForm} from '../comments/CommentForm'
 import { CommentList } from "../comments/CommentList"
+import { JournalIdeaContext } from "./JournalIdeaProvider"
 
 export const JournalIdeaDetail = () => {
-    const { getJournalIdeaById, deleteJournalIdea } = useContext(JournalContext)
+    const { getJournalIdeaById, deleteJournalIdea } = useContext(JournalIdeaContext)
 
     const [journalIdea, setJournalIdea] = useState({})
     const [users, setUser] = useState({})
@@ -51,13 +51,11 @@ export const JournalIdeaDetail = () => {
         <Card className="journalIdeaEntry">
             <Card.Content>
                 <h3 className="journalIdea__name">{journalIdea.concept}</h3>
-                <p>By {users.username}</p>
+                <p>By Me</p>
                 <ReactPlayer
                     url={journalIdea.url} />
-                <p><strong>Date Performed</strong> - {journalIdea.date}</p>
-                <p><strong>How did I think it went</strong> - {journalIdea.notes}</p>
-                <p><strong>How did the crowd react</strong> - {journalIdea.user.username}</p>
-                <p><strong>Notes about the performance</strong> - {journalIdea.userNotes}</p>
+                <p><strong>Date</strong> - {journalIdea.date}</p>
+                <p><strong>Note</strong> - {journalIdea.notes}</p>
             </Card.Content>
             <section className="buttons">
                 {buttonShow()}

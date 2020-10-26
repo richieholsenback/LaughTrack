@@ -20,6 +20,8 @@ import { CommentProvider } from "./journal/comments/CommentProvider";
 import { JournalIdeaList } from "./journal/ideas/JournalIdeaList";
 import { JournalHub } from "./journal/JournalHub";
 import { JournalIdeaProvider } from "./journal/ideas/JournalIdeaProvider";
+import { JournalIdeaForm } from "./journal/ideas/JournalIdeaForm";
+import { JournalIdeaDetail } from "./journal/ideas/JournalIdeaDetails";
 
 export const ApplicationViews = props => {
     return (
@@ -43,9 +45,11 @@ export const ApplicationViews = props => {
             </JournalProvider>
 
             <JournalProvider>
-                <Route exact path="/journals/ideas">
-                    <JournalIdeaList />
-                </Route>
+                <JournalIdeaProvider>
+                    <Route exact path="/journals/performances">
+                        <JournalHub />
+                    </Route>
+                </JournalIdeaProvider>
             </JournalProvider>
 
             <JournalProvider>
@@ -69,6 +73,34 @@ export const ApplicationViews = props => {
                     <JournalForm />
                 </Route>
             </JournalProvider>
+
+            <JournalIdeaProvider>
+                <Route exact path="/journals/ideas">
+                    <JournalIdeaList />
+                </Route>
+            </JournalIdeaProvider>
+
+            <JournalIdeaProvider>
+                <Route exact path="/journals/ideas/create">
+                    <JournalIdeaForm />
+                </Route>
+            </JournalIdeaProvider>
+
+            <JournalIdeaProvider>
+                <CommentProvider>
+                    <UserProvider>
+                        <Route exact path="/journals/ideas/detail/:journalId(\d+)">
+                            <JournalIdeaDetail />
+                        </Route>
+                    </UserProvider>
+                </CommentProvider>
+            </JournalIdeaProvider>
+
+            <JournalIdeaProvider>
+                <Route exact path="/journals/ideas/edit/:journalId(\d+)">
+                    <JournalIdeaForm />
+                </Route>
+            </JournalIdeaProvider>
 
             <EventProvider>
                 <Route exact path="/events">
