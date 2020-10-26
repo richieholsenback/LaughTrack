@@ -21,20 +21,6 @@ import { UserProvider } from "./user/UserProvider";
 export const ApplicationViews = props => {
     return (
         <>
-            <FollowerProvider>
-                <UserProvider>
-                    <JournalProvider>
-                        <CommentProvider>
-                            <EventProvider>
-                                <Route exact path="/followers/detail/:followingId(\d+)" >
-                                    <FollowerDetails />
-                                </Route>
-                            </EventProvider>
-                        </CommentProvider>
-                    </JournalProvider>
-                </UserProvider>
-            </FollowerProvider>
-
             <Route exact path="/">
                 <Home />
             </Route>
@@ -113,7 +99,19 @@ export const ApplicationViews = props => {
                 </FollowerProvider>
             </UserProvider>
 
-
+            <FollowerProvider>
+                <UserProvider>
+                    <JournalProvider>
+                        <CommentProvider>
+                            <EventProvider>
+                                <Route exact path="/followers/detail/:followingId(\d+)" >
+                                    <FollowerDetails />
+                                </Route>
+                            </EventProvider>
+                        </CommentProvider>
+                    </JournalProvider>
+                </UserProvider>
+            </FollowerProvider>
         </>
     )
 }

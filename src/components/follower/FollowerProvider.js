@@ -13,6 +13,14 @@ export const FollowerProvider = props => {
         .then(setFollower)
     }
 
+    const getFollowersForList = () => {
+        const parsedActiveUser = parseInt(localStorage.getItem("active_user"))
+        return fetch (`http://localhost:8088/followers?_expand=user`)
+        // http://localhost:8088/comments?_expand=journal&_expand=user
+        .then(response => response.json())
+        .then(setFollower)
+    }
+
     const addFollower = followerObj => {
         fetch("http://localhost:8088/followers/", {
             method: "POST",
@@ -31,7 +39,7 @@ export const FollowerProvider = props => {
 
     return (
         <FollowerContext.Provider value={{
-            followers, getFollowers, addFollower, getFollowerById
+            followers, getFollowers, addFollower, getFollowerById, getFollowersForList
         }}>
             {props.children}
         </FollowerContext.Provider>

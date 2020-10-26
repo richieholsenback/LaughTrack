@@ -6,10 +6,10 @@ import { UserContext } from "../user/UserProvider"
 
 export const FollowerList = () => {
   
-  const { followers, getFollowers } = useContext(FollowerContext)
+  const { followers, getFollowersForList } = useContext(FollowerContext)
   
   useEffect(() => {
-    getFollowers()
+    getFollowersForList()
   }, [])
 
   const history = useHistory()
