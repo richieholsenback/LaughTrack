@@ -22,6 +22,7 @@ import { JournalHub } from "./journal/JournalHub";
 import { JournalIdeaProvider } from "./journal/ideas/JournalIdeaProvider";
 import { JournalIdeaForm } from "./journal/ideas/JournalIdeaForm";
 import { JournalIdeaDetail } from "./journal/ideas/JournalIdeaDetails";
+import { IdeaCommentProvider } from "./journal/ideas/IdeaComments/IdeaCommentProvider";
 
 export const ApplicationViews = props => {
     return (
@@ -39,9 +40,11 @@ export const ApplicationViews = props => {
             <JournalProvider>
                 <UserProvider>
                     <JournalIdeaProvider>
-                        <Route exact path="/journals">
-                            <JournalHub />
-                        </Route>
+                        <CommentProvider>
+                            <Route exact path="/journals">
+                                <JournalHub />
+                            </Route>
+                        </CommentProvider>
                     </JournalIdeaProvider>
                 </UserProvider>
             </JournalProvider>
@@ -49,9 +52,9 @@ export const ApplicationViews = props => {
             <JournalProvider>
                 <JournalIdeaProvider>
                     <UserProvider>
-                    <Route exact path="/journals/performances">
-                        <JournalList />
-                    </Route>
+                        <Route exact path="/journals/performances">
+                            <JournalList />
+                        </Route>
                     </UserProvider>
                 </JournalIdeaProvider>
             </JournalProvider>
@@ -80,9 +83,9 @@ export const ApplicationViews = props => {
 
             <JournalIdeaProvider>
                 <UserProvider>
-                <Route exact path="/journals/ideas">
-                    <JournalIdeaList />
-                </Route>
+                    <Route exact path="/journals/ideas">
+                        <JournalIdeaList />
+                    </Route>
                 </UserProvider>
             </JournalIdeaProvider>
 
@@ -93,13 +96,13 @@ export const ApplicationViews = props => {
             </JournalIdeaProvider>
 
             <JournalIdeaProvider>
-                <CommentProvider>
-                    <UserProvider>
-                        <Route exact path="/journals/ideas/detail/:journalId(\d+)">
-                            <JournalIdeaDetail />
-                        </Route>
-                    </UserProvider>
-                </CommentProvider>
+                    <IdeaCommentProvider>
+                            <UserProvider>
+                                <Route exact path="/journals/ideas/detail/:journalId(\d+)">
+                                    <JournalIdeaDetail />
+                                </Route>
+                            </UserProvider>
+                    </IdeaCommentProvider>
             </JournalIdeaProvider>
 
             <JournalIdeaProvider>
@@ -134,30 +137,34 @@ export const ApplicationViews = props => {
 
             <FollowerProvider>
                 <UserProvider>
-                    <Route exact path="/followers">
-                        <FollowerList />
-                    </Route>
+                    <JournalProvider>
+                        <Route exact path="/followers">
+                            <FollowerList />
+                        </Route>
+                    </JournalProvider>
                 </UserProvider>
             </FollowerProvider>
 
             <UserProvider>
                 <FollowerProvider>
-                    <Route exact path="/followers">
-                        <UserList />
-                    </Route>
+                    <JournalProvider>
+                        <Route exact path="/followers">
+                            <UserList />
+                        </Route>
+                    </JournalProvider>
                 </FollowerProvider>
             </UserProvider>
 
             <FollowerProvider>
                 <UserProvider>
                     <JournalProvider>
-                        <CommentProvider>
+                        <IdeaCommentProvider>
                             <EventProvider>
                                 <Route exact path="/followers/detail/:followingId(\d+)" >
                                     <FollowerDetails />
                                 </Route>
                             </EventProvider>
-                        </CommentProvider>
+                        </IdeaCommentProvider>
                     </JournalProvider>
                 </UserProvider>
             </FollowerProvider>

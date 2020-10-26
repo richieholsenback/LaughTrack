@@ -2,10 +2,9 @@ import React, { useContext, useEffect, useState } from "react"
 // import "./JournalIdea.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Button, Card, Icon } from "semantic-ui-react"
-import ReactPlayer from "react-player"
-import {CommentForm} from '../comments/CommentForm'
-import { CommentList } from "../comments/CommentList"
 import { JournalIdeaContext } from "./JournalIdeaProvider"
+import { IdeaCommentForm } from "./IdeaComments/IdeaCommentForm"
+import { IdeaCommentList } from "./IdeaComments/IdeaCommentList"
 
 export const JournalIdeaDetail = () => {
     const { getJournalIdeaById, deleteJournalIdea } = useContext(JournalIdeaContext)
@@ -60,8 +59,8 @@ export const JournalIdeaDetail = () => {
             </section>
         </Card>
         <Card className="comments">
-            {CommentForm()}
-            {CommentList()}
+            {IdeaCommentForm()}
+            {IdeaCommentList()}
         </Card>
         </>
     )
