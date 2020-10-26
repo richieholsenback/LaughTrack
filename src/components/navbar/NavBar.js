@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 import "./NavBar.css";
+import photo from "../../images/Logo.png"
 
 
 export const NavBar = props => {
@@ -10,7 +11,7 @@ export const NavBar = props => {
             <ul className="navbar">
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/">
-                        Laugh Track
+                    Home
                 </Link>
                 </li>
                 <li className="navbar__item">

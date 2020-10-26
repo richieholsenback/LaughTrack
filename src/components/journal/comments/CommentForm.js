@@ -39,7 +39,7 @@ export const CommentForm = (props) => {
                 id: comment.id,
                 userId: userId,
                 text: comment.text,
-                journalId: journalId,
+                journalId: +journalId,
                 date: new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
                     month: '2-digit',
@@ -54,7 +54,7 @@ export const CommentForm = (props) => {
             addComment({
                 userId: userId,
                 text: comment.text,
-                journalId: journalId,
+                journalId: +journalId,
                 date: new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
                     month: '2-digit',

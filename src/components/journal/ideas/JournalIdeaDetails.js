@@ -52,8 +52,6 @@ export const JournalIdeaDetail = () => {
             <Card.Content>
                 <h3 className="journalIdea__name">{journalIdea.concept}</h3>
                 <p>By Me</p>
-                <ReactPlayer
-                    url={journalIdea.url} />
                 <p><strong>Date</strong> - {journalIdea.date}</p>
                 <p><strong>Note</strong> - {journalIdea.notes}</p>
             </Card.Content>

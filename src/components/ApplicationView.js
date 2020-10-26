@@ -37,18 +37,22 @@ export const ApplicationViews = props => {
             </MessageProvider>
 
             <JournalProvider>
-                <JournalIdeaProvider>
-                    <Route exact path="/journals">
-                        <JournalHub />
-                    </Route>
-                </JournalIdeaProvider>
+                <UserProvider>
+                    <JournalIdeaProvider>
+                        <Route exact path="/journals">
+                            <JournalHub />
+                        </Route>
+                    </JournalIdeaProvider>
+                </UserProvider>
             </JournalProvider>
 
             <JournalProvider>
                 <JournalIdeaProvider>
+                    <UserProvider>
                     <Route exact path="/journals/performances">
-                        <JournalHub />
+                        <JournalList />
                     </Route>
+                    </UserProvider>
                 </JournalIdeaProvider>
             </JournalProvider>
 
@@ -75,9 +79,11 @@ export const ApplicationViews = props => {
             </JournalProvider>
 
             <JournalIdeaProvider>
+                <UserProvider>
                 <Route exact path="/journals/ideas">
                     <JournalIdeaList />
                 </Route>
+                </UserProvider>
             </JournalIdeaProvider>
 
             <JournalIdeaProvider>

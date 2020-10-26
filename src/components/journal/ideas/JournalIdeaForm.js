@@ -1,11 +1,11 @@
 import React, { useContext, useEffect, useState } from "react"
-import { JournalContext } from "../performances/JournalProvider"
 // import "./JournalIdea.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Form, Input, Label } from "semantic-ui-react";
+import { JournalIdeaContext } from "./JournalIdeaProvider";
 
 export const JournalIdeaForm = (props) => {
-    const { addJournalIdea, getJournalIdeaById, updateJournalIdea } = useContext(JournalContext)
+    const { addJournalIdea, getJournalIdeaById, updateJournalIdea } = useContext(JournalIdeaContext)
 
     const [journalIdea, setJournalIdea] = useState({})
     const [isLoading, setIsLoading] = useState(true);
@@ -39,18 +39,34 @@ export const JournalIdeaForm = (props) => {
                 id: journalIdea.id,
                 userId: userId,
                 concept: journalIdea.concept,
-                date: journalIdea.date,
+                date: new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                })
+                    .format(Date.now()),
                 note: journalIdea.note
             })
-                .then(() => history.push(`/journalIdeas/ideas/detail/${journalIdea.id}`))
+                .then(() => history.push(`/journals/ideas/detail/${journalIdea.id}`))
         } else {
             addJournalIdea({
                 concept: journalIdea.concept,
                 userId: userId,
-                date: journalIdea.date,
+                date: new Intl.DateTimeFormat('en-US', {
+                    year: 'numeric',
+                    month: '2-digit',
+                    day: '2-digit',
+                    hour: '2-digit',
+                    minute: '2-digit',
+                    second: '2-digit'
+                })
+                    .format(Date.now()),
                 note: journalIdea.note
             })
-                .then(() => history.push("journalIdeas/ideas"))
+                .then(() => history.push("journals/ideas"))
         }
     }
 
@@ -64,7 +80,7 @@ export const JournalIdeaForm = (props) => {
                 <div className="form-group">
                     <Label htmlFor="concept">Joke Concept: </Label>
                     <input type="text" id="journalIdeaConcept" name="concept" required autoFocus className="form-control"
-                        placeholder="JournalIdea concept"
+                        placeholder="Joke concept"
                         onChange={handleControlledInputChange}
                         defaultValue={journalIdea.concept} />
                 </div>
@@ -100,7 +116,7 @@ export const JournalIdeaForm = (props) => {
                     event.preventDefault() // Prevent browser from submitting the form
                     constructJournalIdeaObject()
                 }}>
-                {journalIdeaId ? <>Save JournalIdea</> : <>Add JournalIdea</>}</Button>
+                {journalIdeaId ? <>Save JournalIdea</> : <>Submit</>}</Button>
         </form>
     )
 }

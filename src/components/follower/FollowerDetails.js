@@ -21,7 +21,7 @@ export const FollowerDetails = () => {
     }, [])
 
     const { followingId } = useParams()
-    console.log(followingId)
+    // console.log(followingId)
 
     useEffect(() => {
         
@@ -39,8 +39,8 @@ export const FollowerDetails = () => {
 
     return (
         <>
-            {console.log(filteredEvents)}
-            {console.log("Whoop!", filteredJournals)}
+            {/* {console.log(filteredEvents)}
+            {console.log("Whoop!", filteredJournals)} */}
 
             <div className="journals">
                 <h4>Their Journal Entries</h4>

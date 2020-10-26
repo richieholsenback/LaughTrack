@@ -8,5 +8,6 @@ export const JournalIdeaCard = ({ journalIdea }) => (
                 { journalIdea.concept }
             </Link>
         </h3>
+        <p>By: {journalIdea.user.username}</p>
     </section>
 )

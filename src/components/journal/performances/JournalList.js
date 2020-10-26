@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react"
-import { useHistory } from "react-router-dom"
+import { Link, useHistory } from "react-router-dom"
 import { JournalCard } from "./JournalCard"
 import "./Journal.css"
 import { JournalContext } from "./JournalProvider"
@@ -19,6 +19,11 @@ export const JournalList = () => {
     return (
         <div className="journals">
             {/* {console.log("JournalList: Render")} */}
+            <p>
+                <Link to={"/journals"}>
+                    Back
+                </Link>
+            </p>
             <button type="button" onClick={() => history.push("/journals/create")}>New Entry</button>
             {
                 journals.map(journal => {
