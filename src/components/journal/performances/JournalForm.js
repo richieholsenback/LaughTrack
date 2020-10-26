@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-import { JournalContext } from "../journal/JournalProvider"
+import { JournalContext } from "./JournalProvider"
 import "./Journal.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Form, Input, Label } from "semantic-ui-react";

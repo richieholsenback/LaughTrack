@@ -2,9 +2,9 @@ import React, { useContext, useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 import { EventCard } from "../event/EventCard"
 import { EventContext } from "../event/EventProvider"
-import "../journal/Journal.css"
-import { JournalCard } from "../journal/JournalCard"
-import { JournalContext } from "../journal/JournalProvider"
+import "../journal/performances/Journal.css"
+import { JournalCard } from "../journal/performances/JournalCard"
+import { JournalContext } from "../journal/performances/JournalProvider"
 import { FollowerContext } from "./FollowerProvider"
 
 export const FollowerDetails = () => {

@@ -8,15 +8,18 @@ import { FollowerDetails } from "./follower/FollowerDetails";
 import { FollowerList } from "./follower/FollowerList";
 import { FollowerProvider } from "./follower/FollowerProvider";
 import { Home } from "./Home"
-import { CommentProvider } from "./journal/CommentProvider";
-import { JournalDetail } from "./journal/JournalDetails";
-import { JournalForm } from "./journal/JournalForm";
-import { JournalList } from "./journal/JournalList";
-import { JournalProvider } from "./journal/JournalProvider";
 import { MessageForm } from "./message/MessageForm";
 import { MessageProvider } from "./message/MessageProvider";
 import { UserList } from "./user/UserList";
 import { UserProvider } from "./user/UserProvider";
+import { JournalProvider } from "./journal/performances/JournalProvider";
+import { JournalList } from "./journal/performances/JournalList"
+import { JournalForm } from "./journal/performances/JournalForm"
+import { JournalDetail } from "./journal/performances/JournalDetails"
+import { CommentProvider } from "./journal/comments/CommentProvider";
+import { JournalIdeaList } from "./journal/ideas/JournalIdeaList";
+import { JournalHub } from "./journal/JournalHub";
+import { JournalIdeaProvider } from "./journal/ideas/JournalIdeaProvider";
 
 export const ApplicationViews = props => {
     return (
@@ -32,8 +35,16 @@ export const ApplicationViews = props => {
             </MessageProvider>
 
             <JournalProvider>
-                <Route exact path="/journals">
-                    <JournalList />
+                <JournalIdeaProvider>
+                    <Route exact path="/journals">
+                        <JournalHub />
+                    </Route>
+                </JournalIdeaProvider>
+            </JournalProvider>
+
+            <JournalProvider>
+                <Route exact path="/journals/ideas">
+                    <JournalIdeaList />
                 </Route>
             </JournalProvider>
 

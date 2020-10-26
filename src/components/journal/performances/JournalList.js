@@ -1,8 +1,7 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { UserContext } from "../user/UserProvider"
-import "./Journal.css"
 import { JournalCard } from "./JournalCard"
+import "./Journal.css"
 import { JournalContext } from "./JournalProvider"
 
 export const JournalList = () => {

@@ -47,6 +47,8 @@ export const JournalProvider = (props) => {
         })
             .then(getJournals)
     }
+
+    
     
 
     /*

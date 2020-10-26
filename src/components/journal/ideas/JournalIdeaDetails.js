@@ -1,45 +1,45 @@
 import React, { useContext, useEffect, useState } from "react"
-import { JournalContext } from "./JournalProvider"
-import "./Journal.css"
+import { JournalContext } from "../performances/JournalProvider"
+// import "./JournalIdea.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Button, Card, Icon } from "semantic-ui-react"
 import ReactPlayer from "react-player"
-import {CommentForm} from './CommentForm'
-import { CommentList } from "./CommentList"
+import {CommentForm} from '../comments/CommentForm'
+import { CommentList } from "../comments/CommentList"
 
-export const JournalDetail = () => {
-    const { getJournalById, deleteJournal } = useContext(JournalContext)
+export const JournalIdeaDetail = () => {
+    const { getJournalIdeaById, deleteJournalIdea } = useContext(JournalContext)
 
-    const [journal, setJournal] = useState({})
+    const [journalIdea, setJournalIdea] = useState({})
     const [users, setUser] = useState({})
     const [comment, setComment] = useState({})
 
-    const { journalId } = useParams();
+    const { journalIdeaId } = useParams();
     const history = useHistory();
 
     useEffect(() => {
-        getJournalById(journalId)
+        getJournalIdeaById(journalIdeaId)
             .then((response) => {
-                setJournal(response)
+                setJournalIdea(response)
                 setUser(response.user)
                 setComment(response.comment)
             })
     }, [])
 
     const buttonShow = (() => {
-        if (journal.userId === parseInt(localStorage.getItem("active_user")))
+        if (journalIdea.userId === parseInt(localStorage.getItem("active_user")))
             return (
                 <>
                     <Button onClick={
                         () => {
-                            deleteJournal(journal.id)
+                            deleteJournalIdea(journalIdea.id)
                                 .then(() => {
-                                    history.push("/journals")
+                                    history.push("/journal/ideas")
                                 })
                         }}>Delete
                     </Button>
                     <Button onClick={() => {
-                        history.push(`/journals/edit/${journal.id}`)
+                        history.push(`/journal/ideas/edit/${journalIdea.id}`)
                     }}>Edit
                     </Button>
                 </>
@@ -48,16 +48,16 @@ export const JournalDetail = () => {
 
     return (
         <>
-        <Card className="journalEntry">
+        <Card className="journalIdeaEntry">
             <Card.Content>
-                <h3 className="journal__name">{journal.concept}</h3>
+                <h3 className="journalIdea__name">{journalIdea.concept}</h3>
                 <p>By {users.username}</p>
                 <ReactPlayer
-                    url={journal.url} />
-                <p><strong>Date Performed</strong> - {journal.date}</p>
-                <p><strong>How did I think it went</strong> - {journal.userApproval}</p>
-                <p><strong>How did the crowd react</strong> - {journal.crowdApproval}</p>
-                <p><strong>Notes about the performance</strong> - {journal.userNotes}</p>
+                    url={journalIdea.url} />
+                <p><strong>Date Performed</strong> - {journalIdea.date}</p>
+                <p><strong>How did I think it went</strong> - {journalIdea.notes}</p>
+                <p><strong>How did the crowd react</strong> - {journalIdea.user.username}</p>
+                <p><strong>Notes about the performance</strong> - {journalIdea.userNotes}</p>
             </Card.Content>
             <section className="buttons">
                 {buttonShow()}
