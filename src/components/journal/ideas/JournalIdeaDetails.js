@@ -49,10 +49,10 @@ export const JournalIdeaDetail = () => {
         <>
         <Card className="journalIdeaEntry">
             <Card.Content>
-                <h3 className="journalIdea__name">{journalIdea.concept}</h3>
-                <p>By Me</p>
+                <h3 className="journalIdea__concept">{journalIdea.concept}</h3>
+                <p>By {users.username}</p>
                 <p><strong>Date</strong> - {journalIdea.date}</p>
-                <p><strong>Note</strong> - {journalIdea.notes}</p>
+                <p><strong>Note</strong> - {journalIdea.note}</p>
             </Card.Content>
             <section className="buttons">
                 {buttonShow()}

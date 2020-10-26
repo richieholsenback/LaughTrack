@@ -98,7 +98,7 @@ export const ApplicationViews = props => {
             <JournalIdeaProvider>
                     <IdeaCommentProvider>
                             <UserProvider>
-                                <Route exact path="/journals/ideas/detail/:journalId(\d+)">
+                                <Route exact path="/journals/ideas/detail/:journalIdeaId(\d+)">
                                     <JournalIdeaDetail />
                                 </Route>
                             </UserProvider>
