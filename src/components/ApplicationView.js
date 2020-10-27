@@ -24,6 +24,8 @@ import { JournalIdeaForm } from "./journal/ideas/JournalIdeaForm";
 import { JournalIdeaDetail } from "./journal/ideas/JournalIdeaDetails";
 import { IdeaCommentProvider } from "./journal/ideas/IdeaComments/IdeaCommentProvider";
 import { UserSearch } from "./user/UserSearch";
+import { JournalSearch } from "./journal/performances/JournalSearch";
+import { IdeaSearch } from "./journal/ideas/JournalIdeaSearch";
 
 export const ApplicationViews = props => {
     return (
@@ -54,6 +56,7 @@ export const ApplicationViews = props => {
                 <JournalIdeaProvider>
                     <UserProvider>
                         <Route exact path="/journals/performances">
+                            <JournalSearch />
                             <JournalList />
                         </Route>
                     </UserProvider>
@@ -85,6 +88,7 @@ export const ApplicationViews = props => {
             <JournalIdeaProvider>
                 <UserProvider>
                     <Route exact path="/journals/ideas">
+                        <IdeaSearch />
                         <JournalIdeaList />
                     </Route>
                 </UserProvider>

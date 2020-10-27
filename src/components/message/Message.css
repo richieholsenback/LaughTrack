@@ -39,7 +39,6 @@ textarea {
 
 .messageList {
     flex: 1 0 50%;
-    border: 1px solid;
     padding: 1em;
     margin: 2em;
 }

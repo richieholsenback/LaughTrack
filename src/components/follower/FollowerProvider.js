@@ -4,6 +4,7 @@ export const FollowerContext = createContext()
 
 export const FollowerProvider = props => {
     const [followers, setFollower] = useState([])
+    const [ searchTerms, setSearchTerms ] = useState("")
 
     const getFollowers = () => {
         const parsedActiveUser = parseInt(localStorage.getItem("active_user"))
@@ -46,7 +47,7 @@ export const FollowerProvider = props => {
 
     return (
         <FollowerContext.Provider value={{
-            followers, getFollowers, addFollower, getFollowerById, getFollowersForList, getAllFollowers
+            followers, searchTerms, getFollowers, addFollower, getFollowerById, getFollowersForList, getAllFollowers, setSearchTerms
         }}>
             {props.children}
         </FollowerContext.Provider>

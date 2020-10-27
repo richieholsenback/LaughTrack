@@ -7,6 +7,7 @@ export const JournalContext = createContext()
 // This component establishes what data can be used.
 export const JournalProvider = (props) => {
     const [journals, setJournals] = useState([])
+    const [ searchTerms, setSearchTerms ] = useState("")
 
     const getJournals = () => {
         return fetch("http://localhost:8088/journals?_expand=user")
@@ -59,7 +60,7 @@ export const JournalProvider = (props) => {
     */
     return (
         <JournalContext.Provider value={{
-            journals, getJournals, addJournal, getJournalById, deleteJournal, updateJournal
+            journals, searchTerms, getJournals, addJournal, getJournalById, deleteJournal, updateJournal, setSearchTerms
         }}>
             {props.children}
         </JournalContext.Provider>
