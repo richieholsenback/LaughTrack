@@ -63,8 +63,8 @@ export const UserCard = ({ users }) => {
                 className="btn btn-primary"
                 // disabled={isLoading}
                 onClick={event => {
-                    event.preventDefault()
-                followerCheck(users)
+                    followerCheck(users)
+                    getFollowers()
             }
             } >Add Follower</Button>
         </>
