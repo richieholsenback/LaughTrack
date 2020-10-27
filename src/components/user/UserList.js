@@ -5,7 +5,7 @@ import {useHistory} from "react-router-dom"
 import { FollowerContext } from "../follower/FollowerProvider"
 
 export const UserList = () => {
-    const { users, getUsers } = useContext(UserContext)
+    const { user, getUsers } = useContext(UserContext)
     const { followers, getFollowers } = useContext(FollowerContext)
     const history = useHistory()
     
@@ -21,7 +21,7 @@ export const UserList = () => {
           <h3>Suggested Follow</h3>
         <div>
       {
-      users.map(users => {
+      user.map(users => {
         return <UserCard key={users.id} users={users} />
       })
       }
