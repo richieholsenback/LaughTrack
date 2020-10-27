@@ -45,7 +45,8 @@ export const EventForm = (props) => {
                 zip: event.zip,
                 description: event.description,
                 date: event.date,
-                userId: userId
+                userId: userId,
+                poster: event.poster
             })
                 .then(() => history.push(`/events/detail/${event.id}`))
         } else {
@@ -58,7 +59,8 @@ export const EventForm = (props) => {
                 zip: event.zip,
                 description: event.description,
                 date: event.date,
-                userId: userId
+                userId: userId, 
+                poster: event.poster
             })
                 .then(() => history.push("events"))
         }
@@ -193,6 +195,21 @@ export const EventForm = (props) => {
                         placeholder="Description"
                         onChange={handleControlledInputChange}
                         defaultValue={event.description}
+                    />
+                </div>
+            </Form.Field>
+            <Form.Field>
+                <div className="form-group">
+                    <Label htmlFor="poster">Poster for your event: </Label>
+                    <TextArea
+                        type="text"
+                        id="eventPoster"
+                        name="poster"
+                        required
+                        className="form-control"
+                        placeholder="Link to Event Poster"
+                        onChange={handleControlledInputChange}
+                        defaultValue={event.poster}
                     />
                 </div>
             </Form.Field>

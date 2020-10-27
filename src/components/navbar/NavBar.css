@@ -1,7 +1,8 @@
 .navbar {
     display: flex;
     flex-wrap: nowrap;
-    justify-content: left;
+    justify-content: space-between;
+    
 }
 
 .navbar__item {
@@ -11,9 +12,18 @@
     font-weight: 100;
 }
 
+.navSpacer {
+    padding-left: 5em;
+    padding-right: 5em;
+}
+
 @font-face {
     font-family: 'SecretSociety';
     src: url(../Fonts/Gravitica/Gravitica-Rounded-Bold.ttf);
     font-style: normal;
     font-weight: 100;
+}
+
+ul {
+    border-bottom: darkgray 2px;
 }

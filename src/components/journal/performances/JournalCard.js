@@ -1,13 +1,14 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import { Card } from "semantic-ui-react"
 
 export const JournalCard = ({ journal, user }) => (
-    <section className="journal">
+    <Card className="journal">
         <h3 className="journal__concept">
             <Link to={`/journals/detail/${journal.id}`}>
-                { journal.concept }
+                {journal.concept}
             </Link>
         </h3>
-<p>By: {journal.user.username}</p>
-    </section>
+        <p id="journalAuthor">By: {journal.user.username}</p>
+    </Card>
 )

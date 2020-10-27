@@ -1,11 +1,11 @@
-img {
+/* img {
     position: fixed;
     left: -5em;
     top: -5%;
     width: 107%;
     max-height: auto;
     z-index: -1;
-}
+} */
 
 .h1, h1 {
     font-size: 2.5rem;

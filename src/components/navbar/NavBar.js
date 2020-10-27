@@ -11,9 +11,10 @@ export const NavBar = props => {
             <ul className="navbar">
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/">
-                    Home
+                    Laugh Track
                 </Link>
                 </li>
+                <div className="navSpacer"></div>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/messages">
                         Messages
@@ -34,7 +35,7 @@ export const NavBar = props => {
                         Followers
                 </Link>
                 </li>
-
+                <div className="navSpacer"></div>
                 <li className="navbar__item">
                     <Link onClick={() => {
                         localStorage.clear()

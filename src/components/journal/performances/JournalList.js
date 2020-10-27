@@ -36,7 +36,6 @@ export const JournalList = () => {
 
     return (
         <div className="journals">
-            {/* {console.log("JournalList: Render")} */}
             <button type="button" onClick={() => history.push("/journals/create")}>New Entry</button>
             {
             filteredJournals.map(journal => {

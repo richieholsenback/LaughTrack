@@ -27,3 +27,7 @@
     font-style: normal;
     font-weight: 100;
 }
+
+.navbar, li {
+    color: white;
+}

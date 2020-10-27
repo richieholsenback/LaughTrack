@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { EventContext } from "./EventProvider"
 import "./Event.css"
 import { useParams, useHistory } from "react-router-dom"
-import { Button, Icon } from "semantic-ui-react"
+import { Button, Icon, Image } from "semantic-ui-react"
 
 export const EventDetail = () => {
     const { getEventById, deleteEvent } = useContext(EventContext)
@@ -31,11 +31,11 @@ export const EventDetail = () => {
                                 .then(() => {
                                     history.push("/events")
                                 })
-                        }}><Icon name="trash" />
+                        }}>Delete
                     </Button>
                     <Button onClick={() => {
                         history.push(`/events/edit/${event.id}`)
-                    }}><Icon name="edit" />
+                    }}>Edit
                     </Button>
                 </>
             )
@@ -43,6 +43,7 @@ export const EventDetail = () => {
 
     return (
         <section className="event">
+            <Image src={event.poster} />
             <h3 className="event__name">{event.name}</h3>
             <p>Hosted by {user.username}</p>
             <p>{event.date}</p>

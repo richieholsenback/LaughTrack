@@ -45,8 +45,7 @@ export const CommentForm = (props) => {
                     month: '2-digit',
                     day: '2-digit',
                     hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit'
+                    minute: '2-digit'
                 }).format(Date.now())
             })
                 .then(() => history.push(`/journals/detail/${journalId}`))
@@ -60,8 +59,7 @@ export const CommentForm = (props) => {
                     month: '2-digit',
                     day: '2-digit',
                     hour: '2-digit',
-                    minute: '2-digit',
-                    second: '2-digit'
+                    minute: '2-digit'
                 }).format(Date.now())
             })
                 .then(() => history.push(`/journals/detail/${journalId}`))
@@ -73,7 +71,6 @@ export const CommentForm = (props) => {
             <h3 className="commentForm__title">Comments</h3>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="text">Comment:</Label>
                     <TextArea type="text" id="commentText" name="text" required autoFocus className="form-control"
                         placeholder="Comment here..."
                         onChange={handleControlledInputChange}

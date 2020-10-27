@@ -24,11 +24,14 @@ export const JournalHub = () => {
         <>
         <div className="journals">
             <div className="journalSelect">
+                <div class="spacer"></div>
                 <Link to="/journals/performances">Performances</Link>
                 <br></br>
                 <Link to="/journals/ideas">Ideas</Link>
+                <div class="spacer"></div>
             </div>
-            <button type="button" onClick={() => history.push("/journals/create")}>New Performance Entry</button>
+            <br></br>
+            <h3 class="journalSection">Joke Performances</h3>
             {
                 journals.map(journal => {
                     return <JournalCard key={journal.id} journal={journal}  />
@@ -37,7 +40,7 @@ export const JournalHub = () => {
         </div>
         <div className="journalIdeas">
         {/* {console.log("JournalIdeaList: Render")} */}
-        <button type="button" onClick={() => history.push("/journals/ideas/create")}>New Joke Idea</button>
+        <h3 class="journalSection">Joke Ideas</h3>
         {
             journalIdeas.map(journalIdea => {
                 return <JournalIdeaCard key={journalIdea.id} journalIdea={journalIdea}  />

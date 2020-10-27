@@ -36,11 +36,11 @@ export const JournalDetail = () => {
                                 .then(() => {
                                     history.push("/journals")
                                 })
-                        }}>Delete
+                        }}><Icon name="trash" />
                     </Button>
                     <Button onClick={() => {
                         history.push(`/journals/edit/${journal.id}`)
-                    }}>Edit
+                    }}><Icon name="edit" />
                     </Button>
                 </>
             )
@@ -48,16 +48,17 @@ export const JournalDetail = () => {
 
     return (
         <>
-        <Card className="journalEntry">
+        <Card fluid className="journalEntryDetail">
             <Card.Content>
-                <h3 className="journal__name">{journal.concept}</h3>
-                <p>By {users.username}</p>
                 <ReactPlayer
                     url={journal.url} />
-                <p><strong>Date Performed</strong> - {journal.date}</p>
-                <p><strong>How did I think it went</strong> - {journal.userApproval}</p>
-                <p><strong>How did the crowd react</strong> - {journal.crowdApproval}</p>
-                <p><strong>Notes about the performance</strong> - {journal.userNotes}</p>
+                    <br></br>
+                <Card.Header className="journal__name">{journal.concept}</Card.Header>
+                <Card.Meta>By {users.username}</Card.Meta>
+                <Card.Description><strong>Date Performed</strong> - {journal.date}</Card.Description>
+                <Card.Description><strong>How did I think it went</strong> - {journal.userApproval}</Card.Description>
+                <Card.Description><strong>How did the crowd react</strong> - {journal.crowdApproval}</Card.Description>
+                <Card.Description><strong>Notes about the performance</strong> - {journal.userNotes}</Card.Description>
             </Card.Content>
             <section className="buttons">
                 {buttonShow()}
