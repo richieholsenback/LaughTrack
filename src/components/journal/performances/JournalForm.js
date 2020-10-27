@@ -17,6 +17,11 @@ export const JournalForm = (props) => {
         const newJournal = { ...journal }
         newJournal[event.target.name] = event.target.value
         setJournal(newJournal)
+        if (event.target.name === "hidden") {
+            newJournal[event.target.name] = newJournal.hidden ? false : true
+        } else {
+            newJournal[event.target.name] = event.target.value
+        }
     }
 
     useEffect(() => {
@@ -43,7 +48,8 @@ export const JournalForm = (props) => {
                 crowdApproval: journal.crowdApproval,
                 date: journal.date,
                 url: journal.url,
-                userNotes: journal.userNotes
+                userNotes: journal.userNotes,
+                hidden: journal.hidden
             })
                 .then(() => history.push(`/journals/detail/${journal.id}`))
         } else {
@@ -54,7 +60,8 @@ export const JournalForm = (props) => {
                 crowdApproval: journal.crowdApproval,
                 date: journal.date,
                 url: journal.url,
-                userNotes: journal.userNotes
+                userNotes: journal.userNotes,
+                hidden: journal.hidden
             })
                 .then(() => history.push("journals"))
         }
@@ -97,7 +104,7 @@ export const JournalForm = (props) => {
                 <div className="form-group">
                     <Label htmlFor="date">Date Performed: </Label>
                     <input type="date" name="date" className="form-control"
-                    onChange={handleControlledInputChange}
+                        onChange={handleControlledInputChange}
                     ></input>
                 </div>
             </fieldset>
@@ -145,30 +152,19 @@ export const JournalForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={journal.userNotes} />
                 </div>
-            </Form.Field>
-            {/* <Form.Group grouped>
-                <Label>Keep it to yourself?</Label>
-                <Form.Field
-                    label="true"
-                    control='input'
-                    type='radio'
-                    name='public'
-                />
-                <Form.Field
-                    label="false"
-                    control='input'
-                    type='radio'
-                    name='public'
-                />
-            </Form.Group> */}
-            <Button type="submit"
-                className="btn btn-primary"
-                disabled={isLoading}
-                onClick={event => {
-                    event.preventDefault() // Prevent browser from submitting the form
-                    constructJournalObject()
-                }}>
-                {journalId ? <>Save Journal</> : <>Add Journal</>}</Button>
+                </Form.Field>
+                <Form.Field>
+                    Keep it to yourself? <input type="checkbox" name="hidden" value={journal.hidden} checked={journal.hidden}
+                        onChange={handleControlledInputChange} />
+                </Form.Field>
+                <Button type="submit"
+                    className="btn btn-primary"
+                    disabled={isLoading}
+                    onClick={event => {
+                        // event.preventDefault() // Prevent browser from submitting the form
+                        constructJournalObject()
+                    }}>
+                    {journalId ? <>Save Journal</> : <>Add Journal</>}</Button>
         </form>
     )
 }
