@@ -23,6 +23,7 @@ import { JournalIdeaProvider } from "./journal/ideas/JournalIdeaProvider";
 import { JournalIdeaForm } from "./journal/ideas/JournalIdeaForm";
 import { JournalIdeaDetail } from "./journal/ideas/JournalIdeaDetails";
 import { IdeaCommentProvider } from "./journal/ideas/IdeaComments/IdeaCommentProvider";
+import { UserSearch } from "./user/UserSearch";
 
 export const ApplicationViews = props => {
     return (
@@ -149,6 +150,7 @@ export const ApplicationViews = props => {
                 <FollowerProvider>
                     <JournalProvider>
                         <Route exact path="/followers">
+                            <UserSearch />
                             <UserList />
                         </Route>
                     </JournalProvider>

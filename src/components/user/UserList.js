@@ -1,31 +1,40 @@
-import React, { useContext, useEffect} from "react"
+import React, { useContext, useEffect, useState } from "react"
 import { UserContext } from "./UserProvider"
 import { UserCard } from "./UserCard"
-import {useHistory} from "react-router-dom"
-import { FollowerContext } from "../follower/FollowerProvider"
+import { useHistory } from "react-router-dom"
 
 export const UserList = () => {
-    const { user, getUsers } = useContext(UserContext)
-    const { followers, getFollowers } = useContext(FollowerContext)
-    const history = useHistory()
-    
-    useEffect(() => {
-		getUsers()
-		
-    }, [])
 
-    // const filteredUsers = followers.filter(follower => follower.followingId !== users.userId)
+  const { user, getUsers, searchTerms } = useContext(UserContext)
 
-    return (
-      <>
-          <h3>Suggested Follow</h3>
-        <div>
-      {
-      user.map(users => {
-        return <UserCard key={users.id} users={users} />
-      })
-      }
-        </div>
-      </>
+  const [filteredUsers, setFiltered] = useState([])
+
+  const history = useHistory()
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
+  useEffect(() => {
+    if (searchTerms !== "") {
+      const subset = user.filter(users => users.username.toLowerCase().includes(searchTerms))
+      setFiltered(subset)
+    } else {
+      setFiltered(user)
+    }
+  }, [searchTerms, user])
+
+  // const filteredUsers = followers.filter(follower => follower.followingId !== users.userId)
+
+  return (
+    <>
+      <div className="users">
+        {
+          filteredUsers.map(user => {
+            return <UserCard key={user.id} user={user} />
+          })
+        }
+      </div>
+    </>
   )
 }
