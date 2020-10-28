@@ -2,17 +2,20 @@ import React, { useContext, useEffect, useState } from "react"
 import { UserContext } from "./UserProvider"
 import { UserCard } from "./UserCard"
 import { useHistory } from "react-router-dom"
+import { FollowerContext } from "../follower/FollowerProvider"
 
 export const UserList = () => {
 
   const { user, getUsers, searchTerms } = useContext(UserContext)
+  const {followers, getFollowers} = useContext(FollowerContext)
 
   const [filteredUsers, setFiltered] = useState([])
 
   const history = useHistory()
 
   useEffect(() => {
-    getUsers()
+    getFollowers().then(
+    getUsers())
   }, [])
 
   useEffect(() => {
@@ -25,6 +28,13 @@ export const UserList = () => {
   }, [searchTerms, user])
 
   // const filteredUsers = followers.filter(follower => follower.followingId !== users.userId)
+//   const alreadyFollowing = (obj) => {
+//     obj.filter(object => {
+//     if(object.userId.includes(+localStorage.getItem("active_user"))){
+//   return null
+// } else if(object.userId === )
+// }
+//     )}
 
   return (
     <>

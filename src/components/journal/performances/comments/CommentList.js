@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 import { CommentContext } from "./CommentProvider"
 import { CommentCard } from './CommentCard'
-import { JournalContext} from '../performances/JournalProvider'
+import { JournalContext} from '../JournalProvider'
 import { useParams } from "react-router-dom"
 import { Card } from "semantic-ui-react"
 

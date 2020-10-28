@@ -4,8 +4,8 @@ import "./Journal.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Button, Card, Icon } from "semantic-ui-react"
 import ReactPlayer from "react-player"
-import {CommentForm} from '../comments/CommentForm'
-import { CommentList } from "../comments/CommentList"
+import {CommentForm} from './comments/CommentForm'
+import { CommentList } from "./comments/CommentList"
 
 export const JournalDetail = () => {
     const { getJournalById, deleteJournal } = useContext(JournalContext)

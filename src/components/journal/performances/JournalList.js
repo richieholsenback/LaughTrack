@@ -9,6 +9,7 @@ export const JournalList = () => {
     const { journals, getJournals, searchTerms } = useContext(JournalContext)
 
     const [ filteredJournals, setFiltered ] = useState([])
+    const [journal, setJournal] = useState({})
     
 
     //useEffect - reach out to the world for something
@@ -20,7 +21,7 @@ export const JournalList = () => {
     useEffect(() => {
         if (searchTerms !== "") {
             // If the search field is not blank, display matching journals
-            const subset = journals.filter(journal => journal.concept.toLowerCase().includes(searchTerms))
+            const subset = journals.filter(journal => journal.concept.toLowerCase().includes(searchTerms) || journal.user.username.toLowerCase().includes(searchTerms))
             setFiltered(subset)
         } else {
             // If the search field is blank, display all journals
@@ -31,15 +32,25 @@ export const JournalList = () => {
     const history = useHistory()
 
     
+    const journalShow = ((entry) => {
+        
+        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+            return null
+        } else {
+            return <JournalCard key={entry.id} journal={entry} />
+        }
+
+    })
 
     
 
     return (
         <div className="journals">
+            Here we are
             <button type="button" onClick={() => history.push("/journals/create")}>New Entry</button>
-            {
+           {
             filteredJournals.map(journal => {
-        return <JournalCard key={journal.id} journal={journal}/>
+       return journalShow(journal)
     }
     )
 }

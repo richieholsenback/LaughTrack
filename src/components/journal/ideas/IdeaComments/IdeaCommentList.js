@@ -1,23 +1,23 @@
 import React, { useContext, useEffect, useState } from "react"
 import { IdeaCommentContext } from "./IdeaCommentProvider"
 import { IdeaCommentCard } from './IdeaCommentCard'
-import { JournalIdeaContext} from '../JournalIdeaProvider'
+import { IdeaContext} from '../IdeaProvider'
 import { useParams } from "react-router-dom"
 
 export const IdeaCommentList = () => {
     const {ideaComments, getIdeaComments} = useContext(IdeaCommentContext)
-    const {ideaJournals, getJournalIdeas} = useContext(JournalIdeaContext)
+    const {ideaJournals, getIdeas} = useContext(IdeaContext)
     const [filteredIdeaComments, setFilteredIdeaComments] = useState([])
 
     useEffect(() => {
         getIdeaComments()
-        getJournalIdeas()
+        getIdeas()
     }, [])
 
-    const {journalIdeaId} = useParams()
+    const {ideaId} = useParams()
 
     useEffect(() => {
-        let newFilteredIdeaComments = ideaComments.filter(ideaComment => ideaComment.journalIdeaId === +journalIdeaId)
+        let newFilteredIdeaComments = ideaComments.filter(ideaComment => ideaComment.ideaId === +ideaId)
 
         setFilteredIdeaComments(newFilteredIdeaComments)
     }, [ideaComments])

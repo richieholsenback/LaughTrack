@@ -4,18 +4,18 @@ import { UserContext } from "../user/UserProvider"
 import "./performances/Journal.css"
 import { JournalContext } from "./performances/JournalProvider"
 import { JournalCard } from "./performances/JournalCard"
-import { JournalIdeaCard } from "./ideas/JournalIdeaCard"
-import { JournalIdeaContext } from "./ideas/JournalIdeaProvider"
+import { IdeaCard } from "./ideas/IdeaCard"
+import { IdeaContext } from "./ideas/IdeaProvider"
 
 export const JournalHub = () => {
     // This state changes when `getAnimals()` is invoked below
     const { journals, getJournals } = useContext(JournalContext)
-    const { journalIdeas, getJournalIdeas } = useContext(JournalIdeaContext)
+    const { ideas, getIdeas } = useContext(IdeaContext)
 
     //useEffect - reach out to the world for something
     useEffect(() => {
         getJournals()
-        getJournalIdeas()
+        getIdeas()
     }, [])
 
     const history = useHistory()
@@ -38,12 +38,12 @@ export const JournalHub = () => {
                 })
             }
         </div>
-        <div className="journalIdeas">
-        {/* {console.log("JournalIdeaList: Render")} */}
+        <div className="ideas">
+        {/* {console.log("IdeaList: Render")} */}
         <h3 class="journalSection">Joke Ideas</h3>
         {
-            journalIdeas.map(journalIdea => {
-                return <JournalIdeaCard key={journalIdea.id} journalIdea={journalIdea}  />
+            ideas.map(idea => {
+                return <IdeaCard key={idea.id} idea={idea}  />
             })
         }
     </div>

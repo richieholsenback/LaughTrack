@@ -1,44 +1,44 @@
 import React, { useContext, useEffect, useState } from "react"
-// import "./JournalIdea.css"
+// import "./Idea.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Button, Card, Icon } from "semantic-ui-react"
-import { JournalIdeaContext } from "./JournalIdeaProvider"
+import { IdeaContext } from "./IdeaProvider"
 import { IdeaCommentForm } from "./IdeaComments/IdeaCommentForm"
 import { IdeaCommentList } from "./IdeaComments/IdeaCommentList"
 
-export const JournalIdeaDetail = () => {
-    const { getJournalIdeaById, deleteJournalIdea } = useContext(JournalIdeaContext)
+export const IdeaDetail = () => {
+    const { getIdeaById, deleteIdea } = useContext(IdeaContext)
 
-    const [journalIdea, setJournalIdea] = useState({})
+    const [idea, setIdea] = useState({})
     const [users, setUser] = useState({})
     const [comment, setComment] = useState({})
 
-    const { journalIdeaId } = useParams();
+    const { ideaId } = useParams();
     const history = useHistory();
 
     useEffect(() => {
-        getJournalIdeaById(journalIdeaId)
+        getIdeaById(ideaId)
             .then((response) => {
-                setJournalIdea(response)
+                setIdea(response)
                 setUser(response.user)
                 setComment(response.comment)
             })
     }, [])
 
     const buttonShow = (() => {
-        if (journalIdea.userId === parseInt(localStorage.getItem("active_user")))
+        if (idea.userId === parseInt(localStorage.getItem("active_user")))
             return (
                 <>
                     <Button onClick={
                         () => {
-                            deleteJournalIdea(journalIdea.id)
+                            deleteIdea(idea.id)
                                 .then(() => {
-                                    history.push("/journal/ideas")
+                                    history.push("/journals/ideas")
                                 })
                         }}>Delete
                     </Button>
                     <Button onClick={() => {
-                        history.push(`/journal/ideas/edit/${journalIdea.id}`)
+                        history.push(`/journals/ideas/edit/${idea.id}`)
                     }}>Edit
                     </Button>
                 </>
@@ -47,12 +47,12 @@ export const JournalIdeaDetail = () => {
 
     return (
         <>
-        <Card className="journalIdeaEntry">
+        <Card className="ideaEntry">
             <Card.Content>
-                <h3 className="journalIdea__concept">{journalIdea.concept}</h3>
+                <h3 className="idea__concept">{idea.concept}</h3>
                 <p>By {users.username}</p>
-                <p><strong>Date</strong> - {journalIdea.date}</p>
-                <p><strong>Note</strong> - {journalIdea.note}</p>
+                <p><strong>Date</strong> - {idea.date}</p>
+                <p><strong>Note</strong> - {idea.note}</p>
             </Card.Content>
             <section className="buttons">
                 {buttonShow()}

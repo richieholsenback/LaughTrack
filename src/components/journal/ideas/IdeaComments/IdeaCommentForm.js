@@ -10,7 +10,7 @@ export const IdeaCommentForm = (props) => {
     const [isLoading, setIsLoading] = useState(true);
 
     const { ideaCommentId } = useParams();
-    const { journalIdeaId } = useParams();
+    const { ideaId } = useParams();
     const history = useHistory();
 
     const handleControlledInputChange = (event) => {
@@ -39,7 +39,7 @@ export const IdeaCommentForm = (props) => {
                 id: ideaComment.id,
                 userId: userId,
                 text: ideaComment.text,
-                journalIdeaId: +journalIdeaId,
+                ideaId: +ideaId,
                 date: new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
                     month: '2-digit',
@@ -49,12 +49,12 @@ export const IdeaCommentForm = (props) => {
                     second: '2-digit'
                 }).format(Date.now())
             })
-                .then(() => history.push(`/journals/ideas/detail/${journalIdeaId}`))
+                .then(() => history.push(`/journals/ideas/detail/${ideaId}`))
         } else {
             addIdeaComment({
                 userId: userId,
                 text: ideaComment.text,
-                journalIdeaId: +journalIdeaId,
+                ideaId: +ideaId,
                 date: new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
                     month: '2-digit',
@@ -64,7 +64,7 @@ export const IdeaCommentForm = (props) => {
                     second: '2-digit'
                 }).format(Date.now())
             })
-                .then(() => history.push(`/journals/ideas/detail/${journalIdeaId}`))
+                .then(() => history.push(`/journals/ideas/detail/${ideaId}`))
         }
     }
 

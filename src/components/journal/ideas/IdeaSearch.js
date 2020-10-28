@@ -1,9 +1,9 @@
 import React, { useContext, useEffect } from "react"
 import { Link } from "react-router-dom"
-import { JournalIdeaContext } from "./JournalIdeaProvider"
+import { IdeaContext } from "./IdeaProvider"
 
 export const IdeaSearch = () => {
-    const { setSearchTerms } = useContext(JournalIdeaContext)
+    const { setSearchTerms } = useContext(IdeaContext)
 
     useEffect(() => {
         setSearchTerms("")

@@ -9,19 +9,20 @@ export const JournalForm = (props) => {
 
     const [journal, setJournal] = useState({})
     const [isLoading, setIsLoading] = useState(true);
+    const [hidden, setHidden] = useState(false)
 
     const { journalId } = useParams();
     const history = useHistory();
 
     const handleControlledInputChange = (event) => {
+        debugger
         const newJournal = { ...journal }
-        newJournal[event.target.name] = event.target.value
-        setJournal(newJournal)
         if (event.target.name === "hidden") {
             newJournal[event.target.name] = newJournal.hidden ? false : true
         } else {
             newJournal[event.target.name] = event.target.value
         }
+        setJournal(newJournal)
     }
 
     useEffect(() => {
@@ -157,11 +158,11 @@ export const JournalForm = (props) => {
                     Keep it to yourself? <input type="checkbox" name="hidden" value={journal.hidden} checked={journal.hidden}
                         onChange={handleControlledInputChange} />
                 </Form.Field>
-                <Button type="submit"
+                <Button 
                     className="btn btn-primary"
                     disabled={isLoading}
                     onClick={event => {
-                        // event.preventDefault() // Prevent browser from submitting the form
+                        event.preventDefault() // Prevent browser from submitting the form
                         constructJournalObject()
                     }}>
                     {journalId ? <>Save Journal</> : <>Add Journal</>}</Button>

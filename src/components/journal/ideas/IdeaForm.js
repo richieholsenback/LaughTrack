@@ -1,29 +1,29 @@
 import React, { useContext, useEffect, useState } from "react"
-// import "./JournalIdea.css"
+// import "./Idea.css"
 import { useHistory, useParams } from 'react-router-dom';
 import { Button, Form, Input, Label } from "semantic-ui-react";
-import { JournalIdeaContext } from "./JournalIdeaProvider";
+import { IdeaContext } from "./IdeaProvider";
 
-export const JournalIdeaForm = (props) => {
-    const { addJournalIdea, getJournalIdeaById, updateJournalIdea } = useContext(JournalIdeaContext)
+export const IdeaForm = (props) => {
+    const { addIdea, getIdeaById, updateIdea } = useContext(IdeaContext)
 
-    const [journalIdea, setJournalIdea] = useState({})
+    const [idea, setIdea] = useState({})
     const [isLoading, setIsLoading] = useState(true);
 
-    const { journalIdeaId } = useParams();
+    const { ideaId } = useParams();
     const history = useHistory();
 
     const handleControlledInputChange = (event) => {
-        const newJournalIdea = { ...journalIdea }
-        newJournalIdea[event.target.name] = event.target.value
-        setJournalIdea(newJournalIdea)
+        const newIdea = { ...idea }
+        newIdea[event.target.name] = event.target.value
+        setIdea(newIdea)
     }
 
     useEffect(() => {
-        if (journalIdeaId) {
-            getJournalIdeaById(journalIdeaId)
-                .then(journalIdea => {
-                    setJournalIdea(journalIdea)
+        if (ideaId) {
+            getIdeaById(ideaId)
+                .then(idea => {
+                    setIdea(idea)
                     setIsLoading(false)
                 })
         } else {
@@ -31,14 +31,14 @@ export const JournalIdeaForm = (props) => {
         }
     }, [])
 
-    const constructJournalIdeaObject = () => {
+    const constructIdeaObject = () => {
         const userId = parseInt(localStorage.getItem("active_user"))
         setIsLoading(false);
-        if (journalIdeaId) {
-            updateJournalIdea({
-                id: journalIdea.id,
+        if (ideaId) {
+            updateIdea({
+                id: idea.id,
                 userId: userId,
-                concept: journalIdea.concept,
+                concept: idea.concept,
                 date: new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
                     month: '2-digit',
@@ -48,12 +48,12 @@ export const JournalIdeaForm = (props) => {
                     second: '2-digit'
                 })
                     .format(Date.now()),
-                note: journalIdea.note
+                note: idea.note
             })
-                .then(() => history.push(`/journals/ideas/detail/${journalIdea.id}`))
+                .then(() => history.push(`/journals/ideas/detail/${idea.id}`))
         } else {
-            addJournalIdea({
-                concept: journalIdea.concept,
+            addIdea({
+                concept: idea.concept,
                 userId: userId,
                 date: new Intl.DateTimeFormat('en-US', {
                     year: 'numeric',
@@ -64,7 +64,7 @@ export const JournalIdeaForm = (props) => {
                     second: '2-digit'
                 })
                     .format(Date.now()),
-                note: journalIdea.note
+                note: idea.note
             })
                 .then(() => history.push("/journals/ideas"))
         }
@@ -74,24 +74,24 @@ export const JournalIdeaForm = (props) => {
 
 
     return (
-        <form className="journalIdeaForm">
-            <h2 className="journalIdeaForm__title">New JournalIdea</h2>
+        <form className="ideaForm">
+            <h2 className="ideaForm__title">New Idea</h2>
             <Form.Field>
                 <div className="form-group">
                     <Label htmlFor="concept">Joke Concept: </Label>
-                    <input type="text" id="journalIdeaConcept" name="concept" required autoFocus className="form-control"
+                    <input type="text" id="ideaConcept" name="concept" required autoFocus className="form-control"
                         placeholder="Joke concept"
                         onChange={handleControlledInputChange}
-                        defaultValue={journalIdea.concept} />
+                        defaultValue={idea.concept} />
                 </div>
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
                     <Label htmlFor="note">Notes: </Label>
-                    <textarea type="text" id="journalIdeaNote" name="note" required autoFocus className="form-control"
+                    <textarea type="text" id="ideaNote" name="note" required autoFocus className="form-control"
                         placeholder="Notes about the Joke"
                         onChange={handleControlledInputChange}
-                        defaultValue={journalIdea.note} />
+                        defaultValue={idea.note} />
                 </div>
             </Form.Field>
             {/* <Form.Group grouped>
@@ -114,9 +114,9 @@ export const JournalIdeaForm = (props) => {
                 disabled={isLoading}
                 onClick={event => {
                     event.preventDefault() // Prevent browser from submitting the form
-                    constructJournalIdeaObject()
+                    constructIdeaObject()
                 }}>
-                {journalIdeaId ? <>Save JournalIdea</> : <>Submit</>}</Button>
+                {ideaId ? <>Save Idea</> : <>Submit</>}</Button>
         </form>
     )
 }
