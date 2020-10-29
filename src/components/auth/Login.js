@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router-dom";
 import "./Login.css";
-import { Button, Card, Container, Form, Segment } from "semantic-ui-react"
+import { Button, Card, Container, Form, Grid, Header, Icon, Label, Message, Segment } from "semantic-ui-react"
 import photo from "../../images/loginbg.jpg"
 
 export const Login = props => {
@@ -34,45 +34,50 @@ export const Login = props => {
 
     return (
         <>
-            <section className="container--login">
-                <dialog className="dialog dialog--auth" ref={existDialog}>
-                    <div>User does not exist</div>
-                    <Button
-                        className="button--close"
-                        onClick={e => existDialog.current.close()}
-                    >
-                    Close
+            <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+                <Grid.Column style={{ maxWidth: 450 }}>
+                    <Header as='h2' color='teal' textAlign='center'>
+                        Laugh Track
+                    </Header>
+                    <section className="container--login">
+                        <dialog className="dialog dialog--auth" ref={existDialog}>
+                            <div>User does not exist</div>
+                            <Button
+                                className="button--close"
+                                onClick={e => existDialog.current.close()}
+                            >
+                                Close
                     </Button>
-                </dialog>
-                <section>
-                    <div inverted>
-                        <Form inverted className="form--login" onSubmit={handleLogin}>
-                            <h1>Laugh Track</h1>
-                            <h2>Please sign in</h2>
-                            <fieldset>
-                                <label htmlFor="inputEmail"> Email address </label>
-                                <input
-                                    ref={email}
-                                    type="email"
-                                    id="email"
-                                    className="form-control"
-                                    placeholder="Email address"
-                                    required
-                                    autoFocus
-                                />
-                            </fieldset>
-                            <fieldset>
-                                <Button type="submit">Sign in</Button>
-                            </fieldset>
-                <section className="link--register">
-                    <Link to="/register">Not a member yet?</Link>
-                </section>
-                        </Form>
-                    </div>
-                </section>
-            </section>
+                        </dialog>
+                    </section>
+                    <Form size='large' onSubmit={handleLogin}>
+                        <Segment stacked>
+                            <input
+                                fluid
+                                icon='user'
+                                iconPosition='left'
+                                placeholder='E-mail address'
+                                ref={email}
+                                type="email"
+                                id="email"
+                                className="emailInput"
+                                required
+                                autoFocus
+                            ></input>
 
-            <img id="imageBG" src={photo} alt="Dave Chappelle doing standup" width="100%"/>
+                            <Button type="submit" fluid size='large'>
+                                Login
+                            </Button>
+                        </Segment>
+                    </Form>
+                    <Message>
+                        New to us? <Link to="/register">Sign Up</Link>
+                    </Message>
+                </Grid.Column>
+            </Grid>
+            <div className="picContainer">
+                <img id="child" src={photo} alt="Dave Chappelle doing standup" width="100%" />
+            </div>
         </>
     );
 };

@@ -1,20 +1,3 @@
-Image {
-    all: unset;
-}
-
-.events {
-    padding-left: 2em;
-}
-
-.eventCard {
-    padding: 2em;
-}
-.ui.card {
-    margin: 0;
-    margin-left: 1em;
-    margin-right: 1em;
-}
-
-.ui.grid>.row{
-    padding-top: 0;
+.eventAddButton {
+    margin: 4em 0;
 }

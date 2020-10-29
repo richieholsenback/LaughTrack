@@ -31,6 +31,16 @@ export const JournalHub = () => {
 
     })
 
+    const ideaShow = ((entry) => {
+        
+        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+            return null
+        } else {
+            return <IdeaCard key={entry.id} idea={entry} />
+        }
+
+    })
+
     return (
         <>
         <div className="journals">
@@ -54,7 +64,7 @@ export const JournalHub = () => {
         <h3 class="journalSection">Joke Ideas</h3>
         {
             ideas.map(idea => {
-                return journalShow(idea)  
+                return ideaShow(idea)  
             })
         }
     </div>

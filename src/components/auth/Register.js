@@ -1,7 +1,7 @@
 import React, { useRef } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import "./Login.css";
-import { Card, Button, Form } from 'semantic-ui-react'
+import { Card, Button, Form, Grid, Header, Segment, Message } from 'semantic-ui-react'
 import photo from "../../images/comedy-laughing-e1516163964662.jpg"
 
 export const Register = props => {
@@ -47,7 +47,7 @@ export const Register = props => {
 
   return (
     <>
-      <main style={{ textAlign: "left" }} className="container--register">
+      {/* <main style={{ textAlign: "left" }} className="container--register">
         <dialog className="dialog dialog--password" ref={conflictDialog}>
           <div>Account with that email address already exists</div>
           <button
@@ -91,8 +91,55 @@ export const Register = props => {
             </Form>
           </Card.Content>
         </section>
-      </main>
-      <img id="imageBG" src={photo} alt="Crowd Laughing" width="100%"/>
+      </main> */}
+
+      <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
+        <Grid.Column style={{ maxWidth: 450 }}>
+          <Header as='h2' color='teal' textAlign='center'>
+            Laugh Track
+                    </Header>
+          <dialog className="dialog dialog--password" ref={conflictDialog}>
+            <div>Account with that email address already exists</div>
+            <button
+              className="button--close"
+              onClick={e => conflictDialog.current.close()}
+            >
+              Close
+        </button>
+          </dialog>
+          <Form size='large' onSubmit={handleRegister}>
+            <Segment stacked>
+              <input
+                ref={username}
+                type="text"
+                name="username"
+                className="form-control"
+                placeholder="Username"
+                required
+                autoFocus
+              />
+              <input
+                ref={email}
+                type="email"
+                name="email"
+                className="form-control"
+                placeholder="Email address"
+                required
+              />
+              <Button type="submit" fluid size='large'>
+                Login
+          </Button>
+            </Segment>
+          </Form>
+          <Message>
+            Already have an account? <Link to="/login">Log in</Link>
+          </Message>
+        </Grid.Column>
+      </Grid>
+
+      <div className="picContainer">
+        <img id="child" src={photo} alt="Dave Chappelle doing standup" width="100%" />
+      </div>
     </>
   );
 };

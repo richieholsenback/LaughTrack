@@ -4,6 +4,8 @@ import { Login } from "./components/auth/Login";
 import { Register } from "./components/auth/Register";
 import { ApplicationViews } from "./components/ApplicationView";
 import { NavBar } from "./components/navbar/NavBar";
+import photo from "./images/laughtrackHeader.png"
+import "./App.css"
 
 export const App = () => (
   <>

@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { Button, Grid } from "semantic-ui-react"
+import { Button, Card, Grid } from "semantic-ui-react"
 import { EventCard } from "./EventCard"
 import { EventContext } from "./EventProvider"
 import "./Event.css";
@@ -16,15 +16,17 @@ export const EventList = () => {
 
     return (
         <div className="events">
-            <Button type="button" onClick={() => history.push("/events/create")}>Add an event</Button>
+            <div className="eventAddButton">
+                <Button type="button" onClick={() => history.push("/events/create")}>Add an event</Button>
+            </div>
             <Grid>
-                <Grid.Row className="eventGrid">
+                <Card.Group className="eventGrid">
                     {
                         events.map(event => {
                             return <EventCard key={event.id} event={event} user={event.user.username} />
                         })
                     }
-                </Grid.Row>
+                </Card.Group>
             </Grid>
         </div>
     )

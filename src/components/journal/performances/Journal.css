@@ -4,11 +4,18 @@ fieldset {
 }
 
 a:visited {
-    color: rgb(0, 0, 0);
+    color: rgb(225, 186, 179);
+    text-shadow: 1px 1px rgb(97, 56, 66);
 }
 
 a:link {
-    color: rgb(0, 0, 0);
+    color: rgba(225, 186, 179, 1);
+    text-shadow:  rgba(97, 56, 66, .25);
+}
+
+a:hover {
+    color: rgba(97, 56, 66, .25);
+    text-shadow:  rgba(225, 186, 179, 1);
 }
 
 /* Hub */

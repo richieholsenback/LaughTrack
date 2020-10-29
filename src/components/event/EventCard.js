@@ -5,7 +5,7 @@ import "./Event.css";
 
 export const EventCard = ({ event }) => (
     <Card className="eventCard">
-        <Image src={event.poster} wrapped ui={false}/>
+        <Image className="eventcardposter" src={event.poster} wrapped ui={false}/>
         <h3 className="event__title">
             <Link to={`/events/detail/${event.id}`}>
                 {event.name}

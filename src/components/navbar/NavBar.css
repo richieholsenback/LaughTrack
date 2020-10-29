@@ -27,3 +27,12 @@
 ul {
     border-bottom: darkgray 2px;
 }
+
+#headerBG {
+    color: rgba(231, 217, 201, 1);
+    position: absolute;
+    top: -8em;
+    z-index: -1;
+    opacity: 75%;
+  }
+

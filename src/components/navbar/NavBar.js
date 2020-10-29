@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Button } from "semantic-ui-react";
 import "./NavBar.css";
-import photo from "../../images/Logo.png"
+import photo from "../../images/laughtrackHeader.png"
 
 
 export const NavBar = props => {
@@ -36,12 +36,12 @@ export const NavBar = props => {
                         Followers
                 </Link>
                 </li>
-                <div className="navSpacer"></div>
                 <li className="navbar__item">
                     <Link className="navbar__link" to={`/followers/detail/${userId}`}>
                         My Profile
                 </Link>
                 </li>
+                <div className="navSpacer"></div>
                 <li className="navbar__item">
                     <Link onClick={() => {
                         localStorage.clear()
@@ -51,6 +51,8 @@ export const NavBar = props => {
                 </Link>
                 </li>
             </ul>
+
+            {/* <img id="headerBG" src={photo} width="100%" /> */}
         </>
     );
 };

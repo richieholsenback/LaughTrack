@@ -71,3 +71,16 @@ fieldset {
 #emailTitle{
     margin-bottom: -0.1em;
 }
+
+input{
+    margin: 1em 1em;
+}
+
+#child{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: -2;
+}
