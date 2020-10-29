@@ -28,6 +28,16 @@ export const IdeaList = () => {
         }
     }, [searchTerms, ideas])
 
+    const journalShow = ((entry) => {
+        
+        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+            return null
+        } else {
+            return <IdeaCard key={entry.id} idea={entry} />
+        }
+
+    })
+
     return (
         <div className="ideas">
             {/* {console.log("IdeaList: Render")} */}
@@ -35,7 +45,7 @@ export const IdeaList = () => {
             <button type="button" onClick={() => history.push("/journals/ideas/create")}>New Entry</button>
             {
                 filteredIdeas.map(idea => {
-                    return <IdeaCard key={idea.id} idea={idea}  />
+                    return journalShow(idea)
                 })
             }
         </div>

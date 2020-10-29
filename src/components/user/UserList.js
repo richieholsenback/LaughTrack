@@ -27,24 +27,28 @@ export const UserList = () => {
     }
   }, [searchTerms, user])
 
+  
+
   // const filteredUsers = followers.filter(follower => follower.followingId !== users.userId)
-//   const alreadyFollowing = (obj) => {
-//     obj.filter(object => {
-//     if(object.userId.includes(+localStorage.getItem("active_user"))){
-//   return null
-// } else if(object.userId === )
-// }
-//     )}
+  const DoNotShow = (obj) => { 
+  if(obj.id === parseInt(localStorage.getItem("active_user"))){
+  return null
+} 
+else {
+  return <UserCard key={obj.id} user={obj} />
+}
+}
 
   return (
     <>
       <div className="users">
         {
           filteredUsers.map(user => {
-            return <UserCard key={user.id} user={user} />
+            return DoNotShow(user)
           })
         }
       </div>
     </>
   )
 }
+

@@ -8,7 +8,7 @@ export const FollowerProvider = props => {
 
     const getFollowers = () => {
         const parsedActiveUser = parseInt(localStorage.getItem("active_user"))
-        return fetch (`http://localhost:8088/followers/?userId=${parsedActiveUser}&_expand=user`)
+        return fetch (`http://localhost:8088/followers/?followedById=${parsedActiveUser}&_expand=user`)
         // http://localhost:8088/comments?_expand=journal&_expand=user
         .then(response => response.json())
         .then(setFollower)

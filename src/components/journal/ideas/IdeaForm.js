@@ -15,9 +15,14 @@ export const IdeaForm = (props) => {
 
     const handleControlledInputChange = (event) => {
         const newIdea = { ...idea }
-        newIdea[event.target.name] = event.target.value
+        if (event.target.name === "hidden") {
+            newIdea[event.target.name] = newIdea.hidden ? false : true
+        } else {
+            newIdea[event.target.name] = event.target.value
+        }
         setIdea(newIdea)
     }
+
 
     useEffect(() => {
         if (ideaId) {
@@ -48,7 +53,8 @@ export const IdeaForm = (props) => {
                     second: '2-digit'
                 })
                     .format(Date.now()),
-                note: idea.note
+                note: idea.note,
+                hidden: idea.hidden
             })
                 .then(() => history.push(`/journals/ideas/detail/${idea.id}`))
         } else {
@@ -64,7 +70,8 @@ export const IdeaForm = (props) => {
                     second: '2-digit'
                 })
                     .format(Date.now()),
-                note: idea.note
+                note: idea.note,
+                hidden: idea.hidden
             })
                 .then(() => history.push("/journals/ideas"))
         }
@@ -94,29 +101,18 @@ export const IdeaForm = (props) => {
                         defaultValue={idea.note} />
                 </div>
             </Form.Field>
-            {/* <Form.Group grouped>
-                <Label>Keep it to yourself?</Label>
-                <Form.Field
-                    label="true"
-                    control='input'
-                    type='radio'
-                    name='public'
-                />
-                <Form.Field
-                    label="false"
-                    control='input'
-                    type='radio'
-                    name='public'
-                />
-            </Form.Group> */}
-            <Button type="submit"
+            <Form.Field>
+                Keep it to yourself? <input type="checkbox" name="hidden" value={idea.hidden} checked={idea.hidden}
+                    onChange={handleControlledInputChange} />
+            </Form.Field>
+            <Button
                 className="btn btn-primary"
                 disabled={isLoading}
                 onClick={event => {
                     event.preventDefault() // Prevent browser from submitting the form
                     constructIdeaObject()
                 }}>
-                {ideaId ? <>Save Idea</> : <>Submit</>}</Button>
+                {ideaId ? <>Save Idea</> : <>Add Idea</>}</Button>
         </form>
     )
 }

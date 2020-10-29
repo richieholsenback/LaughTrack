@@ -8,14 +8,12 @@ export const JournalForm = (props) => {
     const { addJournal, getJournalById, updateJournal } = useContext(JournalContext)
 
     const [journal, setJournal] = useState({})
-    const [isLoading, setIsLoading] = useState(true);
-    const [hidden, setHidden] = useState(false)
+    const [isLoading, setIsLoading] = useState(true)
 
     const { journalId } = useParams();
     const history = useHistory();
 
     const handleControlledInputChange = (event) => {
-        debugger
         const newJournal = { ...journal }
         if (event.target.name === "hidden") {
             newJournal[event.target.name] = newJournal.hidden ? false : true

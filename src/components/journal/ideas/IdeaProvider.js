@@ -38,13 +38,13 @@ export const IdeaProvider = (props) => {
             .then(getIdeas)
     }
 
-    const updateIdea = journal => {
-        return fetch(`http://localhost:8088/Ideas/${journal.id}`, {
+    const updateIdea = idea => {
+        return fetch(`http://localhost:8088/ideas/${idea.id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json"
             },
-            body: JSON.stringify()
+            body: JSON.stringify(idea)
         })
             .then(getIdeas)
     }
