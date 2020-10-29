@@ -7,15 +7,15 @@ import { FollowerContext } from "../follower/FollowerProvider"
 export const UserList = () => {
 
   const { user, getUsers, searchTerms } = useContext(UserContext)
-  const {followers, getFollowers} = useContext(FollowerContext)
+  const { followers, getFollowers } = useContext(FollowerContext)
 
   const [filteredUsers, setFiltered] = useState([])
 
-  const history = useHistory()
+  // const history = useHistory()
 
   useEffect(() => {
     getFollowers().then(
-    getUsers())
+      getUsers())
   }, [])
 
   useEffect(() => {
@@ -27,24 +27,22 @@ export const UserList = () => {
     }
   }, [searchTerms, user])
 
-  
+  const findIfFollowing = (obj) => {
+    const hasFollowers = followers.find(follower => follower.userId === obj.id)
+    if (!hasFollowers && obj.id !== parseInt(localStorage.getItem("active_user"))) {
+      return <UserCard key={obj.id} user={obj} />
+    }
+  }
 
   // const filteredUsers = followers.filter(follower => follower.followingId !== users.userId)
-  const DoNotShow = (obj) => { 
-  if(obj.id === parseInt(localStorage.getItem("active_user"))){
-  return null
-} 
-else {
-  return <UserCard key={obj.id} user={obj} />
-}
-}
+
 
   return (
     <>
       <div className="users">
         {
           filteredUsers.map(user => {
-            return DoNotShow(user)
+            return findIfFollowing(user)
           })
         }
       </div>

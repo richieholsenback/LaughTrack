@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useState } from "react"
 import { Link, useHistory } from "react-router-dom"
+import { Button } from "semantic-ui-react"
 // import "./Idea.css"
 import { IdeaCard } from "./IdeaCard"
 import { IdeaContext } from "./IdeaProvider"
@@ -42,7 +43,7 @@ export const IdeaList = () => {
         <div className="ideas">
             {/* {console.log("IdeaList: Render")} */}
             
-            <button type="button" onClick={() => history.push("/journals/ideas/create")}>New Entry</button>
+            <Button type="button" onClick={() => history.push("/journals/ideas/create")}>New Entry</Button>
             {
                 filteredIdeas.map(idea => {
                     return journalShow(idea)

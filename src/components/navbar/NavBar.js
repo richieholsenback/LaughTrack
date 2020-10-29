@@ -6,6 +6,7 @@ import photo from "../../images/Logo.png"
 
 
 export const NavBar = props => {
+    const userId = parseInt(localStorage.getItem("active_user"))
     return (
         <>
             <ul className="navbar">
@@ -36,6 +37,11 @@ export const NavBar = props => {
                 </Link>
                 </li>
                 <div className="navSpacer"></div>
+                <li className="navbar__item">
+                    <Link className="navbar__link" to={`/followers/detail/${userId}`}>
+                        My Profile
+                </Link>
+                </li>
                 <li className="navbar__item">
                     <Link onClick={() => {
                         localStorage.clear()

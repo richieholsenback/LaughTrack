@@ -1,25 +1,23 @@
 #headline {
     color: white;
     font-size: 170px;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.235);
+    text-shadow: 3px 3px rgba(0, 0, 0, 0.235);
     font-family: 'SecretSociety';
     font-weight: 100;
     text-align: center;
+    margin: 0 auto;
+    z-index: 1;
 }
 
 #subtitle {
     color: whitesmoke;
-    margin-top: -6em;
+    margin-top: -1em;
     font-size: 24px;
-    text-shadow: 1px 1px rgba(0, 0, 0, 0.235);
+    text-shadow: 2px 2px rgba(0, 0, 0, 0.235);
     text-align: center;
 }
 
-.mainTitle {
-    position: absolute;
-    top: 12%;
-    right: 18%;
-}
+
 
 @font-face {
     font-family: 'SecretSociety';
@@ -30,4 +28,19 @@
 
 .navbar, li {
     color: white;
+}
+
+#child{
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+}
+
+.titles{
+    position: fixed;
+    top: 25%;
+    left: 15%;
 }

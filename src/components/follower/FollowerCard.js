@@ -5,7 +5,7 @@ import { Link } from "react-router-dom"
 export const FollowerCard = ({ follower }) => {
     return (
         <section className="follower">
-           <Link to={`/followers/detail/${follower.userId}`}> <h4 className="follower__name">{follower.user.username}</h4></Link>
+           <Link to={`/followers/detail/${follower.userId}`}> <h3 className="follower__name">{follower.user.username}</h3></Link>
         </section>
     )
 }

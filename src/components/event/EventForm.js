@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { EventContext } from "../event/EventProvider"
 import "./Event.css"
 import { useHistory, useParams } from 'react-router-dom';
-import { Button, Form, Input, Label, TextArea } from "semantic-ui-react";
+import { Button, Form, Input, TextArea } from "semantic-ui-react";
 
 export const EventForm = (props) => {
     const { addEvent, getEventById, updateEvent } = useContext(EventContext)
@@ -66,13 +66,7 @@ export const EventForm = (props) => {
         }
     }
 
-    // const stateCodes = [
-    //     'AL', 'AK', 'AZ', 'AR', 'CA', 'CO', 'CT', 'DE', 'FL', 'GA',
-    //     'HI', 'ID', 'IL', 'IN', 'IA', 'KS', 'KY', 'LA', 'ME', 'MD',
-    //     'MA', 'MI', 'MN', 'MS', 'MO', 'MT', 'NE', 'NV', 'NH', 'NJ',
-    //     'NM', 'NY', 'NC', 'ND', 'OH', 'OK', 'OR', 'PA', 'RI', 'SC',
-    //     'SD', 'TN', 'TX', 'UT', 'VT', 'VA', 'WA', 'WV', 'WI', 'WY'
-    // ];
+    
 
 
     return (
@@ -80,14 +74,14 @@ export const EventForm = (props) => {
             <h2 className="eventForm__title">New Event</h2>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="name">Event name: </Label>
-                    <input
+                    <p htmlFor="name">Event name: </p>
+                    <Input
                         type="text"
                         id="eventName"
                         name="name"
                         required
                         autoFocus
-                        className="form-control"
+                        
                         placeholder="Event name"
                         onChange={handleControlledInputChange}
                         defaultValue={event.name}
@@ -96,13 +90,13 @@ export const EventForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="date">Date: </Label>
-                    <input
+                    <p htmlFor="date">Date: </p>
+                    <Input
                         type="date"
                         id="eventDate"
                         name="date"
                         required
-                        className="form-control"
+                        
                         onChange={handleControlledInputChange}
                         defaultValue={event.date}
                     />
@@ -110,13 +104,13 @@ export const EventForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="location">Name of venue: </Label>
-                    <input
+                    <p htmlFor="location">Name of venue: </p>
+                    <Input
                         type="text"
                         id="eventLocation"
                         name="location"
                         required
-                        className="form-control"
+                        
                         placeholder="Venue Name"
                         onChange={handleControlledInputChange}
                         defaultValue={event.location}
@@ -125,13 +119,13 @@ export const EventForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="address">Street address of venue: </Label>
-                    <input
+                    <p htmlFor="address">Street address of venue: </p>
+                    <Input
                         type="text"
                         id="eventAddress"
                         name="address"
                         required
-                        className="form-control"
+                        
                         placeholder="Street address"
                         onChange={handleControlledInputChange}
                         defaultValue={event.address}
@@ -140,13 +134,13 @@ export const EventForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="city">City: </Label>
-                    <input
+                    <p htmlFor="city">City: </p>
+                    <Input
                         type="text"
                         id="eventCity"
                         name="city"
                         required
-                        className="form-control"
+                        
                         placeholder="City"
                         onChange={handleControlledInputChange}
                         defaultValue={event.city}
@@ -155,13 +149,13 @@ export const EventForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="state">State: </Label>
-                    <input
+                    <p htmlFor="state">State: </p>
+                    <Input
                         type="text"
                         id="eventState"
                         name="state"
                         required
-                        className="form-control"
+                        
                         placeholder="State"
                         onChange={handleControlledInputChange}
                         defaultValue={event.state}
@@ -170,13 +164,13 @@ export const EventForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="zip">Zip code: </Label>
-                    <input
+                    <p htmlFor="zip">Zip code: </p>
+                    <Input
                         type="text"
                         id="eventZip"
                         name="zip"
                         required
-                        className="form-control"
+                        
                         placeholder="Zip"
                         onChange={handleControlledInputChange}
                         defaultValue={event.zip}
@@ -185,13 +179,13 @@ export const EventForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="description">Description of your event: </Label>
+                    <p htmlFor="description">Description of your event: </p>
                     <TextArea
                         type="text"
                         id="eventDescription"
                         name="description"
                         required
-                        className="form-control"
+                        
                         placeholder="Description"
                         onChange={handleControlledInputChange}
                         defaultValue={event.description}
@@ -200,13 +194,13 @@ export const EventForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="poster">Poster for your event: </Label>
-                    <TextArea
+                    <p htmlFor="poster">Poster for your event: </p>
+                    <Input
                         type="text"
                         id="eventPoster"
                         name="poster"
                         required
-                        className="form-control"
+                        
                         placeholder="Link to Event Poster"
                         onChange={handleControlledInputChange}
                         defaultValue={event.poster}

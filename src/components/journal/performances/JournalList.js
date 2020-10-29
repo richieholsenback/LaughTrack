@@ -3,6 +3,7 @@ import { Link, useHistory } from "react-router-dom"
 import { JournalCard } from "./JournalCard"
 import "./Journal.css"
 import { JournalContext } from "./JournalProvider"
+import { Button } from "semantic-ui-react"
 
 export const JournalList = () => {
     // This state changes when `getJournals()` is invoked below
@@ -47,7 +48,7 @@ export const JournalList = () => {
     return (
         <div className="journals">
             Here we are
-            <button type="button" onClick={() => history.push("/journals/create")}>New Entry</button>
+            <Button type="button" onClick={() => history.push("/journals/create")}>New Entry</Button>
            {
             filteredJournals.map(journal => {
        return journalShow(journal)

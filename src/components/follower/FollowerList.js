@@ -2,12 +2,12 @@ import React, { useContext, useEffect } from "react"
 import { FollowerContext } from "./FollowerProvider"
 import { FollowerCard } from "./FollowerCard"
 import { useHistory } from "react-router-dom"
-import { UserContext } from "../user/UserProvider"
+import "./Follower.css"
 
 export const FollowerList = () => {
-  
+
   const { followers, getFollowersForList } = useContext(FollowerContext)
-  
+
   useEffect(() => {
     getFollowersForList()
   }, [])
@@ -22,11 +22,14 @@ export const FollowerList = () => {
       <div className="followersTop">
         <h2>You Follow</h2>
       </div>
-      {
-        filteredFollowers.map(follower => {
-          return <FollowerCard key={follower.id} follower={follower} />
-        })
-      }
+      <br></br>
+      <div className="followingList">
+        {
+          filteredFollowers.map(follower => {
+            return <FollowerCard key={follower.id} follower={follower} />
+          })
+        }
+      </div>
     </section>
   )
 }

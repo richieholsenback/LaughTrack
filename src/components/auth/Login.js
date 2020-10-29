@@ -34,7 +34,7 @@ export const Login = props => {
 
     return (
         <>
-            <Card className="container--login">
+            <section className="container--login">
                 <dialog className="dialog dialog--auth" ref={existDialog}>
                     <div>User does not exist</div>
                     <Button
@@ -45,7 +45,7 @@ export const Login = props => {
                     </Button>
                 </dialog>
                 <section>
-                    <Card inverted>
+                    <div inverted>
                         <Form inverted className="form--login" onSubmit={handleLogin}>
                             <h1>Laugh Track</h1>
                             <h2>Please sign in</h2>
@@ -64,15 +64,15 @@ export const Login = props => {
                             <fieldset>
                                 <Button type="submit">Sign in</Button>
                             </fieldset>
-                        </Form>
-                    </Card>
-                </section>
                 <section className="link--register">
                     <Link to="/register">Not a member yet?</Link>
                 </section>
-            </Card>
+                        </Form>
+                    </div>
+                </section>
+            </section>
 
-            <img id="imageBG" src={photo} alt="Dave Chappelle doing standup" />
+            <img id="imageBG" src={photo} alt="Dave Chappelle doing standup" width="100%"/>
         </>
     );
 };

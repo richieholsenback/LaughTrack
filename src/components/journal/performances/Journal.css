@@ -90,3 +90,9 @@ a:link {
 Card {
     width: 75%;
 }
+
+/* Form */
+
+.form-control {
+    padding: none;
+}

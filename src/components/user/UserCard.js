@@ -17,21 +17,24 @@ export const UserCard = ({ user }) => {
         // .then(getUsers)	
     }	
 
+    function refreshPage() {
+        window.location.reload(false);
+      }
     
     return (
         <section className="user">
-            <Card>
+            
                 <Card.Header>
                     <h3 className="user__name">
                         {user.username} </h3>
                 </Card.Header>
-            </Card>
             <Button 
                 type="submit"
                 className="btn btn-primary"
                 // disabled={isLoading}
                 onClick={event => {
                     addFollowerObj(user.id)
+                    refreshPage()
             }
             } >Add Follower</Button>
         </section>

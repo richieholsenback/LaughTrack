@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 // import "./Idea.css"
 import { useHistory, useParams } from 'react-router-dom';
-import { Button, Form, Input, Label } from "semantic-ui-react";
+import { Button, Checkbox, Form, Input} from "semantic-ui-react";
 import { IdeaContext } from "./IdeaProvider";
 
 export const IdeaForm = (props) => {
@@ -85,8 +85,8 @@ export const IdeaForm = (props) => {
             <h2 className="ideaForm__title">New Idea</h2>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="concept">Joke Concept: </Label>
-                    <input type="text" id="ideaConcept" name="concept" required autoFocus className="form-control"
+                    <p htmlFor="concept">Joke Concept: </p>
+                    <Input type="text" id="ideaConcept" name="concept" required autoFocus 
                         placeholder="Joke concept"
                         onChange={handleControlledInputChange}
                         defaultValue={idea.concept} />
@@ -94,7 +94,7 @@ export const IdeaForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <div className="form-group">
-                    <Label htmlFor="note">Notes: </Label>
+                    <p htmlFor="note">Notes: </p>
                     <textarea type="text" id="ideaNote" name="note" required autoFocus className="form-control"
                         placeholder="Notes about the Joke"
                         onChange={handleControlledInputChange}
@@ -102,7 +102,7 @@ export const IdeaForm = (props) => {
                 </div>
             </Form.Field>
             <Form.Field>
-                Keep it to yourself? <input type="checkbox" name="hidden" value={idea.hidden} checked={idea.hidden}
+                Keep it to yourself? <Checkbox name="hidden" value={idea.hidden} checked={idea.hidden}
                     onChange={handleControlledInputChange} />
             </Form.Field>
             <Button

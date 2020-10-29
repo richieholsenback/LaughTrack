@@ -2,6 +2,7 @@ import React, { useContext, useEffect } from "react"
 import { Link, useHistory } from "react-router-dom"
 import { UserContext } from "../user/UserProvider"
 import "./performances/Journal.css"
+import "./ideas/Idea.css"
 import { JournalContext } from "./performances/JournalProvider"
 import { JournalCard } from "./performances/JournalCard"
 import { IdeaCard } from "./ideas/IdeaCard"
@@ -20,6 +21,16 @@ export const JournalHub = () => {
 
     const history = useHistory()
 
+    const journalShow = ((entry) => {
+        
+        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+            return null
+        } else {
+            return <JournalCard key={entry.id} journal={entry} />
+        }
+
+    })
+
     return (
         <>
         <div className="journals">
@@ -34,7 +45,7 @@ export const JournalHub = () => {
             <h3 class="journalSection">Joke Performances</h3>
             {
                 journals.map(journal => {
-                    return <JournalCard key={journal.id} journal={journal}  />
+                    return journalShow(journal) 
                 })
             }
         </div>
@@ -43,7 +54,7 @@ export const JournalHub = () => {
         <h3 class="journalSection">Joke Ideas</h3>
         {
             ideas.map(idea => {
-                return <IdeaCard key={idea.id} idea={idea}  />
+                return journalShow(idea)  
             })
         }
     </div>

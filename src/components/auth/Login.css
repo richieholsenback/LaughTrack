@@ -1,14 +1,6 @@
-/* img {
-    position: fixed;
-    left: -5em;
-    top: -5%;
-    width: 107%;
-    max-height: auto;
-    z-index: -1;
-} */
-
-.h1, h1 {
+.h1, h1, h2 {
     font-size: 2.5rem;
+    padding-left: 2em;
 }
 
 fieldset {
@@ -46,6 +38,12 @@ fieldset {
     transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
+.container--register{
+    position: absolute;
+    right: 0;
+    top: 20em;
+}
+
 .container--login {
     position: absolute;
     right: 0;
@@ -54,8 +52,7 @@ fieldset {
 
 .form--login {
     z-index: 1;
-    min-height: 25rem;
-    min-width: 45rem;
+    min-width: 40em;
     background-color: rgba(255, 255, 255, 0.742);
     background-blend-mode: overlay;
     background-repeat: no-repeat;
@@ -71,3 +68,6 @@ fieldset {
     min-height: 5rem;
 }
 
+#emailTitle{
+    margin-bottom: -0.1em;
+}

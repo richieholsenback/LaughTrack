@@ -1,7 +1,8 @@
 import React, { useRef } from "react";
 import { useHistory } from "react-router-dom";
-// import "./Login.css";
-import {Card, Button, Form} from 'semantic-ui-react'
+import "./Login.css";
+import { Card, Button, Form } from 'semantic-ui-react'
+import photo from "../../images/comedy-laughing-e1516163964662.jpg"
 
 export const Register = props => {
   const username = useRef();
@@ -45,49 +46,53 @@ export const Register = props => {
   };
 
   return (
-    <main style={{ textAlign: "left" }}>
-      <dialog className="dialog dialog--password" ref={conflictDialog}>
-        <div>Account with that email address already exists</div>
-        <button
-          className="button--close"
-          onClick={e => conflictDialog.current.close()}
-        >
-          Close
+    <>
+      <main style={{ textAlign: "left" }} className="container--register">
+        <dialog className="dialog dialog--password" ref={conflictDialog}>
+          <div>Account with that email address already exists</div>
+          <button
+            className="button--close"
+            onClick={e => conflictDialog.current.close()}
+          >
+            Close
         </button>
-      </dialog>
-      <Card>
-        <Card.Content>
-      <Form className="form--login" onSubmit={handleRegister}>
-        <h1 className="h3 mb-3 font-weight-normal"><Card.Header>
-          Become a Better Comedian</Card.Header>
-        </h1>
-        <Card.Content>
-          <div>
-          <label htmlFor="username">Create a Username </label>
-          <input
-            ref={username}
-            type="text"
-            name="username"
-            className="form-control"
-            placeholder="Username"
-            required
-            autoFocus
-          /></div>
-        <div>
-          <label htmlFor="inputEmail">Email Address </label>
-          <input
-            ref={email}
-            type="email"
-            name="email"
-            className="form-control"
-            placeholder="Email address"
-            required
-          /></div>
-        </Card.Content>
-          <Button type="submit"> Sign in </Button>
-        
-      </Form></Card.Content></Card>
-    </main>
-    
+        </dialog>
+        <section>
+          <Card.Content>
+            <Form className="form--login" onSubmit={handleRegister}>
+              <h1 className="h3 mb-3 font-weight-normal"><Card.Header>
+                Become a Better Comedian</Card.Header>
+              </h1>
+              <Card.Content>
+                <div>
+                  <label htmlFor="username">Create a Username </label>
+                  <input
+                    ref={username}
+                    type="text"
+                    name="username"
+                    className="form-control"
+                    placeholder="Username"
+                    required
+                    autoFocus
+                  /></div>
+                <div>
+                  <label htmlFor="inputEmail">Email Address </label>
+                  <input
+                    ref={email}
+                    type="email"
+                    name="email"
+                    className="form-control"
+                    placeholder="Email address"
+                    required
+                  /></div>
+              </Card.Content>
+              <Button type="submit"> Sign in </Button>
+
+            </Form>
+          </Card.Content>
+        </section>
+      </main>
+      <img id="imageBG" src={photo} alt="Crowd Laughing" width="100%"/>
+    </>
   );
 };

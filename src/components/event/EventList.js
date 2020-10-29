@@ -1,6 +1,6 @@
 import React, { useContext, useEffect } from "react"
 import { useHistory } from "react-router-dom"
-import { Grid } from "semantic-ui-react"
+import { Button, Grid } from "semantic-ui-react"
 import { EventCard } from "./EventCard"
 import { EventContext } from "./EventProvider"
 import "./Event.css";
@@ -16,7 +16,7 @@ export const EventList = () => {
 
     return (
         <div className="events">
-            <button type="button" onClick={() => history.push("/events/create")}>Add an event</button>
+            <Button type="button" onClick={() => history.push("/events/create")}>Add an event</Button>
             <Grid>
                 <Grid.Row className="eventGrid">
                     {

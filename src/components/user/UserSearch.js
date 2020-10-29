@@ -1,4 +1,5 @@
 import React, { useContext, useEffect } from "react"
+import { Input } from "semantic-ui-react"
 import { UserContext } from "./UserProvider"
 
 export const UserSearch = () => {
@@ -12,7 +13,7 @@ export const UserSearch = () => {
         <>
         <h2>Search for a follower</h2>
             User search:
-            <input type="text"
+            <Input type="text"
                 className="input--wide"
                 onKeyUp={
                     (keyEvent) => setSearchTerms(keyEvent.target.value)
