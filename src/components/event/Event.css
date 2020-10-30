@@ -1,3 +1,13 @@
 .eventAddButton {
-    margin: 4em 0;
+    margin: 4em 2em;
+
+}
+
+.cardDescrip{
+    display: flex;
+    justify-content: center;
+}
+
+.eventGridContainer{
+    margin-left: 2em;
 }

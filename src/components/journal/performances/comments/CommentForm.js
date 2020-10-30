@@ -73,6 +73,7 @@ export const CommentForm = (props) => {
                 <div className="form-group">
                     <TextArea type="text" id="commentText" name="text" required autoFocus className="form-control"
                         placeholder="Comment here..."
+                        style={{ minHeight: 100 }}
                         onChange={handleControlledInputChange}
                         defaultValue={comment.text} />
                 </div>

@@ -2,6 +2,7 @@ import React, { useContext} from "react"
 import { MessageContext } from "./MessageProvider"
 import { useHistory} from 'react-router-dom'
 import "./Message.css"
+import { Icon } from "semantic-ui-react"
 
 export const MessageCard = ({ message }) => {
     const history = useHistory()
@@ -18,7 +19,7 @@ export const MessageCard = ({ message }) => {
                                 .then(() => {
                                     history.push("/messages")
                                 })
-                        }}>Delete
+                        }}><Icon name="delete" />
                     </button>
                 </>
             )

@@ -5,14 +5,14 @@ import "./Event.css";
 
 export const EventCard = ({ event }) => (
     <Card className="eventCard">
-        <Image className="eventcardposter" src={event.poster} wrapped ui={false}/>
-        <h3 className="event__title">
+        <Image className="eventcardposter" src={event.poster} wrapped ui={false} />
+        <Card.Header className="event__title">
             <Link to={`/events/detail/${event.id}`}>
                 {event.name}
             </Link>
-        </h3>
-        <p className="eventCardDetail">
+        </Card.Header>
+        <Card.Meta className="eventCardDetail">
             {event.date}
-        </p>
+        </Card.Meta>
     </Card>
     )

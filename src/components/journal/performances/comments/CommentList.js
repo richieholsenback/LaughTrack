@@ -4,6 +4,7 @@ import { CommentCard } from './CommentCard'
 import { JournalContext} from '../JournalProvider'
 import { useParams } from "react-router-dom"
 import { Card } from "semantic-ui-react"
+import "./Comment.css"
 
 export const CommentList = () => {
     const {comments, getComments} = useContext(CommentContext)
@@ -25,13 +26,13 @@ export const CommentList = () => {
 
     return (
         <>
-        <Card className="commentSection">
+        <div className="commentSection">
             {
                 filteredComments.map(comment => {
                     return <CommentCard key={comment.id} comment={comment} />
                 })
             }
-        </Card>
+        </div>
         </>
     )
 }

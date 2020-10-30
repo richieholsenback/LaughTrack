@@ -1,0 +1,12 @@
+.userCard{
+    display: flex;
+    margin: 1em 2em;
+}
+
+.userSearch {
+    margin: 1em 2em;
+}
+
+.user__name{
+    margin-right: 1em;
+}

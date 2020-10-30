@@ -1,0 +1,17 @@
+.commentSection{
+    margin-bottom: 3em;
+}
+
+.journal{
+    margin-top: 2em;
+    padding-bottom: 1em;
+    border-bottom: solid rgb(231,217,201);
+    width: 50%;
+}
+
+@font-face {
+    font-family: 'Gravitica';
+    src: url(../../../Fonts/Gravitica/Gravitica-Rounded-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}

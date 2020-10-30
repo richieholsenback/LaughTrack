@@ -41,12 +41,11 @@
 
 .titles{
     position: fixed;
-    top: 25%;
-    left: 15%;
+    top: 30%;
+    left: 17%;
 }
 
 html body {
-    overflow: hidden;
     background-color: linear-gradient(45deg, rgba(49, 51, 73, 1) 0%, rgba(83, 90, 100, 1)100%);
       
   }

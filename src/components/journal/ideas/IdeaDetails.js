@@ -35,33 +35,37 @@ export const IdeaDetail = () => {
                                 .then(() => {
                                     history.push("/journals/ideas")
                                 })
-                        }}>Delete
+                        }}><Icon name="trash" />
                     </Button>
                     <Button onClick={() => {
                         history.push(`/journals/ideas/edit/${idea.id}`)
-                    }}>Edit
+                    }}><Icon name="edit" />
                     </Button>
                 </>
             )
     })
 
     return (
-        <>
-        <Card className="ideaEntry">
-            <Card.Content>
-                <h3 className="idea__concept">{idea.concept}</h3>
-                <p>By {users.username}</p>
-                <p><strong>Date</strong> - {idea.date}</p>
-                <p><strong>Note</strong> - {idea.note}</p>
-            </Card.Content>
-            <section className="buttons">
-                {buttonShow()}
+        <div>
+            <br></br>
+            <br></br>
+            <section className="ideaEntry">
+                <Card.Content>
+                    <h3 className="idea__concept">{idea.concept}</h3>
+                    <p>By {users.username}</p>
+                    <p><strong>Date</strong> - {idea.date}</p>
+                    <p><strong>Note</strong> - {idea.note}</p>
+                </Card.Content>
+                <br></br>
+                <section className="buttons">
+                    {buttonShow()}
+                </section>
             </section>
-        </Card>
-        <Card className="comments">
-            {IdeaCommentForm()}
-            {IdeaCommentList()}
-        </Card>
-        </>
+            <br></br>
+            <section className="comments">
+                {IdeaCommentForm()}
+                {IdeaCommentList()}
+            </section>
+        </div>
     )
 }

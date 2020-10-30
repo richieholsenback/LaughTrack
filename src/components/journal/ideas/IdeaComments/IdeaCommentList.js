@@ -3,6 +3,7 @@ import { IdeaCommentContext } from "./IdeaCommentProvider"
 import { IdeaCommentCard } from './IdeaCommentCard'
 import { IdeaContext} from '../IdeaProvider'
 import { useParams } from "react-router-dom"
+import "./IdeaComment.css"
 
 export const IdeaCommentList = () => {
     const {ideaComments, getIdeaComments} = useContext(IdeaCommentContext)
@@ -24,7 +25,6 @@ export const IdeaCommentList = () => {
 
     return (
         <>
-        {console.log(filteredIdeaComments)}
         {/* <h3>IdeaComments</h3> */}
         <div className="ideaCommentSection">
             {

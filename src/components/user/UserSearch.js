@@ -11,15 +11,16 @@ export const UserSearch = () => {
 
     return (
         <>
-        <h2>Search for a follower</h2>
-            User search:
+            <div className="userSearch">
+                <h2>Search for a user</h2>
             <Input type="text"
-                className="input--wide"
-                onKeyUp={
-                    (keyEvent) => setSearchTerms(keyEvent.target.value)
-                }
-                placeholder="Search for a user... " />
+                    className="input--wide"
+                    onKeyUp={
+                        (keyEvent) => setSearchTerms(keyEvent.target.value)
+                    }
+                    placeholder="Search for a user... " />
                 <h3>You should follow...</h3>
+            </div>
         </>
     )
 }

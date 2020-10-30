@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react"
 // import "./Idea.css"
 import { useHistory, useParams } from 'react-router-dom';
-import { Button, Checkbox, Form, Input} from "semantic-ui-react";
+import { Button, Checkbox, Form, Input, TextArea } from "semantic-ui-react";
 import { IdeaContext } from "./IdeaProvider";
 
 export const IdeaForm = (props) => {
@@ -84,22 +84,23 @@ export const IdeaForm = (props) => {
         <form className="ideaForm">
             <h2 className="ideaForm__title">New Idea</h2>
             <Form.Field>
-                <div className="form-group">
-                    <p htmlFor="concept">Joke Concept: </p>
-                    <Input type="text" id="ideaConcept" name="concept" required autoFocus 
-                        placeholder="Joke concept"
-                        onChange={handleControlledInputChange}
-                        defaultValue={idea.concept} />
-                </div>
+
+                <p htmlFor="concept">Joke Concept: </p>
+                <Input type="text" id="ideaConcept" name="concept" required autoFocus
+                    placeholder="Joke concept"
+                    onChange={handleControlledInputChange}
+                    defaultValue={idea.concept} />
+
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
-                    <p htmlFor="note">Notes: </p>
-                    <textarea type="text" id="ideaNote" name="note" required autoFocus className="form-control"
-                        placeholder="Notes about the Joke"
-                        onChange={handleControlledInputChange}
-                        defaultValue={idea.note} />
-                </div>
+
+                <p htmlFor="note">Notes: </p>
+                <TextArea type="text" id="ideaNote" name="note" required autoFocus className="form-control"
+                    placeholder="Notes about the Joke"
+                    style={{ minHeight: 100 }}
+                    onChange={handleControlledInputChange}
+                    defaultValue={idea.note} />
+
             </Form.Field>
             <Form.Field>
                 Keep it to yourself? <Checkbox name="hidden" value={idea.hidden} checked={idea.hidden}

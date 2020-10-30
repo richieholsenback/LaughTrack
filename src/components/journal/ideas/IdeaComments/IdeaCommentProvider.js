@@ -9,7 +9,7 @@ export const IdeaCommentProvider = (props) => {
     const [ideaComments, setIdeaComments] = useState([])
 
     const getIdeaComments = () => {
-        return fetch("http://localhost:8088/ideaComments?_expand=idea&_expand=user")
+        return fetch("http://localhost:8088/ideaComments?_expand=idea&_expand=user&_sort=date&_order=desc")
         .then(res => res.json())
         .then(setIdeaComments)
     }

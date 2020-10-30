@@ -9,36 +9,37 @@ export const NavBar = props => {
     const userId = parseInt(localStorage.getItem("active_user"))
     return (
         <>
+        
             <ul className="navbar">
                 <li className="navbar__item active">
                     <Link className="navbar__link" to="/">
-                    Laugh Track
+                    <h2>Laugh Track</h2>
                 </Link>
                 </li>
                 <div className="navSpacer"></div>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/messages">
-                        Messages
+                        <h4>Messages</h4>
                  </Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/journals">
-                        Journal
+                       <h4>Journal</h4>
                 </Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/events">
-                        Events
+                    <h4>Events</h4>
                 </Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/followers">
-                        Followers
+                    <h4>Followers</h4>
                 </Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to={`/followers/detail/${userId}`}>
-                        My Profile
+                    <h4>My Profile</h4>
                 </Link>
                 </li>
                 <div className="navSpacer"></div>
@@ -47,12 +48,12 @@ export const NavBar = props => {
                         localStorage.clear()
                     }}
                         to="/login">
-                        Logout
+                        <h4>Logout</h4>
                 </Link>
                 </li>
             </ul>
 
-            {/* <img id="headerBG" src={photo} width="100%" /> */}
+            <img id="headerBG" src={photo} width="100%" />
         </>
     );
 };

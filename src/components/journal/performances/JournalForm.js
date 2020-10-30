@@ -62,7 +62,7 @@ export const JournalForm = (props) => {
                 userNotes: journal.userNotes,
                 hidden: journal.hidden
             })
-                .then(() => history.push("journals"))
+                .then(() => history.push("/journals/performances"))
         }
     }
 
@@ -167,7 +167,6 @@ export const JournalForm = (props) => {
             options={crowdFeel}
             name="crowdApproval"
             onChange={handleControlledInputChange}
-
         />
     )
 
@@ -175,60 +174,60 @@ export const JournalForm = (props) => {
         <form className="journalForm">
             <h2 className="journalForm__title">New Journal</h2>
             <Form.Field>
-                <div className="form-group">
-                    <p htmlFor="concept">Joke Concept: </p>
+                
+                    <p className="JournalFormLabel" htmlFor="concept">Joke Concept: </p>
                     <Input type="text" id="journalConcept" name="concept" required autoFocus
                         placeholder="Journal concept"
                         onChange={handleControlledInputChange}
                         defaultValue={journal.concept} />
-                </div>
+                
             </Form.Field>
             <Form.Field inverted>
-                <div className="form-group">
-                    <p htmlFor="concept">Video of performance: </p>
+                
+                    <p className="JournalFormLabel" htmlFor="concept">Video of performance: </p>
                     <Input type="text" id="journalURL" name="url" required
                         placeholder="Link here"
                         onChange={handleControlledInputChange}
                         defaultValue={journal.url} />
-                </div>
+                
             </Form.Field>
             {/* <Form.Field>
-                <div className="form-group">
-                    <p htmlFor="entryType">Entry Type: </p>
+                
+                    <p className="JournalFormLabel" htmlFor="entryType">Entry Type: </p>
                     <Form.Field control='select' name="entryType">
                         <option value='Performance'>Performance</option>
                         <option value='jokeIdea'>Joke Idea</option>
                     </Form.Field>
-                </div>
+                
             </Form.Field> */}
             <Form.Field inverted>
-                <div className="form-group">
-                    <p htmlFor="date">Date Performed: </p>
+                
+                    <p className="JournalFormLabel" htmlFor="date">Date Performed: </p>
                     <Input type="date" name="date"
                         onChange={handleControlledInputChange}
                     ></Input>
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
-                    <p htmlFor="journalUserApproval">How did you feel about it? </p>
+                
+                    <p className="JournalFormLabel" htmlFor="journalUserApproval">How did you feel about it? </p>
                     {DropdownExampleSelection()}
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
-                    <p htmlFor="journalCrowdApproval">How did the crowd respond to it? </p>
+                
+                    <p className="JournalFormLabel" htmlFor="journalCrowdApproval">How did the crowd respond to it? </p>
                     {DropdownExampleSelection2()}
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
-                    <p htmlFor="userNotes">Notes: </p>
+                
+                    <p className="JournalFormLabel" htmlFor="userNotes">Notes: </p>
                     <TextArea type="text" id="journalConcept" name="userNotes" required autoFocus
                         placeholder="Notes about the Joke"
                         onChange={handleControlledInputChange}
                         defaultValue={journal.userNotes} />
-                </div>
+                
             </Form.Field>
             <Form.Field>
                 Keep it to yourself? <Checkbox name="hidden" value={journal.hidden} checked={journal.hidden}

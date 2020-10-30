@@ -70,15 +70,13 @@ export const IdeaCommentForm = (props) => {
 
     return (
         <Form className="ideaCommentForm">
-            <h3 className="ideaCommentForm__title">IdeaComments</h3>
+            <h3 className="ideaCommentForm__title">Comments</h3>
             <Form.Field>
-                <div className="form-group">
-                    <Label htmlFor="text">IdeaComment:</Label>
-                    <TextArea type="text" id="ideaCommentText" name="text" required autoFocus className="form-control"
-                        placeholder="IdeaComment here..."
+                    <TextArea type="text" id="ideaCommentText" name="text" required autoFocus
+                        placeholder="Comment here..."
+                        style={{ minHeight: 100 }}
                         onChange={handleControlledInputChange}
                         defaultValue={ideaComment.text} />
-                </div>
             </Form.Field>
             <Button
                 type="submit"
@@ -88,7 +86,7 @@ export const IdeaCommentForm = (props) => {
                     event.preventDefault()
                     constructIdeaCommentObject()
                 }}>
-                {ideaCommentId ? <>Save IdeaComment</> : <>Add IdeaComment</>}</Button>
+                {ideaCommentId ? <>Save IdeaComment</> : <>Submit</>}</Button>
         </Form>
     )
 }

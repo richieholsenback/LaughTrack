@@ -15,7 +15,7 @@
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 0.5em;
-    border-bottom: solid rgba(0, 0, 0, 0.221);
+    border-bottom: solid rgba(231,217,201,0.25);
 }
 
 
@@ -25,7 +25,7 @@ fieldset {
 
 .message__date {
     font-size: smaller;
-    color: rgba(70, 70, 70, 0.605);
+    color: rgba(225, 186, 179, 0.75);
 }
 
 .messagesWindow {

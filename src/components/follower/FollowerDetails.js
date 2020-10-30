@@ -55,7 +55,7 @@ export const FollowerDetails = () => {
             {console.log("Whoop!", filteredJournals)} */}
 
             <div className="journals">
-                <h4>Journal Entries</h4>
+                <h2>Journal Entries</h2>
                 {
                     filteredJournals.map(journal => {
                         return <JournalCard key={journal.id} journal={journal} />
@@ -63,7 +63,7 @@ export const FollowerDetails = () => {
                 }
             </div>
             <div className="journals">
-                <h4>Joke Ideas</h4>
+                <h2>Joke Ideas</h2>
                 {
                     filteredIdeas.map(idea => {
                         return <IdeaCard key={idea.id} idea={idea} />
@@ -71,7 +71,7 @@ export const FollowerDetails = () => {
                 }
             </div>
             <div className="events">
-                <h4>Created Events</h4>
+                <h2>Created Events</h2>
                 <div>
                     {
                         filteredEvents.map(event => {

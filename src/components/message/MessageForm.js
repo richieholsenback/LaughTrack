@@ -92,7 +92,7 @@ export const MessageForm = (props) => {
                             defaultValue=""
                         />
                         <br></br>
-                        <Button primary type="submit"
+                        <Button type="submit"
                             // disabled={isLoading} herererer
                             onClick={event => {
                                 event.preventDefault() // Prevent browser from submitting the form

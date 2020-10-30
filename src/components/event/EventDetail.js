@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react"
 import { EventContext } from "./EventProvider"
 import "./Event.css"
 import { useParams, useHistory } from "react-router-dom"
-import { Button, Icon, Image } from "semantic-ui-react"
+import { Button, Card, Icon, Image } from "semantic-ui-react"
 
 export const EventDetail = () => {
     const { getEventById, deleteEvent } = useContext(EventContext)
@@ -42,20 +42,23 @@ export const EventDetail = () => {
     })
 
     return (
-        <section className="event">
-            <Image src={event.poster} />
-            <h3 className="event__name">{event.name}</h3>
-            <p>Hosted by {user.username}</p>
-            <p>{event.date}</p>
-            <p>{event.location}</p>
-            <p>{event.address}</p>
-            <p>{event.city}</p>
-            <p>{event.state}</p>
-            <p>{event.zip}</p>
-            <p>{event.description}</p>
-            <section className="buttons">
-                {buttonShow()}
-            </section>
-        </section>
+        <div className="cardDescrip">
+            <Card className="event">
+                <Image src={event.poster} wrapped ui={false} />
+                <Card.Content>
+                    <Card.Header className="event__name">{event.name}</Card.Header>
+                    <Card.Description>Hosted by {user.username}</Card.Description>
+                    <Card.Meta>{event.date}</Card.Meta>
+                    <Card.Description>{event.location}</Card.Description>
+                    <Card.Description>{event.address}</Card.Description>
+                    <Card.Description>{event.city}, {event.state} {event.zip}</Card.Description>
+                    <br></br>
+                    <Card.Description>{event.description}</Card.Description>
+                </Card.Content>
+                <section className="buttons">
+                    {buttonShow()}
+                </section>
+            </Card>
+        </div>
     )
 }

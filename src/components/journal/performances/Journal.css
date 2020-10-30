@@ -38,6 +38,7 @@ a:hover {
 .journals {
     padding-left: 2em;
     padding-bottom: 2em;
+    margin-top: 4em;
 }
 
 .journal {
@@ -94,12 +95,33 @@ a:hover {
 }
 
 /* Details */
-Card {
+/* Card {
     width: 75%;
+} */
+
+.wholeJournalEntry{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    margin-left: 2em;
+    margin-top: 4em;
 }
 
 /* Form */
 
 .form-control {
     padding: none;
+}
+
+.journalForm{
+    margin-top: 3em;
+    margin-left: 2em;
+}
+
+.field{
+    margin-top: 1em;
+}
+
+.JournalFormLabel{
+    margin-bottom: -0.001em;
 }
