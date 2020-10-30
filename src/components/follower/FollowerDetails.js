@@ -29,25 +29,45 @@ export const FollowerDetails = () => {
     // console.log(followingId)
 
     useEffect(() => {
-        
+
         let newFilteredEvents = events.filter(event => event.userId === +followingId)
-        
+
         setFilteredEvents(newFilteredEvents)
     }, [events])
 
     useEffect(() => {
-        
+
         let newFilteredIdeas = ideas.filter(idea => idea.userId === +followingId)
-        
+
         setFilteredIdeas(newFilteredIdeas)
     }, [ideas])
 
     useEffect(() => {
-        
+
         let newFilteredJournals = journals.filter(journal => journal.userId === +followingId)
-        
+
         setFilteredJournals(newFilteredJournals)
     }, [journals])
+
+    const journalIdeaShow = ((entry) => {
+        
+        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+            return null
+        } else {
+            return <IdeaCard key={entry.id} idea={entry} />
+        }
+
+    })
+
+    const journalPerformanceShow = ((entry) => {
+
+        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))) {
+            return null
+        } else {
+            return <JournalCard key={entry.id} journal={entry} />
+        }
+
+    })
 
     return (
         <>
@@ -56,28 +76,35 @@ export const FollowerDetails = () => {
 
             <div className="journals">
                 <h2>Journal Entries</h2>
+                <div className="detailsindiv">
                 {
-                    filteredJournals.map(journal => {
-                        return <JournalCard key={journal.id} journal={journal} />
-                    })
+                filteredJournals.map(journal => {
+                    return journalPerformanceShow(journal)
                 }
+                )
+            }
+                </div>
             </div>
             <div className="journals">
                 <h2>Joke Ideas</h2>
+                <div className="detailsindiv">
                 {
-                    filteredIdeas.map(idea => {
-                        return <IdeaCard key={idea.id} idea={idea} />
-                    })
-                }
+                filteredIdeas.map(idea => {
+                    return journalIdeaShow(idea)
+                })
+            }
+                </div>
             </div>
             <div className="events">
                 <h2>Created Events</h2>
                 <div>
-                    {
-                        filteredEvents.map(event => {
-                            return <EventCard key={event.id} event={event} user={event.user.username} />
-                        })
-                    }
+                    <div className="detailsindiv">
+                        {
+                            filteredEvents.map(event => {
+                                return <EventCard key={event.id} event={event} user={event.user.username} />
+                            })
+                        }
+                    </div>
                 </div>
             </div>
         </>

@@ -95,9 +95,9 @@ export const Register = props => {
 
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
-          <Header as='h2' color='teal' textAlign='center'>
+          <h1 color='teal' textAlign='center'>
             Laugh Track
-                    </Header>
+                    </h1>
           <dialog className="dialog dialog--password" ref={conflictDialog}>
             <div>Account with that email address already exists</div>
             <button

@@ -36,9 +36,9 @@ export const Login = props => {
         <>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <Header as='h2' color='teal' textAlign='center'>
+                    <h1 as='h2' color="green" textAlign='center'>
                         Laugh Track
-                    </Header>
+                    </h1>
                     <section className="container--login">
                         <dialog className="dialog dialog--auth" ref={existDialog}>
                             <div>User does not exist</div>
@@ -71,7 +71,7 @@ export const Login = props => {
                         </Segment>
                     </Form>
                     <Message>
-                        New to us? <Link to="/register">Sign Up</Link>
+                        New around here? <Link to="/register">Sign Up</Link>
                     </Message>
                 </Grid.Column>
             </Grid>

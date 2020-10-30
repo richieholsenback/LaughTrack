@@ -9,3 +9,7 @@
 .ideaForm{
     margin-top: 3em
 }
+
+.ideaComment__date{
+    opacity: 75%;
+}

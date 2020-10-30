@@ -12,17 +12,16 @@ export const JournalSearch = () => {
 
     return (
         <>
-        <p>
+            <div className="journSearch">
                 <Link to={"/journals"}>
-                    Back
+                    <h3>Back</h3>
                 </Link>
-            </p>
-            Journal search:
-            <Input icon='search' placeholder='Search...' type="text"
-                className="input--wide"
-                onKeyUp={
-                    (keyEvent) => setSearchTerms(keyEvent.target.value)
-                }/>
+                <Input icon='search' placeholder='Search...' type="text"
+                    className="input--wide"
+                    onKeyUp={
+                        (keyEvent) => setSearchTerms(keyEvent.target.value)
+                    } />
+            </div>
         </>
     )
 }

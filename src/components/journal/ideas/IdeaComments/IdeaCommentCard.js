@@ -1,9 +1,9 @@
 import React from "react"
+import "./IdeaComment.css"
 
 export const IdeaCommentCard = ({ ideaComment }) => (
     <section className="journal">
-        <p className="ideaComment__user">{ideaComment.user.username}</p>
-        <p className="ideaComment__text">{ideaComment.text}</p>
+        <div className="ideaComment__user"><strong>{ideaComment.user.username}</strong> - <em>{ideaComment.text}</em></div>
         <p className="ideaComment__date">{ideaComment.date}</p>
     </section>
 )

@@ -9,9 +9,9 @@ export const JournalList = () => {
     // This state changes when `getJournals()` is invoked below
     const { journals, getJournals, searchTerms } = useContext(JournalContext)
 
-    const [ filteredJournals, setFiltered ] = useState([])
+    const [filteredJournals, setFiltered] = useState([])
     const [journal, setJournal] = useState({})
-    
+
 
     //useEffect - reach out to the world for something
     useEffect(() => {
@@ -32,10 +32,10 @@ export const JournalList = () => {
 
     const history = useHistory()
 
-    
+
     const journalShow = ((entry) => {
-        
-        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+
+        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))) {
             return null
         } else {
             return <JournalCard key={entry.id} journal={entry} />
@@ -43,18 +43,17 @@ export const JournalList = () => {
 
     })
 
-    
+
 
     return (
         <div className="journals">
-            Here we are
             <Button type="button" onClick={() => history.push("/journals/create")}>New Entry</Button>
-           {
-            filteredJournals.map(journal => {
-       return journalShow(journal)
-    }
-    )
-}
-    </div>
+            {
+                filteredJournals.map(journal => {
+                    return journalShow(journal)
+                }
+                )
+            }
+        </div>
     )
 }

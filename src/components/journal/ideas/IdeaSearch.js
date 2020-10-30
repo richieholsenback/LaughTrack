@@ -12,18 +12,20 @@ export const IdeaSearch = () => {
 
     return (
         <>
-        <p>
-                <Link to={"/journals"}>
-                    Back
+            <div className="ideasearch">
+                <h3>
+                    <Link to={"/journals"}>
+                        Back
                 </Link>
-            </p>
-            Idea search:
-            <Input icon='search' placeholder='Search...' type="text"
-                className="input--wide"
-                onKeyUp={
-                    (keyEvent) => setSearchTerms(keyEvent.target.value)
-                }
-                placeholder="Search for an idea... " />
+                </h3>
+
+                <Input icon='search' placeholder='Search...' type="text"
+                    className="input--wide"
+                    onKeyUp={
+                        (keyEvent) => setSearchTerms(keyEvent.target.value)
+                    }
+                    placeholder="Search for an idea... " />
+            </div>
         </>
     )
 }

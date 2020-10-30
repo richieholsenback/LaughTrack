@@ -86,7 +86,7 @@ export const IdeaForm = (props) => {
             <Form.Field>
 
                 <p htmlFor="concept">Joke Concept: </p>
-                <Input type="text" id="ideaConcept" name="concept" required autoFocus
+                <Input type="text" id="ideaConcept" name="concept" autocomplete="off" required autoFocus
                     placeholder="Joke concept"
                     onChange={handleControlledInputChange}
                     defaultValue={idea.concept} />
