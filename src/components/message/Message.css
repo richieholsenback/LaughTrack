@@ -1,5 +1,23 @@
-.message {
-    
+@font-face {
+    font-family: 'GravReg';
+    src: url(../Fonts/Gravitica/Gravitica-Rounded-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'GravLight';
+    src: url(../Fonts/Gravitica/Gravitica-Rounded-Light.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+.message{
+    font-family: "GravReg";
+}
+
+.message__date{
+    font-family: "GravLight";
 }
 
 #sectionMessageHeader {

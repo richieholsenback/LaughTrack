@@ -46,9 +46,9 @@ export const JournalHub = () => {
         <div className="journals">
             <div className="journalSelect">
                 <div class="spacer"></div>
-                <Link to="/journals/performances">Performances</Link>
+                <Link to="/journals/performances" className="journalLinkText">Performances</Link>
                 <br></br>
-                <Link to="/journals/ideas">Ideas</Link>
+                <Link to="/journals/ideas" className="journalLinkText">Ideas</Link>
                 <div class="spacer"></div>
             </div>
             <br></br>

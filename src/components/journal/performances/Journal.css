@@ -1,3 +1,16 @@
+@font-face {
+    font-family: 'Grav';
+    src: url(../../Fonts/Gravitica/Gravitica-Rounded-Extra-Light.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'GravLight';
+    src: url(../../Fonts/Gravitica/Gravitica-Rounded-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
 
 fieldset {
     border: none;
@@ -29,6 +42,11 @@ a:hover {
     font-weight: 200;
     font-size: 36px;
     margin-bottom: -0.25em;
+}
+
+.journalLinkText{
+    font-family: 'GravLight';
+    border-bottom: solid 1px;
 }
 
 .journalEntry {
@@ -81,19 +99,6 @@ a:hover {
     font-size: 18px;
 }
 
-@font-face {
-    font-family: 'SecretSociety';
-    src: url(../../Fonts/Gravitica/Gravitica-Rounded-Light.ttf);
-    font-style: normal;
-    font-weight: 100;
-}
-
-@font-face {
-    font-family: 'Gravitica';
-    src: url(../../Fonts/Gravitica/Gravitica-Rounded-Extra-Light.ttf);
-    font-style: normal;
-    font-weight: 100;
-}
 
 /* Details */
 /* Card {
@@ -111,6 +116,7 @@ a:hover {
     margin-bottom: 4em;
     width: 46.7%;
     height: auto;
+    font-family: "Grav";
 }
 
 /* Form */
