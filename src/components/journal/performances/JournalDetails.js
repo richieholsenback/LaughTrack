@@ -48,27 +48,27 @@ export const JournalDetail = () => {
 
     return (
         <>
-            <div className="wholeJournalEntry">
-                <div fluid className="journalEntryDetail">
-                    <Card.Content>
+            <div className="cardContainer">
+                <Card fluid>
+                    <Card.Content fluid >
                         <ReactPlayer
                             url={journal.url} />
                         <br></br>
-                        <Card.Header className="journal__name">{journal.concept}</Card.Header>
+                        <Card.Header >{journal.concept}</Card.Header>
                         <Card.Meta>By {users.username}</Card.Meta>
                         <Card.Description><strong>Date Performed</strong> - {journal.date}</Card.Description>
                         <Card.Description><strong>How did I think it went</strong> - {journal.userApproval}</Card.Description>
                         <Card.Description><strong>How did the crowd react</strong> - {journal.crowdApproval}</Card.Description>
                         <Card.Description><strong>Notes about the performance</strong> - {journal.userNotes}</Card.Description>
+                        <Card.Content>
+                            {buttonShow()}
+                        </Card.Content>
+                        <Card.Content >
+                            {CommentForm()}
+                            {CommentList()}
+                        </Card.Content>
                     </Card.Content>
-                    <section className="buttons">
-                        {buttonShow()}
-                    </section>
-                </div>
-                <section className="comments">
-                    {CommentForm()}
-                    {CommentList()}
-                </section>
+                </Card>
             </div>
         </>
     )

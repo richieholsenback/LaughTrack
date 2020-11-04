@@ -45,9 +45,16 @@ export const FollowerProvider = props => {
             .then(res => res.json())
     }
 
+    const unfollow = id => {
+        return fetch(`http://localhost:8088/followers/${id}?_expand=user`, {
+            method: "DELETE"
+        })
+            .then(getFollowers)
+    }
+
     return (
         <FollowerContext.Provider value={{
-            followers, searchTerms, getFollowers, addFollower, getFollowerById, getFollowersForList, getAllFollowers, setSearchTerms
+            followers, searchTerms, getFollowers, addFollower, getFollowerById, getFollowersForList, getAllFollowers, setSearchTerms, unfollow
         }}>
             {props.children}
         </FollowerContext.Provider>

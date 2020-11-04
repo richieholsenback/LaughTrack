@@ -78,8 +78,6 @@ export const IdeaForm = (props) => {
     }
 
 
-
-
     return (
         <form className="ideaForm">
             <h2 className="ideaForm__title">New Idea</h2>
