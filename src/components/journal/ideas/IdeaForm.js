@@ -84,23 +84,19 @@ export const IdeaForm = (props) => {
         <form className="ideaForm">
             <h2 className="ideaForm__title">New Idea</h2>
             <Form.Field>
-
                 <p htmlFor="concept">Joke Concept: </p>
                 <Input type="text" id="ideaConcept" name="concept" autocomplete="off" required autoFocus
                     placeholder="Joke concept"
                     onChange={handleControlledInputChange}
                     defaultValue={idea.concept} />
-
             </Form.Field>
             <Form.Field>
-
                 <p htmlFor="note">Notes: </p>
                 <TextArea type="text" id="ideaNote" name="note" required autoFocus className="form-control"
                     placeholder="Notes about the Joke"
                     style={{ minHeight: 100 }}
                     onChange={handleControlledInputChange}
                     defaultValue={idea.note} />
-
             </Form.Field>
             <Form.Field>
                 Keep it to yourself? <Checkbox name="hidden" value={idea.hidden} checked={idea.hidden}
