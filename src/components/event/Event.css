@@ -3,15 +3,14 @@
 
 }
 
-.cardDescrip{
-    display: flex;
-    justify-content: center;
-}
-
 .eventGridContainer{
     margin-left: 2em;
 }
 .events {
     margin-left: 2em;
     margin-top: 4em;
+}
+
+.event__title{
+    margin-left: -1em;
 }
