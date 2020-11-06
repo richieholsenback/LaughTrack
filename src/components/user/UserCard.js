@@ -35,7 +35,7 @@ export const UserCard = ({ user }) => {
                         addFollowerObj(user.id)
                         refreshPage()
                     }
-                    } ><Icon name="add user" /></Button>
+                    } ><Icon name="add user" /> Follow</Button>
                 <Card.Header>
                     <h3 className="user__name">
                         {user.username} </h3>

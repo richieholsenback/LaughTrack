@@ -41,6 +41,18 @@ export const JournalHub = () => {
 
     })
 
+    const myJokePerformances = journals.filter(performance => {
+        if (performance.userId === parseInt(localStorage.getItem("active_user"))){
+        return performance
+    }
+    })
+
+    const myJokeIdeas = ideas.filter(idea => {
+        if (idea.userId === parseInt(localStorage.getItem("active_user"))){
+            return idea
+        }
+    })
+
     return (
         <>
         <div className="journals">
@@ -54,7 +66,7 @@ export const JournalHub = () => {
             <br></br>
             <h3 class="journalSection">Joke Performances</h3>
             {
-                journals.map(journal => {
+                myJokePerformances.map(journal => {
                     return journalShow(journal) 
                 })
             }
@@ -63,7 +75,7 @@ export const JournalHub = () => {
         {/* {console.log("IdeaList: Render")} */}
         <h3 class="journalSection">Joke Ideas</h3>
         {
-            ideas.map(idea => {
+            myJokeIdeas.map(idea => {
                 return ideaShow(idea)  
             })
         }

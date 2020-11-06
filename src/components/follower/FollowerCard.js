@@ -19,18 +19,18 @@ export const FollowerCard = ({ follower }) => {
         if (follower.followedById === parseInt(localStorage.getItem("active_user")))
             return (
                 <>
-                    <Button 
-                    compact
-                    type="submit"
-                    className="btn_btn-primary" 
-                    onClick={
-                        () => {
-                            unfollow(follower.id)
-                                .then(() => {
-                                    history.push("/followers")
-                                    refreshPage()
-                                })
-                        }}><Icon name="remove user" />
+                    <Button
+                        compact
+                        type="submit"
+                        className="btn_btn-primary"
+                        onClick={
+                            () => {
+                                unfollow(follower.id)
+                                    .then(() => {
+                                        history.push("/followers")
+                                        refreshPage()
+                                    })
+                            }}><Icon name="remove user" /> Unfollow
                     </Button>
                 </>
             )
@@ -40,9 +40,11 @@ export const FollowerCard = ({ follower }) => {
         <div className="followListings">
             {buttonShow()}
             <Card.Header>
-            <h3 className="follower">
-                <Link to={`/followers/detail/${follower.userId}`}> <h3 className="follower__name">{follower.user.username}</h3></Link>
-            </h3>
+                <h3 className="follower">
+                    <Link to={`/followers/detail/${follower.userId}`}>
+                        <h3 className="follower__name">{follower.user.username}</h3>
+                    </Link>
+                </h3>
             </Card.Header>
         </div>
     )

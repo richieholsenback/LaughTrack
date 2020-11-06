@@ -46,4 +46,6 @@ html body {
 
 a{
   color: rgb(97, 56, 66);
+  font-family: 'Grav';
+  font-weight: 100;
 }
