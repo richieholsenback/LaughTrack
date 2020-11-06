@@ -15,6 +15,13 @@ export const JournalProvider = (props) => {
         .then(setJournals)
     }
 
+    const getMyJournals = () => {
+        const activeUser = parseInt(localStorage.getItem("active_user"))
+        return fetch(`http://localhost:8088/journals/?userId=${activeUser}&_expand=user`)
+        .then(res => res.json())
+        .then(setJournals)
+    }
+
     const addJournal = journalObj => {
         return fetch("http://localhost:8088/journals", {
             method: "POST",
@@ -60,7 +67,7 @@ export const JournalProvider = (props) => {
     */
     return (
         <JournalContext.Provider value={{
-            journals, searchTerms, getJournals, addJournal, getJournalById, deleteJournal, updateJournal, setSearchTerms
+            journals, searchTerms, getJournals, getMyJournals, addJournal, getJournalById, deleteJournal, updateJournal, setSearchTerms
         }}>
             {props.children}
         </JournalContext.Provider>

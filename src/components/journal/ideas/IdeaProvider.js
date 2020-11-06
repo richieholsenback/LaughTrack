@@ -15,6 +15,16 @@ export const IdeaProvider = (props) => {
         .then(setIdeas)
     }
 
+
+
+    const getMyIdeas = () => {
+        const activeUser = parseInt(localStorage.getItem("active_user"))
+        return fetch(`http://localhost:8088/ideas/?userId=${activeUser}&_expand=user`)
+        .then(res => res.json())
+        .then(setIdeas)
+    }
+
+
     const addIdea = Obj => {
         return fetch("http://localhost:8088/ideas", {
             method: "POST",
@@ -60,7 +70,7 @@ export const IdeaProvider = (props) => {
     */
     return (
         <IdeaContext.Provider value={{
-            ideas, searchTerms, getIdeas, addIdea, getIdeaById, deleteIdea, updateIdea, setSearchTerms
+            ideas, searchTerms, getIdeas, getMyIdeas, addIdea, getIdeaById, deleteIdea, updateIdea, setSearchTerms
         }}>
             {props.children}
         </IdeaContext.Provider>

@@ -7,12 +7,12 @@ import { IdeaContext } from "./IdeaProvider"
 
 export const IdeaList = () => {
     // This state changes when `getAnimals()` is invoked below
-    const { ideas, getIdeas, searchTerms } = useContext(IdeaContext)
+    const { ideas, getMyIdeas, searchTerms } = useContext(IdeaContext)
     const [ filteredIdeas, setFiltered ] = useState([])
 
     //useEffect - reach out to the world for something
     useEffect(() => {
-        getIdeas()
+        getMyIdeas()
 
     }, [])
 

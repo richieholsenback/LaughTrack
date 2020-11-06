@@ -3,6 +3,11 @@
 
 }
 
+.cardDescrip{
+    display: flex;
+    justify-content: center;
+}
+
 .eventGridContainer{
     margin-left: 2em;
 }

@@ -6,8 +6,8 @@ import { JournalContext } from "./JournalProvider"
 import { Button } from "semantic-ui-react"
 
 export const JournalList = () => {
-    // This state changes when `getJournals()` is invoked below
-    const { journals, getJournals, searchTerms } = useContext(JournalContext)
+    // This state changes when `getMyJournals()` is invoked below
+    const { journals, getMyJournals, searchTerms } = useContext(JournalContext)
 
     const [filteredJournals, setFiltered] = useState([])
     const [journal, setJournal] = useState({})
@@ -15,7 +15,7 @@ export const JournalList = () => {
 
     //useEffect - reach out to the world for something
     useEffect(() => {
-        getJournals()
+        getMyJournals()
 
     }, [])
 
