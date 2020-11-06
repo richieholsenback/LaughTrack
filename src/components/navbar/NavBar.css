@@ -1,16 +1,3 @@
-@font-face {
-    font-family: 'SecretSociety';
-    src: url(../Fonts/Gravitica/Gravitica-Rounded-Bold.ttf);
-    font-style: normal;
-    font-weight: 100;
-}
-
-@font-face {
-    font-family: 'GraviticaReg';
-    src: url(../Fonts/Gravitica/Gravitica-Rounded-DemiBold.ttf);
-    font-style: normal;
-    font-weight: 100;
-}
 .navbar {
     display: flex;
     flex-wrap: nowrap;
@@ -19,7 +6,7 @@
 }
 
 .navtext{
-    font-family: 'GraviticaReg';
+    font-family: 'Grav';
     font-weight: 100;
 }
 .navbar__item {

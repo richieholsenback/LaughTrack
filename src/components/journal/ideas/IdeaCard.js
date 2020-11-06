@@ -1,5 +1,6 @@
 import React from "react"
 import { Link } from "react-router-dom"
+import "./Idea.css"
 
 export const IdeaCard = ({ idea }) => (
     <section className="journal">

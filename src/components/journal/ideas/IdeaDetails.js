@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useState } from "react"
-// import "./Idea.css"
+import "./Idea.css"
 import { useParams, useHistory } from "react-router-dom"
 import { Button, Card, Icon } from "semantic-ui-react"
 import { IdeaContext } from "./IdeaProvider"
@@ -51,10 +51,10 @@ export const IdeaDetail = () => {
             <br></br>
             <section className="ideaEntry">
                 <Card.Content>
-                    <h3 className="idea__concept">{idea.concept}</h3>
-                    <p>By {users.username}</p>
-                    <p><strong>Date</strong> - {idea.date}</p>
-                    <p><strong>Note</strong> - {idea.note}</p>
+                    <p className="idea__concept">{idea.concept}</p>
+                    <p className="idea__content">By {users.username}</p>
+                    <p className="idea__content"><strong>Date</strong> - {idea.date}</p>
+                    <p className="idea__content"><strong>Note</strong> - {idea.note}</p>
                 </Card.Content>
                 <br></br>
                 <section className="buttons">

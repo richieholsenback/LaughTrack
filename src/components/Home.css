@@ -1,14 +1,43 @@
 @font-face {
-    font-family: 'SecretSociety';
+    font-family: 'GravDemi';
     src: url(Fonts/Gravitica/Gravitica-Rounded-DemiBold.ttf);
     font-style: normal;
     font-weight: 100;
 }
+
+@font-face {
+    font-family: 'Grav';
+    src: url(./Fonts/Gravitica/Gravitica-Rounded-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'GravLight';
+    src: url(./Fonts/Gravitica/Gravitica-Rounded-Regular.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'GravRound';
+    src: url(./Fonts/Gravitica/Gravitica-Rounded-Light.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
+@font-face {
+    font-family: 'GravBold';
+    src: url(./Fonts/Gravitica/Gravitica-Rounded-Bold.ttf);
+    font-style: normal;
+    font-weight: 100;
+}
+
 #headline {
     color: white;
     font-size: 170px;
     text-shadow: 3px 3px rgba(0, 0, 0, 0.235);
-    font-family: 'SecretSociety';
+    font-family: 'GravDemi';
     font-weight: 100;
     text-align: center;
     margin: 0 auto;

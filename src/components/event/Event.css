@@ -19,3 +19,7 @@
 .event__title{
     margin-left: -1em;
 }
+
+.event__date{
+    color: black;
+}

@@ -1,17 +1,3 @@
-@font-face {
-    font-family: 'Grav';
-    src: url(../../Fonts/Gravitica/Gravitica-Rounded-Extra-Light.ttf);
-    font-style: normal;
-    font-weight: 100;
-}
-
-@font-face {
-    font-family: 'GravLight';
-    src: url(../../Fonts/Gravitica/Gravitica-Rounded-Regular.ttf);
-    font-style: normal;
-    font-weight: 100;
-}
-
 fieldset {
     border: none;
 }
