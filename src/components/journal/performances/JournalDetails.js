@@ -49,12 +49,12 @@ export const JournalDetail = () => {
     return (
         <>
             <div className="cardContainer">
-                <Card fluid>
+                <Card fluid width="100%">
                     <Card.Content fluid >
                         <ReactPlayer
-                            url={journal.url} />
+                            url={journal.url} width="100%"/>
                         <br></br>
-                        <Card.Header >{journal.concept}</Card.Header>
+                        <h3 className="PerformanceHeadline">{journal.concept}</h3>
                         <Card.Meta>By {users.username}</Card.Meta>
                         <Card.Description><strong>Date Performed</strong> - {journal.date}</Card.Description>
                         <Card.Description><strong>How did I think it went</strong> - {journal.userApproval}</Card.Description>

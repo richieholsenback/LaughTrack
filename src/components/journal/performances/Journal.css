@@ -105,6 +105,10 @@ a:hover {
     font-family: "Grav";
 }
 
+.PerformanceHeadline{
+    color: black;
+}
+
 /* Form */
 
 .form-control {

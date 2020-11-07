@@ -13,9 +13,9 @@ export const EventForm = (props) => {
     const { eventId } = useParams();
     const history = useHistory();
 
-    const handleControlledInputChange = (event) => {
+    const handleControlledInputChange = (eventObj) => {
         const newEvent = { ...event }
-        newEvent[event.target.name] = event.target.value
+        newEvent[eventObj.target.name] = eventObj.target.value
         setEvent(newEvent)
     }
 
@@ -62,7 +62,7 @@ export const EventForm = (props) => {
                 userId: userId, 
                 poster: event.poster
             })
-                .then(() => history.push("events"))
+                .then(() => history.push("/events"))
         }
     }
 
@@ -73,7 +73,7 @@ export const EventForm = (props) => {
         <form className="eventForm">
             <h2 className="eventForm__title">New Event</h2>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="name">Event name: </p>
                     <Input
                         type="text"
@@ -86,10 +86,10 @@ export const EventForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={event.name}
                     />
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="date">Date: </p>
                     <Input
                         type="date"
@@ -100,10 +100,10 @@ export const EventForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={event.date}
                     />
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="location">Name of venue: </p>
                     <Input
                         type="text"
@@ -115,10 +115,10 @@ export const EventForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={event.location}
                     />
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="address">Street address of venue: </p>
                     <Input
                         type="text"
@@ -130,10 +130,10 @@ export const EventForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={event.address}
                     />
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="city">City: </p>
                     <Input
                         type="text"
@@ -145,10 +145,10 @@ export const EventForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={event.city}
                     />
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="state">State: </p>
                     <Input
                         type="text"
@@ -160,10 +160,10 @@ export const EventForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={event.state}
                     />
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="zip">Zip code: </p>
                     <Input
                         type="text"
@@ -175,25 +175,10 @@ export const EventForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={event.zip}
                     />
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
-                    <p htmlFor="description">Description of your event: </p>
-                    <TextArea
-                        type="text"
-                        id="eventDescription"
-                        name="description"
-                        required
-                        
-                        placeholder="Description"
-                        onChange={handleControlledInputChange}
-                        defaultValue={event.description}
-                    />
-                </div>
-            </Form.Field>
-            <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="poster">Poster for your event: </p>
                     <Input
                         type="text"
@@ -205,7 +190,22 @@ export const EventForm = (props) => {
                         onChange={handleControlledInputChange}
                         defaultValue={event.poster}
                     />
-                </div>
+                
+            </Form.Field>
+            <Form.Field>
+                
+                    <p htmlFor="description">Description of your event: </p>
+                    <TextArea
+                        type="text"
+                        id="eventDescription"
+                        name="description"
+                        required
+                        
+                        placeholder="Description"
+                        onChange={handleControlledInputChange}
+                        defaultValue={event.description}
+                    />
+                
             </Form.Field>
             <Button type="submit"
                 className="btn btn-primary"

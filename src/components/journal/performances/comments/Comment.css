@@ -8,3 +8,8 @@
     border-bottom: solid rgb(231,217,201);
     width: 50%;
 }
+
+.commentForm__title{
+    color: black;
+    padding-top: 1em;
+}
