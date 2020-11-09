@@ -36,7 +36,7 @@ export const Login = props => {
         <>
             <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
                 <Grid.Column style={{ maxWidth: 450 }}>
-                    <h1 as='h2' color="green" textAlign='center'>
+                    <h1 className="LaughTrackHeadline" textAlign='center'>
                         Laugh Track
                     </h1>
                     <section className="container--login">
@@ -65,8 +65,8 @@ export const Login = props => {
                                 autoFocus
                             ></input>
 
-                            <Button type="submit" fluid size='large'>
-                                Login
+                            <Button type="submit" fluid size='compact'>
+                                <p className="loginButton">Login</p>
                             </Button>
                         </Segment>
                     </Form>

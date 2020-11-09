@@ -84,3 +84,12 @@ input{
     height: auto;
     z-index: -2;
 }
+
+.LaughTrackHeadline{
+    font-family: "Grav";
+    font-size: 48px;
+}
+
+.loginButton{
+    font-family: "Grav";
+}

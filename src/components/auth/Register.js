@@ -95,7 +95,7 @@ export const Register = props => {
 
       <Grid textAlign='center' style={{ height: '100vh' }} verticalAlign='middle'>
         <Grid.Column style={{ maxWidth: 450 }}>
-          <h1 color='teal' textAlign='center'>
+          <h1 color='teal' textAlign='center' className="LaughTrackHeadline">
             Laugh Track
                     </h1>
           <dialog className="dialog dialog--password" ref={conflictDialog}>
@@ -126,8 +126,8 @@ export const Register = props => {
                 placeholder="Email address"
                 required
               />
-              <Button type="submit" fluid size='large'>
-                Login
+              <Button type="submit" fluid size='compact'>
+              <p className="loginButton">Sign Up</p>
           </Button>
             </Segment>
           </Form>
