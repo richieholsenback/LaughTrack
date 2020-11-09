@@ -8,6 +8,7 @@
 .navtext{
     font-family: 'Grav';
     font-weight: 100;
+    color: rgb(251, 193, 24);
 }
 .navbar__item {
     flex-basis: 20%;
@@ -25,10 +26,16 @@ ul {
 }
 
 #headerBG {
-    color: rgba(231, 217, 201, 1);
+    color: rgb(251, 193, 24);;
     position: absolute;
     top: -6em;
     z-index: -1;
     opacity: 75%;
   }
 
+.navtextItem{
+    font-size: 20px;
+    font-family: 'GravLight';
+    font-weight: 100;
+    color: rgb(251, 193, 24);
+}

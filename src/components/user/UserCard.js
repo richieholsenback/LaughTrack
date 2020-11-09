@@ -7,7 +7,7 @@ import "./User.css"
 
 export const UserCard = ({ user }) => {
     const { followers, addFollower, getFollowers } = useContext(FollowerContext)
-    const userId = parseInt(localStorage.getItem("active_user"))
+    const userId = parseInt(sessionStorage.getItem("active_user"))
 
     const addFollowerObj = (followerObj) => {
         addFollower({

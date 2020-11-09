@@ -19,27 +19,27 @@ export const NavBar = props => {
                 <div className="navSpacer"></div>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/messages">
-                        <h4 className="navtext">Messages</h4>
+                        <h4 className="navtextItem">Messages</h4>
                  </Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/journals">
-                       <h4 className="navtext">Journal</h4>
+                       <h4 className="navtextItem">Journal</h4>
                 </Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/events">
-                    <h4 className="navtext">Events</h4>
+                    <h4 className="navtextItem">Events</h4>
                 </Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to="/followers">
-                    <h4 className="navtext">Followers</h4>
+                    <h4 className="navtextItem">Followers</h4>
                 </Link>
                 </li>
                 <li className="navbar__item">
                     <Link className="navbar__link" to={`/followers/detail/${userId}`}>
-                    <h4 className="navtext">My Profile</h4>
+                    <h4 className="navtextItem">My Profile</h4>
                 </Link>
                 </li>
                 <div className="navSpacer"></div>
@@ -53,7 +53,7 @@ export const NavBar = props => {
                 </li>
             </ul>
 
-            <img id="headerBG" src={photo} width="100%" alt="header art"/>
+            {/* <img id="headerBG" src={photo} width="100%" alt="header art"/> */}
         </>
     );
 };

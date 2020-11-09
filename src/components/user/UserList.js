@@ -29,7 +29,7 @@ export const UserList = () => {
 
   const findIfFollowing = (obj) => {
     const hasFollowers = followers.find(follower => follower.userId === obj.id)
-    if (!hasFollowers && obj.id !== parseInt(localStorage.getItem("active_user"))) {
+    if (!hasFollowers && obj.id !== parseInt(sessionStorage.getItem("active_user"))) {
       return <UserCard key={obj.id} user={obj} />
     }
   }

@@ -93,3 +93,7 @@ input{
 .loginButton{
     font-family: "Grav";
 }
+
+.registerLink{
+    color: rgb(251, 193, 24, 0.75);
+}

@@ -205,7 +205,7 @@ export const JournalForm = (props) => {
                 
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="journalUserApproval">How did you feel about it? </p>
                     <Form.Field control='select' name="userApproval" placeholder="Select and option"
                         onChange={handleControlledInputChange}>
@@ -220,10 +220,10 @@ export const JournalForm = (props) => {
                         <option value="Big laughs">Big laughs</option>
                         <option value="It crushed!">It crushed!</option>
                     </Form.Field>
-                </div>
+                
             </Form.Field>
             <Form.Field>
-                <div className="form-group">
+                
                     <p htmlFor="journalCrowdApproval">How did the crowd respond to it? </p>
                     <Form.Field control='select' name="crowdApproval" placeholder="Select and option"
                         onChange={handleControlledInputChange}>
@@ -238,7 +238,7 @@ export const JournalForm = (props) => {
                         <option value="They were howling">They were howling</option>
                         <option value="They loved it more than anything">They loved it more than anything</option>
                     </Form.Field>
-                </div>
+                
             </Form.Field>
             <Form.Field>
                 
@@ -253,6 +253,7 @@ export const JournalForm = (props) => {
                 Keep it to yourself? <Checkbox name="hidden" value={journal.hidden} checked={journal.hidden}
                     onChange={handleControlledInputChange} />
             </Form.Field>
+            <br></br>
             <Button
                 className="btn btn-primary"
                 disabled={isLoading}

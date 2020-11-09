@@ -68,7 +68,7 @@ export const CommentForm = (props) => {
 
     return (
         <Form className="commentForm">
-            <h3 className="commentForm__title">Comments</h3>
+            <h3 className="ideaCommentForm__title">Comments</h3>
             <Form.Field>
                 <div className="form-group">
                     <TextArea type="text" id="commentText" name="text" required autoFocus className="form-control"

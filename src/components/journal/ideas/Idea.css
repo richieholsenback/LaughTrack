@@ -62,6 +62,11 @@ fieldset {
     font-size: 18px;
 }
 
+.journal__concept{
+    color: white;
+    font-family: "Grav";
+}
+
 
 /* Details */
 Card {

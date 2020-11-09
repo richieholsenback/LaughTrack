@@ -7,15 +7,18 @@ import { IdeaContext } from "../journal/ideas/IdeaProvider"
 import "../journal/performances/Journal.css"
 import { JournalCard } from "../journal/performances/JournalCard"
 import { JournalContext } from "../journal/performances/JournalProvider"
+import { UserContext } from "../user/UserProvider"
 import { FollowerContext } from "./FollowerProvider"
 
 export const FollowerDetails = () => {
     const { journals, getJournals } = useContext(JournalContext)
     const { ideas, getIdeas } = useContext(IdeaContext)
     const { events, getEvents } = useContext(EventContext)
+    const { users, getUsers } = useContext(UserContext)
     const [filteredEvents, setFilteredEvents] = useState([])
     const [filteredJournals, setFilteredJournals] = useState([])
     const [filteredIdeas, setFilteredIdeas] = useState([])
+    const [user, setUser] = useState({})
 
     //useEffect - reach out to the world for something
     useEffect(() => {
@@ -71,11 +74,8 @@ export const FollowerDetails = () => {
 
     return (
         <>
-            {/* {console.log(filteredEvents)}
-            {console.log("Whoop!", filteredJournals)} */}
-
             <div className="journals">
-                <h2>Journal Entries</h2>
+                <h2>Joke Performances</h2>
                 <div className="detailsindiv">
                 {
                 filteredJournals.map(journal => {

@@ -21,7 +21,8 @@ h2 {
 
 .followersTop{
     margin-left: 2em;
-    margin-top: 2em;
+    margin-top: 3em;
+    margin-bottom: -2em;
     font-family: 'Grav';
     font-weight: 100;
 }
@@ -29,10 +30,17 @@ h2 {
 .follower__name{
     font-family: 'Grav';
     font-weight: 100;
-    color: rgba(231,217,201,1);
     font-size: 24px;
 }
 
 .events{
     margin-bottom: 2em;
+}
+
+.youFollow{
+    padding-bottom: -5em;
+}
+
+.whosPage{
+    margin-left: 5em;
 }

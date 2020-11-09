@@ -165,11 +165,13 @@ export const ApplicationViews = props => {
                 <UserProvider>
                     <IdeaProvider>
                         <JournalProvider>
+                            <UserProvider>
                                 <EventProvider>
                                     <Route exact path="/followers/detail/:followingId(\d+)" >
                                         <FollowerDetails />
                                     </Route>
                                 </EventProvider>
+                            </UserProvider>
                         </JournalProvider>
                     </IdeaProvider>
                 </UserProvider>

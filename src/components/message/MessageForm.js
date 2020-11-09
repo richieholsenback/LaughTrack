@@ -84,7 +84,7 @@ export const MessageForm = (props) => {
             <form className="messageForm">
                 <fieldset>
                     <div className="form-group">
-                        <label htmlFor="messageMessage">Type your message here: </label>
+                        <label htmlFor="messageMessage" className="formHeader">Type your message here: </label>
                         <br></br>
                         <textarea type="text" id="messageMessage" width="30em" name="message" required className="form-control"
                             placeholder="Write message here"

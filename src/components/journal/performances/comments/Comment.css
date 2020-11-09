@@ -5,8 +5,9 @@
 .journal{
     margin-top: 2em;
     padding-bottom: 1em;
-    border-bottom: solid rgb(231,217,201);
+    color: rgb(255, 255, 255);
     width: 50%;
+    border-bottom: 1px white;
 }
 
 .commentForm__title{
@@ -15,7 +16,10 @@
 }
 
 .comment__user{
-    color: black;
     margin-bottom: -0.01em;
+    margin-left: -0em;
     font-family: "GravLight";
+    font-size: 18px;
 }
+.comment__date{
+color: rgb(251, 193, 24);}

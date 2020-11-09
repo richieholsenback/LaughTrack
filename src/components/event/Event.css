@@ -17,7 +17,8 @@
 }
 
 .event__title{
-    margin-left: -1em;
+    margin-left: -1.25em;
+    color: black;
 }
 
 .event__date{
@@ -26,4 +27,9 @@
 
 .event__name{
     color: black;
+}
+
+.eventForm{
+    padding-left: 2em;
+    padding-bottom: 2em;
 }

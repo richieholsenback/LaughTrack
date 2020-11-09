@@ -1,13 +1,23 @@
 .message{
     font-family: "Grav";
+    color: white;
+    font-family: 18px;
 }
 
 .message__date{
     font-family: "GravLight";
+    font-size: smaller;
+    color: rgb(251, 193, 24, 0.75);
 }
 
 #sectionMessageHeader {
-    padding-left: 1em;
+    padding-left: 2.8em;
+    margin-bottom: -1em;
+    margin-top: 2em;
+}
+
+.formHeader{
+    color: white;
 }
 
 .form-group {
@@ -19,17 +29,12 @@
     flex-flow: row wrap;
     justify-content: space-between;
     padding: 0.5em;
-    border-bottom: solid rgba(231,217,201,0.25);
+    border-bottom: solid rgba(255, 255, 255, 0.543);
 }
 
 
 fieldset {
     border: none;
-}
-
-.message__date {
-    font-size: smaller;
-    color: rgba(225, 186, 179, 0.75);
 }
 
 .messagesWindow {

@@ -105,6 +105,7 @@ export const IdeaForm = (props) => {
                 Keep it to yourself? <Checkbox name="hidden" value={idea.hidden} checked={idea.hidden}
                     onChange={handleControlledInputChange} />
             </Form.Field>
+            <br></br>
             <Button
                 className="btn btn-primary"
                 disabled={isLoading}

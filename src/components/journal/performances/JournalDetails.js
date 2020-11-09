@@ -36,40 +36,39 @@ export const JournalDetail = () => {
                                 .then(() => {
                                     history.push("/journals")
                                 })
-                        }}><Icon name="trash" />
+                        }}><Icon name="trash" /> Delete
                     </Button>
                     <Button onClick={() => {
                         history.push(`/journals/edit/${journal.id}`)
-                    }}><Icon name="edit" />
+                    }}><Icon name="edit" /> Edit
                     </Button>
                 </>
             )
     })
 
     return (
-        
-            <div className="cardContainer">
-                <Card fluid width="100%">
-                    <Card.Content fluid >
+        <>
+                <section >
+                    <div className="ideaEntryPerf">
+                        <h3 className="idea__concept">{journal.concept}</h3>
+                        <p className="idea__content" id="perfUser">By {users.username}</p>
+                        <p className="idea__content" id="perfDate"><strong>Performed on</strong> {journal.date}</p>
                         <ReactPlayer
-                            url={journal.url} width="100%"/>
+                            url={journal.url}/>
                         <br></br>
-                        <h3 className="PerformanceHeadline">{journal.concept}</h3>
-                        <Card.Meta>By {users.username}</Card.Meta>
-                        <Card.Description><strong>Date Performed</strong> - {journal.date}</Card.Description>
-                        <Card.Description><strong>How did I think it went</strong> - {journal.userApproval}</Card.Description>
-                        <Card.Description><strong>How did the crowd react</strong> - {journal.crowdApproval}</Card.Description>
-                        <Card.Description><strong>Notes about the performance</strong> - {journal.userNotes}</Card.Description>
-                        <Card.Content>
+                        <p className="idea__content"><strong>How I think it went</strong> - {journal.userApproval}</p>
+                        <p className="idea__content"><strong>How the crowd reacted</strong> - {journal.crowdApproval}</p>
+                        <p className="idea__content"><strong>Notes about the performance</strong> - {journal.userNotes}</p>
+                        <div>
                             {buttonShow()}
-                        </Card.Content>
-                        <Card.Content >
-                            {CommentForm()}
+                        </div>
+                    </div>
+                </section>
+                        <div className="commentListicle">
+                            <h2>Comments</h2>
                             {CommentList()}
-                        </Card.Content>
-                    </Card.Content>
-                </Card>
-            </div>
-        
+                            {CommentForm()}
+                        </div>
+                    </>
     )
 }
