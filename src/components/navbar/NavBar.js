@@ -6,7 +6,7 @@ import photo from "../../images/laughtrackHeader.png"
 
 
 export const NavBar = props => {
-    const userId = parseInt(localStorage.getItem("active_user"))
+    const userId = parseInt(sessionStorage.getItem("active_user"))
     return (
         <>
         
@@ -45,7 +45,7 @@ export const NavBar = props => {
                 <div className="navSpacer"></div>
                 <li className="navbar__item">
                     <Link onClick={() => {
-                        localStorage.clear()
+                        sessionStorage.clear()
                     }}
                         to="/login">
                         <h4 className="navtext">Logout</h4>
@@ -53,7 +53,7 @@ export const NavBar = props => {
                 </li>
             </ul>
 
-            <img id="headerBG" src={photo} width="100%" />
+            <img id="headerBG" src={photo} width="100%" alt="header art"/>
         </>
     );
 };

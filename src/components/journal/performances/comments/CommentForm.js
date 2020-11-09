@@ -32,7 +32,7 @@ export const CommentForm = (props) => {
     }, [])
 
     const constructCommentObject = () => {
-        const userId = parseInt(localStorage.getItem("active_user"))
+        const userId = parseInt(sessionStorage.getItem("active_user"))
         setIsLoading(false)
         if (commentId) {
             updateComment({

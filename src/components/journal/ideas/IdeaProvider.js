@@ -18,7 +18,7 @@ export const IdeaProvider = (props) => {
 
 
     const getMyIdeas = () => {
-        const activeUser = parseInt(localStorage.getItem("active_user"))
+        const activeUser = parseInt(sessionStorage.getItem("active_user"))
         return fetch(`http://localhost:8088/ideas/?userId=${activeUser}&_expand=user`)
         .then(res => res.json())
         .then(setIdeas)

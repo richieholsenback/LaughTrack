@@ -51,7 +51,7 @@ export const FollowerDetails = () => {
 
     const journalIdeaShow = ((entry) => {
         
-        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+        if (entry.hidden === true && entry.userId !== parseInt(sessionStorage.getItem("active_user"))){
             return null
         } else {
             return <IdeaCard key={entry.id} idea={entry} />
@@ -61,7 +61,7 @@ export const FollowerDetails = () => {
 
     const journalPerformanceShow = ((entry) => {
 
-        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))) {
+        if (entry.hidden === true && entry.userId !== parseInt(sessionStorage.getItem("active_user"))) {
             return null
         } else {
             return <JournalCard key={entry.id} journal={entry} />

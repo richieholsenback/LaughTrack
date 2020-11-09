@@ -16,7 +16,7 @@ export const JournalProvider = (props) => {
     }
 
     const getMyJournals = () => {
-        const activeUser = parseInt(localStorage.getItem("active_user"))
+        const activeUser = parseInt(sessionStorage.getItem("active_user"))
         return fetch(`http://localhost:8088/journals/?userId=${activeUser}&_expand=user`)
         .then(res => res.json())
         .then(setJournals)

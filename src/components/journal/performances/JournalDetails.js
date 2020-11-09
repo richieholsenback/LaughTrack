@@ -27,7 +27,7 @@ export const JournalDetail = () => {
     }, [])
 
     const buttonShow = (() => {
-        if (journal.userId === parseInt(localStorage.getItem("active_user")))
+        if (journal.userId === parseInt(sessionStorage.getItem("active_user")))
             return (
                 <>
                     <Button onClick={
@@ -47,7 +47,7 @@ export const JournalDetail = () => {
     })
 
     return (
-        <>
+        
             <div className="cardContainer">
                 <Card fluid width="100%">
                     <Card.Content fluid >
@@ -70,6 +70,6 @@ export const JournalDetail = () => {
                     </Card.Content>
                 </Card>
             </div>
-        </>
+        
     )
 }

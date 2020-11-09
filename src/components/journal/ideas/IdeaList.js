@@ -31,7 +31,7 @@ export const IdeaList = () => {
 
     const journalShow = ((entry) => {
         
-        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+        if (entry.hidden === true && entry.userId !== parseInt(sessionStorage.getItem("active_user"))){
             return null
         } else {
             return <IdeaCard key={entry.id} idea={entry} />

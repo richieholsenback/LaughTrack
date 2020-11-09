@@ -13,3 +13,9 @@
     color: black;
     padding-top: 1em;
 }
+
+.comment__user{
+    color: black;
+    margin-bottom: -0.01em;
+    font-family: "GravLight";
+}

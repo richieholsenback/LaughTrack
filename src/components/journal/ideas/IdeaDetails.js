@@ -26,7 +26,7 @@ export const IdeaDetail = () => {
     }, [])
 
     const buttonShow = (() => {
-        if (idea.userId === parseInt(localStorage.getItem("active_user")))
+        if (idea.userId === parseInt(sessionStorage.getItem("active_user")))
             return (
                 <>
                     <Button onClick={

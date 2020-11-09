@@ -22,7 +22,7 @@ export const EventDetail = () => {
     }, [])
 
     const buttonShow = (() => {
-        if (event.userId === parseInt(localStorage.getItem("active_user")))
+        if (event.userId === parseInt(sessionStorage.getItem("active_user")))
             return (
                 <>
                     <Button onClick={
@@ -46,7 +46,7 @@ export const EventDetail = () => {
             <Card className="event">
                 <Image src={event.poster} wrapped ui={false} />
                 <Card.Content>
-                    <Card.Header className="event__name">{event.name}</Card.Header>
+                    <h3 className="event__name">{event.name}</h3>
                     <Card.Description>Hosted by {user.username}</Card.Description>
                     <Card.Meta>{event.date}</Card.Meta>
                     <Card.Description>{event.location}</Card.Description>

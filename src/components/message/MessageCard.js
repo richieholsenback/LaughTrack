@@ -10,7 +10,7 @@ export const MessageCard = ({ message }) => {
     const { deleteMessage } = useContext(MessageContext)
 
     const buttonShow = (() => {
-        if (message.user.id === parseInt(localStorage.getItem("active_user")))
+        if (message.user.id === parseInt(sessionStorage.getItem("active_user")))
             return (
                 <>
                     <button onClick={

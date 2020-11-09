@@ -16,7 +16,7 @@ export const FollowerCard = ({ follower }) => {
     }
 
     const buttonShow = (() => {
-        if (follower.followedById === parseInt(localStorage.getItem("active_user")))
+        if (follower.followedById === parseInt(sessionStorage.getItem("active_user")))
             return (
                 <>
                     <Button

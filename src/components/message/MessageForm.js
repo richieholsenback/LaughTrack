@@ -34,7 +34,7 @@ export const MessageForm = (props) => {
     }, [])
 
     const constructMessageObject = () => {
-        const userId = parseInt(localStorage.getItem("active_user"))
+        const userId = parseInt(sessionStorage.getItem("active_user"))
         setIsLoading(true);
         if (message.message) {
             if (messageId) {

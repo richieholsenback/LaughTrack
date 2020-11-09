@@ -11,7 +11,7 @@ export const App = () => (
   <>
     <Route
       render={() => {
-        if (localStorage.getItem("active_user")) {
+        if (sessionStorage.getItem("active_user")) {
           return (
             <>
               <NavBar />

@@ -23,7 +23,7 @@ export const JournalHub = () => {
 
     const journalShow = ((entry) => {
         
-        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+        if (entry.hidden === true && entry.userId !== parseInt(sessionStorage.getItem("active_user"))){
             return null
         } else {
             return <JournalCard key={entry.id} journal={entry} />
@@ -33,7 +33,7 @@ export const JournalHub = () => {
 
     const ideaShow = ((entry) => {
         
-        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))){
+        if (entry.hidden === true && entry.userId !== parseInt(sessionStorage.getItem("active_user"))){
             return null
         } else {
             return <IdeaCard key={entry.id} idea={entry} />
@@ -42,13 +42,13 @@ export const JournalHub = () => {
     })
 
     const myJokePerformances = journals.filter(performance => {
-        if (performance.userId === parseInt(localStorage.getItem("active_user"))){
+        if (performance.userId === parseInt(sessionStorage.getItem("active_user"))){
         return performance
     }
     })
 
     const myJokeIdeas = ideas.filter(idea => {
-        if (idea.userId === parseInt(localStorage.getItem("active_user"))){
+        if (idea.userId === parseInt(sessionStorage.getItem("active_user"))){
             return idea
         }
     })

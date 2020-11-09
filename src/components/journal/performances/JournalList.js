@@ -35,7 +35,7 @@ export const JournalList = () => {
 
     const journalShow = ((entry) => {
 
-        if (entry.hidden === true && entry.userId !== parseInt(localStorage.getItem("active_user"))) {
+        if (entry.hidden === true && entry.userId !== parseInt(sessionStorage.getItem("active_user"))) {
             return null
         } else {
             return <JournalCard key={entry.id} journal={entry} />

@@ -32,7 +32,7 @@ export const JournalForm = (props) => {
     }, [])
 
     const constructJournalObject = () => {
-        const userId = parseInt(localStorage.getItem("active_user"))
+        const userId = parseInt(sessionStorage.getItem("active_user"))
         setIsLoading(false);
         if (journalId) {
             updateJournal({

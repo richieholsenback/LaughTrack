@@ -7,7 +7,7 @@ export const FollowerProvider = props => {
     const [ searchTerms, setSearchTerms ] = useState("")
 
     const getFollowers = () => {
-        const parsedActiveUser = parseInt(localStorage.getItem("active_user"))
+        const parsedActiveUser = parseInt(sessionStorage.getItem("active_user"))
         return fetch (`http://localhost:8088/followers/?followedById=${parsedActiveUser}&_expand=user`)
         // http://localhost:8088/comments?_expand=journal&_expand=user
         .then(response => response.json())
@@ -22,7 +22,7 @@ export const FollowerProvider = props => {
     }
 
     const getFollowersForList = () => {
-        const parsedActiveUser = parseInt(localStorage.getItem("active_user"))
+        const parsedActiveUser = parseInt(sessionStorage.getItem("active_user"))
         return fetch (`http://localhost:8088/followers?_expand=user`)
         // http://localhost:8088/comments?_expand=journal&_expand=user
         .then(response => response.json())
