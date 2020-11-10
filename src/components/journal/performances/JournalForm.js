@@ -13,10 +13,15 @@ export const JournalForm = (props) => {
     const { journalId } = useParams();
     const history = useHistory();
 
-    const handleControlledInputChange = (journalObj) => {
+    const handleControlledInputChange = (event) => {
         const newJournal = { ...journal }
-        newJournal[journalObj.target.name] = journalObj.target.value
+        if (event.target.name === "hidden") {
+            newJournal[event.target.name] = newJournal.hidden ? false : true
+        } else {
+            newJournal[event.target.name] = event.target.value
+        }
         setJournal(newJournal)
+
     }
 
     useEffect(() => {
@@ -250,7 +255,7 @@ export const JournalForm = (props) => {
                 
             </Form.Field>
             <Form.Field>
-                Keep it to yourself? <Checkbox name="hidden" value={journal.hidden} checked={journal.hidden}
+                Keep it to yourself? <input type="checkbox" name="hidden" value={journal.hidden} checked={journal.hidden}
                     onChange={handleControlledInputChange} />
             </Form.Field>
             <br></br>

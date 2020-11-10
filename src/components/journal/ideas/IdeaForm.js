@@ -95,7 +95,7 @@ export const IdeaForm = (props) => {
             </Form.Field>
             <Form.Field>
                 <p htmlFor="note">Notes: </p>
-                <TextArea type="text" id="ideaNote" name="note" required autoFocus className="form-control"
+                <TextArea type="text" id="ideaNote" name="note" required className="form-control"
                     placeholder="Notes about the Joke"
                     style={{ minHeight: 100 }}
                     onChange={handleControlledInputChange}
